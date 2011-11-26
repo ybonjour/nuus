@@ -1,5 +1,5 @@
 delimiter $$
-USE nuus $$
+USE nuus$$
 DROP TABLE IF EXISTS `article`$$
 DROP TABLE IF EXISTS `feed`$$
 

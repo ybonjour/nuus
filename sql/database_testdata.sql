@@ -1,3 +1,4 @@
+use nuus;
 INSERT INTO `nuus`.`feed`
 (`Url`)
 VALUES

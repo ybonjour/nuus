@@ -1,2 +1,1 @@
-cat create_database.sql database_structure.sql database_testdata.sql |  mysql -u nuus -p nuus 
-
+cat database_structure.sql database_testdata.sql | mysql -u root -pnuus

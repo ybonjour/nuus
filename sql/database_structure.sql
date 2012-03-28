@@ -28,3 +28,16 @@ CREATE  TABLE `word` (
   PRIMARY KEY (`Id`)
 )
 ENGINE=InnoDB DEFAULT CHARACTER SET = utf8$$
+
+CREATE TABLE `word_occurence` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Word` int(11) NOT NULL,
+  `Article` int(11) NOT NULL,
+  `Position` int(11) NOT NULL,
+  PRIMARY KEY (`Id`),
+  KEY `Word` (`Word`),
+  KEY `Article` (`Article`),
+  CONSTRAINT `Word` FOREIGN KEY (`Word`) REFERENCES `word` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `Article` FOREIGN KEY (`Article`) REFERENCES `article` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
+) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+

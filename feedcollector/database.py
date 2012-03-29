@@ -29,11 +29,24 @@ class Database:
         cursor.execute(query, parameters)
         count = cursor.rowcount
         cursor.close()
-        return count
+        return count      
+    
+    def uniqueQuery(self, query, parameters=None):
+        if not self.isConnected():
+            raise Exception
+        
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query, parameters)
+            if cursor.rowcount != 1: raise Exception("Not exactly one entry selected, by this query")
+            row = cursor.fetchone()
+            return row
+        finally:
+            cursor.close()
     
     def iterQuery(self, query, parameters=None):
         if not self.isConnected():
-            raise Exception()
+            raise Exception
         cursor = self.connection.cursor()
         cursor.execute(query, parameters)
         row = cursor.fetchone()

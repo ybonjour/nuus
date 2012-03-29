@@ -10,17 +10,19 @@ CREATE TABLE `feed` (
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
 
-
 CREATE TABLE `article` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Title` varchar(255) DEFAULT NULL,
   `Content` text,
   `Feed` int(11) DEFAULT NULL,
   `Updated` timestamp NULL DEFAULT NULL,
+  `TitleWordCount` int(11) DEFAULT NULL,
+  `ContentWordCount` int(11) DEFAULT NULL,
+  `Language` varchar(4) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `Feed` (`Feed`),
   CONSTRAINT `Feed` FOREIGN KEY (`Feed`) REFERENCES `feed` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+) ENGINE=InnoDB AUTO_INCREMENT=732 DEFAULT CHARSET=utf8$$
 
 CREATE  TABLE `word` (
   `Id` INT(11)  NOT NULL AUTO_INCREMENT ,
@@ -29,15 +31,18 @@ CREATE  TABLE `word` (
 )
 ENGINE=InnoDB DEFAULT CHARACTER SET = utf8$$
 
-CREATE TABLE `word_occurence` (
+CREATE TABLE `word_index` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Word` int(11) NOT NULL,
   `Article` int(11) NOT NULL,
   `Position` int(11) NOT NULL,
+  `InTitle` tinyint(1) DEFAULT '0',
   PRIMARY KEY (`Id`),
   KEY `Word` (`Word`),
   KEY `Article` (`Article`),
-  CONSTRAINT `Word` FOREIGN KEY (`Word`) REFERENCES `word` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `Article` FOREIGN KEY (`Article`) REFERENCES `article` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
+  CONSTRAINT `Article` FOREIGN KEY (`Article`) REFERENCES `article` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  CONSTRAINT `Word` FOREIGN KEY (`Word`) REFERENCES `word` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
+
+
 

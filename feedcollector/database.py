@@ -26,10 +26,11 @@ class Database:
         if not self.isConnected():
             raise Exception
         cursor = self.connection.cursor()
-        cursor.execute(query, parameters)
-        count = cursor.rowcount
-        cursor.close()
-        return count      
+        try:
+            cursor.execute(query, parameters)
+            return cursor.rowcount
+        finally:
+            cursor.close()
     
     def uniqueQuery(self, query, parameters=None):
         if not self.isConnected():
@@ -43,6 +44,20 @@ class Database:
             return row
         finally:
             cursor.close()
+    
+    def uniqueScalarOrZero(self, query, parameters=None):
+        if not self.isConnected():
+            raise Exception
+        
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query, parameters)
+            if cursor.rowcount != 1: return 0
+            row = cursor.fetchone()
+            return row[0]
+        finally:
+            cursor.close()
+    
     
     def iterQuery(self, query, parameters=None):
         if not self.isConnected():

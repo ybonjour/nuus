@@ -4,10 +4,11 @@ import feedparser
 import bayesian_classifier
 import indexer
 
-classifier_file = "language_detection"
+classifier = bayesian_classifier.Classifier()
+classifier.load("language_detection")
 
 def existsArticle(db, article, feedId):
-    count = db.countQuery("""SELECT id FROM article
+    count = db.uniqueScalarOrZero("""SELECT COUNT(id) FROM article
                   WHERE title=%s AND Feed=%s AND Updated=%s""",
                   (article.title, feedId,
                   time.strftime("%Y-%m-%d %H:%M:%S", article.updated_parsed)))
@@ -25,8 +26,6 @@ def createArticle(db, article, feedId):
 
 def determineLanguage(db, articleId):
     article = db.uniqueQuery("SELECT Content FROM article WHERE Id=%s", articleId)
-    classifier = bayesian_classifier.Classifier()
-    classifier.load(classifier_file)
     language = classifier.guessCategory(article[0])
     if language == bayesian_classifier.Classifier.UNKNOWN_CATEGORY: language = "-"
     db.manipulationQuery("UPDATE article SET language=%s WHERE Id=%s", (language, articleId)) 
@@ -34,21 +33,21 @@ def determineLanguage(db, articleId):
 def handleArticle(db, article, feedId):
     if existsArticle(db, article, feedId):
         return
+    print "."
     id = createArticle(db, article, feedId)
     determineLanguage(db, id)
-    indexer.index_article(db, id)
+    indexer.indexArticle(db, id)
     
-
 db = database.Database()
 db.connect()
 try:
-	for feed in db.iterQuery("SELECT id, url FROM feed"):    
-		d = feedparser.parse(feed[1])
-		db.manipulationQuery("""UPDATE feed
-								SET Title=%s
-								WHERE Id=%s""", (d.feed.title, feed[0]))
-		for article in d.entries:
-			handleArticle(db, article, feed[0])
-	db.commit()
+    for feed in db.iterQuery("SELECT id, url FROM feed"):    
+        d = feedparser.parse(feed[1])
+        db.manipulationQuery("""UPDATE feed
+                                SET Title=%s
+                                WHERE Id=%s""", (d.feed.title, feed[0]))
+        for article in d.entries:
+            handleArticle(db, article, feed[0])
+    db.commit()
 finally:
-	db.close()
+    db.close()

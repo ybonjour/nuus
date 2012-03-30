@@ -4,10 +4,11 @@ import pickle
 class Classifier:
     UNKNOWN_CATEGORY = "Unknown"
     
-    def __init__(self, k=1):
+    def __init__(self, k=1, consider_words=10):
         self.data = {}
         self.word_count = {}
         self.k = k #for laplace smoothing
+        self.consider_words = consider_words
 
     def trainText(self, text, category):
         words = textprocessing.get_word_list(text)
@@ -35,10 +36,15 @@ class Classifier:
     def probabilitiesTextGivenCategory(self, text):
         probabilities = {}
         for category in self.data:
-            probability = 1
+            probability = 1.0
+            first = True
+            idx = 0
             for word in text:
-                probability *= self.probabilityWordGivenCategory(word, category)
+                old_prob = probability
+                probability = probability * self.probabilityWordGivenCategory(word, category)
+                idx += 1
             probabilities[category]= probability
+            
         return probabilities
         
     def priorProbabilitiesCategories(self):
@@ -51,9 +57,12 @@ class Classifier:
     #P[SPAM | text] = (P[w_1 | SPAM]*...*P[w_n|SPAM])*P[SPAM] / ((P[w_1|SPAM]*...*P[w_n|SPAM])*P[SPAM] + (P[w_1|HAM]*...*P[w_n|HAM])*P[HAM])
     # where text = w_1 w_2 ... w_n
     def probabilities(self, text):
-        words = textprocessing.get_word_list(text)
+        words = textprocessing.getWordList(text)
+        words = words[0:self.consider_words]
         categoryProbabilities = self.priorProbabilitiesCategories()
+        print categoryProbabilities
         textProbabilities = self.probabilitiesTextGivenCategory(words)
+        print textProbabilities
         
         totalProbabilityText = 0
         for category, categoryProbability in categoryProbabilities.items():

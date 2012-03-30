@@ -3,12 +3,6 @@ from reverend.thomas import Bayes
 
 language_feed_map = {"de":[1,6], "en":[5,7]}
 
-def remove_html_tags(data):
-    #*? ensures that the next closing bracket is matched
-    #and not the last possible closing bracket
-    p = re.compile(r'<.*?>')
-    return p.sub('', data)
-
 def print_statistics(language, correct, article_count):
     correct_ratio = 1.0*correct[language]/article_count[language]
     print "---------------------------"
@@ -47,12 +41,12 @@ try:
     data = []
     #German feed
     for article in db.iterQuery("SELECT content FROM article WHERE Feed=6"):
-        entry = ("de", textprocessing.remove_html_tags(article[0]))
+        entry = ("de", textprocessing.removeHTMLTags(article[0]))
         data.append(entry)
          
     #English feed
     for article in db.iterQuery("SELECT content FROM article WHERE Feed IN (5,7)"):
-        entry = ("en", textprocessing.remove_html_tags(article[0]))
+        entry = ("en", textprocessing.removeHTMLTags(article[0]))
         data.append(entry)
 
     correct = {"de":0, "en":0}

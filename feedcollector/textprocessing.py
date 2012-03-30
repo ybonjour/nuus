@@ -1,14 +1,18 @@
 import nltk
 import re
 
-def remove_html_tags(data):
+def removeHtmlTags(data):
     #*? ensures that the next closing bracket is matched
     #and not the last possible closing bracket
     p = re.compile(r'<.*?>')
     return p.sub('', data)
 
-def get_word_list(text):
-    text = remove_html_tags(text)
+def getWordList(text):
+    text = removeHtmlTags(text)
     tokenizer = nltk.tokenize.WordPunctTokenizer()
     words = tokenizer.tokenize(text)
     return words
+    
+def containsLetters(word):
+    return re.search("[a-zA-Z]+", word)
+    

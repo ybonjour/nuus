@@ -8,12 +8,11 @@ def wordExists(db, word):
     return count > 0
 
 def getOrCreateWord(db, word):
-    if not wordExists(db, word):
-        db.manipulationQuery("""INSERT INTO word (Word) VALUES(%s)""", word)
-    
-    row = db.uniqueQuery("SELECT Id FROM word WHERE Word=%s", word)
-    id = row[0]
-    if id < 0: raise Exception
+    #if not wordExists(db, word):
+    id = db.insertQuery("INSERT IGNORE INTO word (Word) VALUES(%s)", word)
+    if id == 0: 
+        row = db.uniqueQuery("SELECT Id FROM word WHERE Word=%s", word)
+        id = row[0]
     return id
     
 def indexText(db, articleId, text, inTitle):

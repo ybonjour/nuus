@@ -3,7 +3,6 @@ import pickle
 
 class Classifier:
     UNKNOWN_CATEGORY = "Unknown"
-    
     def __init__(self, k=1, consider_words=10):
         self.data = {}
         self.word_count = {}
@@ -59,10 +58,9 @@ class Classifier:
     def probabilities(self, text):
         words = textprocessing.getWordList(text)
         words = words[0:self.consider_words]
+        
         categoryProbabilities = self.priorProbabilitiesCategories()
-        print categoryProbabilities
         textProbabilities = self.probabilitiesTextGivenCategory(words)
-        print textProbabilities
         
         totalProbabilityText = 0
         for category, categoryProbability in categoryProbabilities.items():

@@ -1,5 +1,4 @@
 import database
-import re
 from reverend.thomas import Bayes
 
 language_feed_map = {"de":[1,6], "en":[5,7]}
@@ -48,12 +47,12 @@ try:
     data = []
     #German feed
     for article in db.iterQuery("SELECT content FROM article WHERE Feed=6"):
-        entry = ("de", remove_html_tags(article[0]))
+        entry = ("de", textprocessing.remove_html_tags(article[0]))
         data.append(entry)
          
     #English feed
     for article in db.iterQuery("SELECT content FROM article WHERE Feed IN (5,7)"):
-        entry = ("en", remove_html_tags(article[0]))
+        entry = ("en", textprocessing.remove_html_tags(article[0]))
         data.append(entry)
 
     correct = {"de":0, "en":0}

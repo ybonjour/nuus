@@ -1,6 +1,5 @@
 import database
-import nltk
-import re
+import textprocessing
 
 def wordExists(db, word):
     query = "SELECT Id FROM word WHERE Word=%s"
@@ -16,17 +15,9 @@ def getOrCreateWord(db, word):
     id = row[0]
     if id < 0: raise Exception
     return id
-
-def remove_html_tags(data):
-    #*? ensures that the next closing bracket is matched
-    #and not the last possible closing bracket
-    p = re.compile(r'<.*?>')
-    return p.sub('', data)
     
 def index_text(db, articleId, text, inTitle):
-    text = remove_html_tags(text)
-    tokenizer = nltk.tokenize.WordPunctTokenizer()
-    words = tokenizer.tokenize(text)
+    words = textprocessing.get_word_list(text)
     
     wordPosition = 1
     for word in words:

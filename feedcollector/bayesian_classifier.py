@@ -6,7 +6,6 @@ class Classifier:
         self.data = {}
         self.word_count = {}
         self.k = k #for laplace smoothing
-        
 
     def trainText(self, text, category):
         words = textprocessing.get_word_list(text)
@@ -58,6 +57,9 @@ class Classifier:
         for category, categoryProbability in categoryProbabilities.items():
             totalProbabilityText += categoryProbability * textProbabilities[category]
         
+        if totalProbabilityText == 0:
+            return []
+        
         probabilities = []
         for category in self.data:
             probability = 1.0*(categoryProbabilities[category]*textProbabilities[category]) / totalProbabilityText
@@ -87,5 +89,7 @@ class Classifier:
         
     def guessCategory(self, text):
         probabilities = self.probabilities(text)
+        if probabilities == []:
+            return ""
         probabilities.sort(key=lambda probability: probability[1], reverse=True)
         return probabilities[0][0]

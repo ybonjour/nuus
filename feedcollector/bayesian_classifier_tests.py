@@ -15,7 +15,7 @@ def testGuesses(db):
     classifier.load(filename)
     successes = 0
     total = 0
-    for article in db.iterQuery("SELECT content, language FROM article WHERE Id=777"):
+    for article in db.iterQuery("SELECT content, language FROM article"):
         content = article[0]
         language = article[1]
         guessed = classifier.guessCategory(content)

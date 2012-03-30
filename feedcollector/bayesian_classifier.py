@@ -2,6 +2,8 @@ import textprocessing
 import pickle
 
 class Classifier:
+    UNKNOWN_CATEGORY = "Unknown"
+    
     def __init__(self, k=1):
         self.data = {}
         self.word_count = {}
@@ -90,6 +92,6 @@ class Classifier:
     def guessCategory(self, text):
         probabilities = self.probabilities(text)
         if probabilities == []:
-            return ""
+            return Classifier.UNKNOWN_CATEGORY
         probabilities.sort(key=lambda probability: probability[1], reverse=True)
         return probabilities[0][0]

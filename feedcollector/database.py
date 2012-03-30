@@ -61,9 +61,21 @@ class Database:
         if not self.isConnected():
             raise Exception
         cursor = self.connection.cursor()
-        cursor.execute(query, parameters)
-        cursor.close()
-
+        try:
+            cursor.execute(query, parameters)
+        finally:
+            cursor.close()
+        
+    def insertQuery(self, query, parameters=None):
+        if not self.isConnected():
+            raise Exception
+        cursor = self.connection.cursor()
+        try:
+            cursor.execute(query, parameters)
+            return cursor.lastrowid
+        finally:
+            cursor.close()
+    
     def commit(self):
         if not self.isConnected():
             raise Exception

@@ -1,6 +1,10 @@
 import time
 import database
 import feedparser
+import bayesian_classifier
+import indexer
+
+classifier_file = "language_detection"
 
 def existsArticle(db, article, feedId):
     count = db.countQuery("""SELECT id FROM article
@@ -9,17 +13,31 @@ def existsArticle(db, article, feedId):
                   time.strftime("%Y-%m-%d %H:%M:%S", article.updated_parsed)))
     return count > 0
 
-def handleArticle(db, article, feedId):
-    if existsArticle(db, article, feedId):
-        return
-    
-    db.manipulationQuery("""INSERT INTO article
+def createArticle(db, article, feedId):
+    return db.insertQuery("""INSERT INTO article
                         (Title, Content, Feed, Updated)
                         VALUES(%s, %s, %s, %s)""",
                         (article.title,
                          article.summary_detail.value, feedId,
                          time.strftime("%Y-%m-%d %H:%M:%S",
                                        article.updated_parsed)))
+    
+
+def determineLanguage(db, articleId):
+    article = db.uniqueQuery("SELECT Content FROM article WHERE Id=%s", articleId)
+    classifier = bayesian_classifier.Classifier()
+    classifier.load(classifier_file)
+    language = classifier.guessCategory(article[0])
+    if language == bayesian_classifier.Classifier.UNKNOWN_CATEGORY: language = "-"
+    db.manipulationQuery("UPDATE article SET language=%s WHERE Id=%s", (language, articleId)) 
+                                             
+def handleArticle(db, article, feedId):
+    if existsArticle(db, article, feedId):
+        return
+    id = createArticle(db, article, feedId)
+    determineLanguage(db, id)
+    indexer.index_article(db, id)
+    
 
 db = database.Database()
 db.connect()

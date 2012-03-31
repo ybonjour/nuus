@@ -11,7 +11,7 @@ class Classifier:
         self.consider_words = consider_words
 
     def trainText(self, text, category):
-        words = textprocessing.get_word_list(text)
+        words = textprocessing.getWordList(text)
         for word in words:
             self.trainWord(word, category)
         

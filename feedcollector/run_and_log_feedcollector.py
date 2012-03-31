@@ -19,7 +19,7 @@ def getCounts():
         db.close()
             
 if __name__ == '__main__':
-    log = open('log/collector.log', 'a')
+    log = open('/usr/local/nuus/src/feedcollector', 'a')
     try:
         now = str(datetime.datetime.now())
         log.write("--------------------------------\n")

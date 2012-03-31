@@ -5,8 +5,8 @@ DROP TABLE IF EXISTS `feed`$$
 
 CREATE TABLE `feed` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
-  `Url` varchar(255) Db  NULL,
-  `Title` varchar(100) CHARACTER SET utf8 DEFAULT NULL,
+  `Url` varchar(255) NULL,
+  `Title` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`Id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
 

@@ -6,6 +6,7 @@ class Classifier:
     def __init__(self, k=1, consider_words=10):
         self.data = {}
         self.word_count = {}
+        self.probabilities_categories = {}
         self.k = k #for laplace smoothing
         self.consider_words = consider_words
 
@@ -59,13 +60,13 @@ class Classifier:
         print text[0:100].encode('latin1', 'ignore')
         words = textprocessing.getWordList(text)
         words = words[0:self.consider_words]
-        print words[0]
         
         categoryProbabilities = self.priorProbabilitiesCategories()
+        #print self.probabilities_categories
         textProbabilities = self.probabilitiesTextGivenCategory(words)
         
         totalProbabilityText = 0
-        for category, categoryProbability in categoryProbabilities.items():
+        for category, categoryProbability in self.probabilities_categories.items():
             totalProbabilityText += categoryProbability * textProbabilities[category]
         
         if totalProbabilityText == 0:
@@ -73,10 +74,10 @@ class Classifier:
         
         probabilities = []
         for category in self.data:
-            probability = 1.0*(categoryProbabilities[category]*textProbabilities[category]) / totalProbabilityText
+            probability = 1.0*(self.probabilities_categories[category]*textProbabilities[category]) / totalProbabilityText
             probabilities.append((category, probability))
         
-        #print probabilities
+        print probabilities
         return probabilities
     
     def load(self, filename):
@@ -86,6 +87,8 @@ class Classifier:
         fileWords = open(filenameWords, "r")
         self.data = pickle.load(fileDict)
         self.word_count = pickle.load(fileWords)
+        #directly calculate category probabilities, so that they only need to be calculated once
+        self.probabilities_categories = self.priorProbabilitiesCategories()
         
     def save(self, filename):
         filenameDict = "{0}.dict".format(filename)

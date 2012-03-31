@@ -1,2 +1,4 @@
 /web/nbproject/private/
 *.pyc
+/feedcollector/language_detection.dict
+/feedcollector/language_detection.words

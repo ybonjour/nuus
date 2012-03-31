@@ -16,7 +16,7 @@ def testGuesses(db):
     successes = 0
     unknown = 0
     total = 0
-    for article in db.iterQuery("SELECT content, language FROM article WHERE Id IN (1398, 1399"):
+    for article in db.iterQuery("SELECT content, language FROM article WHERE Id IN (1398, 1399)"):
         content = article[0]
         language = article[1]
         guessed = classifier.guessCategory(content)

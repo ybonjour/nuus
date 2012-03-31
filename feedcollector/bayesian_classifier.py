@@ -73,7 +73,7 @@ class Classifier:
         for category in self.data:
             probability = 1.0*(categoryProbabilities[category]*textProbabilities[category]) / totalProbabilityText
             probabilities.append((category, probability))
-        
+        print probabilities
         return probabilities
     
     def load(self, filename):

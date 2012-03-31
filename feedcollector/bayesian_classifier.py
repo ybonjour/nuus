@@ -40,7 +40,6 @@ class Classifier:
             first = True
             idx = 0
             for word in text:
-                old_prob = probability
                 probability = probability * self.probabilityWordGivenCategory(word, category)
                 idx += 1
             probabilities[category]= probability

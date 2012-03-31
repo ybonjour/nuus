@@ -36,7 +36,7 @@ def testGuesses(db):
 db = database.Database()
 db.connect()
 try:
-    #trainWithAllArticles(db)
-    testGuesses(db)
+    trainWithAllArticles(db)
+    #testGuesses(db)
 finally:
     db.close()

@@ -56,14 +56,11 @@ class Classifier:
     #P[SPAM | text] = (P[w_1 | SPAM]*...*P[w_n|SPAM])*P[SPAM] / ((P[w_1|SPAM]*...*P[w_n|SPAM])*P[SPAM] + (P[w_1|HAM]*...*P[w_n|HAM])*P[HAM])
     # where text = w_1 w_2 ... w_n
     def probabilities(self, text):
-        print text[0:100].encode('latin1', 'ignore')
         words = textprocessing.getWordList(text)
         words = words[0:self.consider_words]
         
         categoryProbabilities = self.priorProbabilitiesCategories()
-        #print self.probabilities_categories
         textProbabilities = self.probabilitiesTextGivenCategory(words)
-        print textProbabilities
         
         totalProbabilityText = 0
         for category, categoryProbability in self.probabilities_categories.items():
@@ -77,7 +74,6 @@ class Classifier:
             probability = 1.0*(self.probabilities_categories[category]*textProbabilities[category]) / totalProbabilityText
             probabilities.append((category, probability))
         
-        print probabilities
         return probabilities
     
     def load(self, filename):

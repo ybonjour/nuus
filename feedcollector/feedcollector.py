@@ -6,6 +6,7 @@ import indexer
 
 classifier = bayesian_classifier.Classifier()
 classifier.load("language_detection")
+print classifier.data
 
 def existsArticle(db, article, feedId):
     count = db.uniqueScalarOrZero("""SELECT COUNT(id) FROM article

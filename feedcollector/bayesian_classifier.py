@@ -59,6 +59,7 @@ class Classifier:
         print text[0:100].encode('latin1', 'ignore')
         words = textprocessing.getWordList(text)
         words = words[0:self.consider_words]
+        print words[0]
         
         categoryProbabilities = self.priorProbabilitiesCategories()
         textProbabilities = self.probabilitiesTextGivenCategory(words)
@@ -74,7 +75,8 @@ class Classifier:
         for category in self.data:
             probability = 1.0*(categoryProbabilities[category]*textProbabilities[category]) / totalProbabilityText
             probabilities.append((category, probability))
-        print probabilities
+        
+        #print probabilities
         return probabilities
     
     def load(self, filename):

@@ -64,6 +64,7 @@ class Classifier:
         categoryProbabilities = self.priorProbabilitiesCategories()
         #print self.probabilities_categories
         textProbabilities = self.probabilitiesTextGivenCategory(words)
+        print textProbabilities
         
         totalProbabilityText = 0
         for category, categoryProbability in self.probabilities_categories.items():

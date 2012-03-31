@@ -28,7 +28,6 @@ def determineLanguage(db, articleId):
     article = db.uniqueQuery("SELECT Content FROM article WHERE Id=%s", articleId)
     language = classifier.guessCategory(article[0])
     if language == bayesian_classifier.Classifier.UNKNOWN_CATEGORY: language = "-"
-    print language
     db.manipulationQuery("UPDATE article SET language=%s WHERE Id=%s", (language, articleId)) 
                                              
 def handleArticle(db, article, feedId):

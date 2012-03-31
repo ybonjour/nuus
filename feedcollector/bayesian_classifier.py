@@ -56,6 +56,7 @@ class Classifier:
     #P[SPAM | text] = (P[w_1 | SPAM]*...*P[w_n|SPAM])*P[SPAM] / ((P[w_1|SPAM]*...*P[w_n|SPAM])*P[SPAM] + (P[w_1|HAM]*...*P[w_n|HAM])*P[HAM])
     # where text = w_1 w_2 ... w_n
     def probabilities(self, text):
+        print text[0:100]
         words = textprocessing.getWordList(text)
         words = words[0:self.consider_words]
         

@@ -22,11 +22,15 @@ def indexText(db, articleId, text, inTitle):
         if not textprocessing.containsLetters(word): continue
         
         #TODO: stemming
-        
         wordId = getOrCreateWord(db, word)
-        db.manipulationQuery("""INSERT INTO word_index
-                                (Article, Word, Position, InTitle)
-                                VALUES (%s, %s, %s, %s)""", (articleId, wordId, wordPosition, inTitle))
+        
+        #word_index has a unique constraint on Article, Word and InTitle
+        #in the database -> increase count if entry already exists
+        db.insertQuery("""INSERT INTO word_index
+                                (Article, Word, FirstOccurence, Count, InTitle)
+                                VALUES (%s, %s, %s, %s, %s)
+                                ON DUPLICATE KEY UPDATE Count=Count+1""",
+                                (articleId, wordId, wordPosition, 1, inTitle))
         wordPosition += 1
     
     return wordPosition

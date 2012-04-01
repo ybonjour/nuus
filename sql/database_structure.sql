@@ -35,14 +35,14 @@ CREATE TABLE `word_index` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Word` int(11) NOT NULL,
   `Article` int(11) NOT NULL,
-  `Position` int(11) NOT NULL,
-  `InTitle` tinyint(1) DEFAULT '0',
+  `Count` int(11) NOT NULL DEFAULT '1',
+  `FirstOccurence` int(11) NOT NULL,
+  `InTitle` tinyint(1) NOT NULL DEFAULT '0',
   PRIMARY KEY (`Id`),
+  UNIQUE KEY `index_unique` (`Word`,`Article`,`InTitle`),
   KEY `Word` (`Word`),
   KEY `Article` (`Article`),
   CONSTRAINT `Article` FOREIGN KEY (`Article`) REFERENCES `article` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
   CONSTRAINT `Word` FOREIGN KEY (`Word`) REFERENCES `word` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
-
-
+) ENGINE=InnoDB AUTO_INCREMENT=207192 DEFAULT CHARSET=utf8$$
 

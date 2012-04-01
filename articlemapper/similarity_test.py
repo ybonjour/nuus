@@ -47,8 +47,8 @@ def testAllArticles():
                 maxSimilarity = max(maxSimilarity, similarity)
                 minSimilarity = min(minSimilarity, similarity)
         print "Average similarity {0}".format(sumSimilarity/articleCount)
-        print "Max similarity {1}".format(maxSimilarity)
-        print "Min similarity {1}".format(minSimilarity)
+        print "Max similarity {0}".format(maxSimilarity)
+        print "Min similarity {0}".format(minSimilarity)
     finally:
         db.close()
 

@@ -1,5 +1,6 @@
 from similarity import Similarity
 from similarity import Article
+from random import choice
 
 class Clusterer:
     def __init__(self, similarity, db, k):
@@ -40,6 +41,10 @@ class Clusterer:
                 if similarity > maxSimilarity:
                     maxCentroid = centroid
                     maxSimilarity = similarity
+            
+            #if no centroid can be chosen, just select one randomly
+            if maxCentroid == None:
+                maxCentroid = choice(self.centroids.values())
             
             clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", maxCentroid.id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))

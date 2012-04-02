@@ -94,7 +94,7 @@ class Clusterer:
     def clustering(self):
         self.initializeCentroids()
         print "centroids:"
-        for centroid in self.centroids:
+        for centroid in self.centroids.values():
             print "Article {0}, Feed{1}".format(centroid.id, centroid.feedId)
         changed = True
         while changed:

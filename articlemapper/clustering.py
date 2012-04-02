@@ -36,6 +36,7 @@ class Clusterer:
             maxCentroid = None
             for centroid in self.centroids.values():
                 similarity = self.similarity.articleSimilarity(centroid, article)
+                print "article {0} for centroid {1} has similarity {2}".format(article.id, centroid.id, similarity)
                 if similarity > maxSimilarity:
                     maxCentroid = centroid
                     maxSimilarity = similarity

@@ -13,6 +13,7 @@ class Clusterer:
                                     articleItem[4], articleItem[5], articleItem[6], articleItem[7])
     
     def initializeCentroids(self):
+        self.db.manipulationQuery("UPDATE article SET cluster=NULL")
         self.db.manipulationQuery("DELETE FROM cluster")
         while len(self.centroids) < self.k:
             query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,

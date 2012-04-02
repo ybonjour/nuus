@@ -71,10 +71,9 @@ class Clusterer:
             article = self.createArticleFromItem(articleItem)
             sumSimilarity = self.getSummedSimilarity(clusterId, article)  
             if sumSimilarity > maxSumSimilarity:
-                print "update"
                 maxSumSimilarity = sumSimilarity
                 maxSumSimilarityArticle = article
-            
+        print "maxSimilarity: {0}".format(maxSumSimilarity)
         return maxSumSimilarityArticle
     
     def updateCentroids(self):

@@ -19,6 +19,7 @@ class Clusterer:
             query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
                     ContentWordCount, Language FROM article ORDER BY rand() LIMIT 1"""
             articleItem = self.db.uniqueQuery(query)
+            if articleItem[0] in self.centroids: continue
             article = self.createArticleFromItem(articleItem)
             self.centroids[article.id] = article
             self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", articleItem[0])

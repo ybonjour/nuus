@@ -38,8 +38,8 @@ class Clusterer:
                     maxCentroid = centroid
                     maxSimilarity = similarity
             
-            clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM Cluster WHERE Centroid=%s", centroid.id)
-            self.db.manipulationQuery("UPDATE article SET cluster=%s", clusterId)
+            clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", centroid.id)
+            self.db.manipulationQuery("UPDATE article SET Cluster=%s", clusterId)
     
     def getSummedSimilarity(self, clusterId, article):
         sumSimilarity = 0.0

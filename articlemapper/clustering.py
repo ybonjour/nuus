@@ -78,7 +78,7 @@ class Clusterer:
     
     def updateCentroids(self):
         changed = False
-        for cluster in self.db.iterQuery("SELECT Id, Centroid FROM Cluster"):
+        for cluster in self.db.iterQuery("SELECT Id, Centroid FROM cluster"):
             clusterId, oldCentroidId = cluster
             self.centroids.pop(oldCentroidId)
             print "determine for cluster {0}".format(clusterId)

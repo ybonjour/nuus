@@ -6,7 +6,7 @@ db = database.Database()
 db.connect()
 try:
     similarity = similarity.Similarity(db)
-    clusterer = clustering.Clusterer(similarity, db, 3)
+    clusterer = clustering.Clusterer(similarity, db, 4)
     clusterer.clustering()
     db.commit()
 finally:

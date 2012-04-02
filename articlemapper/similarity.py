@@ -15,10 +15,10 @@ class Article:
 class Similarity:
     def __init__(self, db):
         self.similarity_measures = []
-        self.similarity_measures = [(self.feedSimilarity, 0.1),
-                                    (self.languageSimilarity, 0.1),
-                                    (self.titleSimilarity, 0.4),
-                                    (self.contentSimilarity, 0.4) ]
+        self.similarity_measures = [(self.feedSimilarity, 1.0),
+                                    (self.languageSimilarity, 0.0),
+                                    (self.titleSimilarity, 0.0),
+                                    (self.contentSimilarity, 0.0) ]
         self.db = db
         self._numArticles = None
         
@@ -102,6 +102,7 @@ class Similarity:
         similarity = abs(1.0*sumCommonWordWeight/(normArticle1*normArticle2))
         return similarity
         
+    
     def articleSimilarity(self, article1, article2):
         similarity = 0
         for similarity_function, weight in self.similarity_measures:

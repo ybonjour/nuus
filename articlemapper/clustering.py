@@ -54,6 +54,7 @@ class Clusterer:
         for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)):
             for word, importance in self.similarity.wordImportanceDict(article).items():
                 averageWordImportance[word] = averageWordImportance.get(word, 0) + (float(importance)/numArticlesInCluster)
+        print averageWordImportance
         
         #article in cluster with minimal distance to average
         articleQuery = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Cluster=%s"

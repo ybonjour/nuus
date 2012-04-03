@@ -28,7 +28,6 @@ class Similarity:
     def l2Norm(self, vector):
         return sum(pow(value, 2) for value in vector)
     
-    
     def similarity(self, wordImportanceDictionary1, wordImportanceDictionary2):
         words1 = set(wordImportanceDictionary1.keys())
         words2 = set(wordImportanceDictionary2.keys())

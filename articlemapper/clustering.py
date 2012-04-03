@@ -47,7 +47,7 @@ class Clusterer:
         return self.articles[articleId]    
     
     def determineNewCentroid(self, clusterId):
-        numArticlesInCluster = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM Article WHERE Cluster=%s", clusterId)
+        numArticlesInCluster = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article WHERE Cluster=%s", clusterId)
         
         averageWordImportance = {}
         query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE ClusterId=%s"

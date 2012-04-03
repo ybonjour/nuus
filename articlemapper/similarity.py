@@ -38,7 +38,7 @@ class Similarity:
         for commonWordId in commonWords:
             scalarProduct += wordImportanceDictionary1[commonWordId]*wordImportanceDictionary2[commonWordId]
         
-        return scalarProduct / (l2Norm(wordImportanceDictionary1.values())*l2Norm(wordImportanceDictionary2.values()))
+        return scalarProduct / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"

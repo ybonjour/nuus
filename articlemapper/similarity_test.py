@@ -8,11 +8,14 @@ def testTwoArticles(articleId1, articleId2):
     db.connect()
     try:
         s = Similarity(db)
-
-        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Id IN (%s, %s)"
         
-        articles = [Article._make(articleItem) for articleItem in db.iterQuery(query, (articleId1, articleId2))]       
-        print s.articleSimilarity(articles[0], articles[1])
+        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Id=%s"
+        
+        #query twice in order to be able to compare the identical article
+        article1 = Article._make(db.uniqueQuery(query, articleId1))
+        article2 = Article._make(db.uniqueQuery(query, articleId2))
+        
+        print s.articleSimilarity(article1, article2)
     finally:
         db.close()
 

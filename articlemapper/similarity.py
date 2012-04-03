@@ -1,4 +1,5 @@
 from math import log
+from math import sqrt
 
 class Similarity:
     def __init__(self, db):
@@ -26,7 +27,7 @@ class Similarity:
         return self.db.uniqueScalarOrZero(query, (articleId, wordId))
     
     def l2Norm(self, vector):
-        return sum(pow(value, 2) for value in vector)
+        return sqrt(float(sum(pow(value, 2) for value in vector)))
     
     def similarity(self, wordImportanceDictionary1, wordImportanceDictionary2):
         words1 = set(wordImportanceDictionary1.keys())
@@ -38,17 +39,14 @@ class Similarity:
             scalarProduct += wordImportanceDictionary1[commonWordId]*wordImportanceDictionary2[commonWordId]
         
         #scale x100
-        return 100*float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
+        return float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"
         return dict((wordId, self.termWeight(wordId, article.id)) for (wordId, ) in self.db.iterQuery(query, article.id))
-    
-    def textSimilarity(self, article1, article2):
-        return self.similarity(self.wordImportanceDict(article1), self.wordImportanceDict(article2))
 
     def similarityToAverage(self, article, averageWordImportance):
         return self.similarity(self.wordImportanceDict(article), averageWordImportance)
     
     def articleSimilarity(self, article1, article2):
-        return self.textSimilarity(article1, article2)
+        return self.similarity(self.wordImportanceDict(article1), self.wordImportanceDict(article2))

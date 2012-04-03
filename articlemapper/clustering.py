@@ -45,7 +45,7 @@ class Clusterer:
         query = """SELECT Word, sum(word_index.Count) FROM word_index
                     WHERE Article IN (SELECT Id FROM article WHERE Cluster=%s)
                     GROUP BY Word"""
-        averageWordImportance = dict((word, 1.0*sum/numArticles) for word, sum in self.db.iterQuery(query, clusterId))
+        averageWordImportance = dict((word, float(sum)/numArticles) for word, sum in self.db.iterQuery(query, clusterId))
         
         #article in cluster with minimal distance to average
         articleQuery = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,

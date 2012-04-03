@@ -15,7 +15,7 @@ class Similarity:
         return self._numArticles
     
     def calcIDF(self, numArticles, nunDocumentsTermOccursIn):
-        return log(1.0*(numArticles + 1) / (nunDocumentsTermOccursIn + 1))
+        return log(float(numArticles + 1) / (nunDocumentsTermOccursIn + 1))
         
     def inverseDocumentFrequency(self, wordId, inTitle):
         numDocumentsWordOccursIn = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM word_index WHERE Word=%s AND InTitle=%s", (wordId, inTitle))
@@ -26,7 +26,7 @@ class Similarity:
         return self.db.uniqueScalarOrZero(query, (articleId, wordId, inTitle))
     
     def l2Norm(self, vector):
-        return 1.0*sum(pow(value, 2) for value in vector)
+        return sum(pow(value, 2) for value in vector)
     
     def similarity(self, wordImportanceDictionary1, wordImportanceDictionary2):
         words1 = set(wordImportanceDictionary1.keys())
@@ -37,7 +37,7 @@ class Similarity:
         for commonWordId in commonWords:
             scalarProduct += wordImportanceDictionary1[commonWordId]*wordImportanceDictionary2[commonWordId]
         
-        return scalarProduct / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
+        return float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"

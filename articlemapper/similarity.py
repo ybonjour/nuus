@@ -26,15 +26,14 @@ class Similarity:
         return self.db.uniqueScalarOrZero(query, (articleId, wordId, inTitle))
     
     def l2Norm(self, vector):
-        return sum(pow(value, 2) for value in vector)
+        return 1.0*sum(pow(value, 2) for value in vector)
     
     def similarity(self, wordImportanceDictionary1, wordImportanceDictionary2):
-        sumProduct = 0
         words1 = set(wordImportanceDictionary1.keys())
         words2 = set(wordImportanceDictionary2.keys())
         commonWords = words1 & words2
         
-        scalarProduct = 0
+        scalarProduct = 0.0
         for commonWordId in commonWords:
             scalarProduct += wordImportanceDictionary1[commonWordId]*wordImportanceDictionary2[commonWordId]
         

@@ -26,15 +26,13 @@ CREATE TABLE `article` (
   `Content` text,
   `Feed` int(11) DEFAULT NULL,
   `Updated` timestamp NULL DEFAULT NULL,
-  `TitleWordCount` int(11) DEFAULT NULL,
-  `ContentWordCount` int(11) DEFAULT NULL,
   `Language` varchar(4) DEFAULT NULL,
   `Cluster` int(11) DEFAULT NULL,
   PRIMARY KEY (`Id`),
   KEY `Feed` (`Feed`),
   KEY `Cluster` (`Cluster`),
-  CONSTRAINT `Feed_Article` FOREIGN KEY (`Feed`) REFERENCES `feed` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION,
-  CONSTRAINT `Cluster_Article` FOREIGN KEY (`Cluster`) REFERENCES `cluster` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  CONSTRAINT `Cluster_Article` FOREIGN KEY (`Cluster`) REFERENCES `cluster` (`Id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
+  CONSTRAINT `Feed_Article` FOREIGN KEY (`Feed`) REFERENCES `feed` (`Id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8$$
 
 ALTER TABLE `cluster` 

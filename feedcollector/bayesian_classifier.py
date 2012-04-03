@@ -31,26 +31,23 @@ class Classifier:
         return len(self.word_count)
 
     def probabilityWordGivenCategory(self, word, category):
-        return 1.0*(self.data[category].get(word, 0) + self.k) / (self.numberOfWordsInCategory(category) + self.k*self.numberOfDistinctWords())
+        return float(self.data[category].get(word, 0) + self.k) / (self.numberOfWordsInCategory(category) + self.k*self.numberOfDistinctWords())
         
     def probabilitiesTextGivenCategory(self, text):
         probabilities = {}
         for category in self.data:
             probability = 1.0
-            first = True
-            idx = 0
             for word in text:
-                probability = probability * self.probabilityWordGivenCategory(word, category)
-                idx += 1
+                probability *= self.probabilityWordGivenCategory(word, category)
             probabilities[category]= probability
             
         return probabilities
         
     def priorProbabilitiesCategories(self):
-        probabilities = {}
-        for category in self.data:
-            probabilities[category] = 1.0*(self.numberOfWordsInCategory(category) + self.k) / (self.numberOfWords() + self.k*len(self.data))
-        return probabilities
+        numberOfWords = self.numberOfWords()
+        numCategories = len(self.data)
+        return dict((category, float(self.numberOfWordsInCategory(category) + self.k) / (numberOfWords + self.k*numCategories))
+                                    for category in self.data.keys())
 
     #e.g. categories SPAM and HAM
     #P[SPAM | text] = (P[w_1 | SPAM]*...*P[w_n|SPAM])*P[SPAM] / ((P[w_1|SPAM]*...*P[w_n|SPAM])*P[SPAM] + (P[w_1|HAM]*...*P[w_n|HAM])*P[HAM])
@@ -66,41 +63,36 @@ class Classifier:
         for category, categoryProbability in self.probabilities_categories.items():
             totalProbabilityText += categoryProbability * textProbabilities[category]
         
-        if totalProbabilityText == 0:
-            return []
+        if totalProbabilityText == 0: return []
         
-        probabilities = []
-        for category in self.data:
-            probability = 1.0*(self.probabilities_categories[category]*textProbabilities[category]) / totalProbabilityText
-            probabilities.append((category, probability))
-        
-        return probabilities
+        return [(category, float(self.probabilities_categories[category]*textProbabilities[category]) / totalProbabilityText)
+                        for category in self.data.keys()]
     
     def load(self, filename):
         filenameDict = "{0}.dict".format(filename)
         filenameWords = "{0}.words".format(filename)
-        fileDict = open(filenameDict, "r")
-        fileWords = open(filenameWords, "r")
-        self.data = pickle.load(fileDict)
-        self.word_count = pickle.load(fileWords)
+        
+        with  open(filenameDict, "r") as fileDict:
+            self.data = pickle.load(fileDict)
+            
+        with open(filenameWords, "r") as fileWords:        
+            self.word_count = pickle.load(fileWords)
+        
         #directly calculate category probabilities, so that they only need to be calculated once
         self.probabilities_categories = self.priorProbabilitiesCategories()
         
     def save(self, filename):
         filenameDict = "{0}.dict".format(filename)
         filenameWords = "{0}.words".format(filename)
-        fileDict = open(filenameDict, "w")
-        fileWords = open(filenameWords, "w")
-        try:
+        with open(filenameDict, "w") as fileDict:
             pickle.dump(self.data, fileDict)
+            
+        with open(filenameWords, "w") as fileWords:
             pickle.dump(self.word_count, fileWords)
-        finally:
-            fileDict.close()
-            fileWords.close()
         
     def guessCategory(self, text):
         probabilities = self.probabilities(text)
         if probabilities == []:
             return Classifier.UNKNOWN_CATEGORY
-        probabilities.sort(key=lambda probability: probability[1], reverse=True)
-        return probabilities[0][0]
+        maxProbability = max(probabilities, key=lambda probability: probability[1])
+        return maxProbability[0]

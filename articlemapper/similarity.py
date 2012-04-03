@@ -5,9 +5,9 @@ class Similarity:
         self.db = db
         self._numArticles = None
     
-    def termWeight(self, wordId, articleId, inTitle):
+    def termWeight(self, wordId, articleId):
         #TODO: maybe normalize termFrequency? -> Check results
-        return self.termFrequency(wordId, articleId, inTitle)*self.inverseDocumentFrequency(wordId, inTitle)
+        return self.termFrequency(wordId, articleId)*self.inverseDocumentFrequency(wordId)
 
     def numArticles(self):
         if self._numArticles == None:
@@ -17,13 +17,13 @@ class Similarity:
     def calcIDF(self, numArticles, nunDocumentsTermOccursIn):
         return log(float(numArticles + 1) / (nunDocumentsTermOccursIn + 1))
         
-    def inverseDocumentFrequency(self, wordId, inTitle):
-        numDocumentsWordOccursIn = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM word_index WHERE Word=%s AND InTitle=%s", (wordId, inTitle))
+    def inverseDocumentFrequency(self, wordId):
+        numDocumentsWordOccursIn = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM word_index WHERE Word=%s", wordId)
         return self.calcIDF(self.numArticles(), numDocumentsWordOccursIn)
     
-    def termFrequency(self, wordId, articleId, inTitle):
-        query = "SELECT Count FROM word_index WHERE Article=%s AND Word=%s AND InTitle=%s"
-        return self.db.uniqueScalarOrZero(query, (articleId, wordId, inTitle))
+    def termFrequency(self, wordId, articleId):
+        query = "SELECT Count FROM word_index WHERE Article=%s AND Word=%s"
+        return self.db.uniqueScalarOrZero(query, (articleId, wordId))
     
     def l2Norm(self, vector):
         return sum(pow(value, 2) for value in vector)
@@ -41,13 +41,13 @@ class Similarity:
 
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"
-        return dict((wordId, self.termWeight(wordId, article.id, 0)) for (wordId, ) in self.db.iterQuery(query, article.id))
+        return dict((wordId, self.termWeight(wordId, article.id)) for (wordId, ) in self.db.iterQuery(query, article.id))
     
-    def textSimilarity(self, article1, article2, inTitle):
+    def textSimilarity(self, article1, article2):
         return self.similarity(self.wordImportanceDict(article1), self.wordImportanceDict(article2))
 
     def similarityToAverage(self, article, averageWordImportance):
         return self.similarity(self.wordImportanceDict(article), averageWordImportance)
     
     def articleSimilarity(self, article1, article2):
-        return self.textSimilarity(article1, article2, 0)
+        return self.textSimilarity(article1, article2)

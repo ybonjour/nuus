@@ -33,24 +33,19 @@ def indexText(db, articleId, text, inTitle):
                                 (articleId, wordId, wordPosition, 1, inTitle))
         wordPosition += 1
     
-    return wordPosition
-    
 def indexArticleTitle(db, articleId, title):
-    return indexText(db, articleId, title, 1)
-  
-def articleAlreadyIndexed(db, articleId):
-    count = db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article WHERE Id=%s AND TitleWordCount IS NOT NULL", articleId)
-    return count != 0
-    
+    indexText(db, articleId, title, 1)
+
 def indexArticleContent(db, articleId, content):
-    return indexText(db, articleId, content, 0)
+    indexText(db, articleId, content, 0)
+    
+def articleAlreadyIndexed(db, articleId):
+    count = db.uniqueScalarOrZero("SELECT COUNT(Id) FROM word_index WHERE Article=%s", articleId)
+    return count > 0
 
 def indexArticle(db, articleId):
-    if articleAlreadyIndexed(db, articleId): return 
-
+    if articleAlreadyIndexed(db, articleId): return
     query = "SELECT id, title, content FROM article WHERE Id=%s"
-    for article in db.iterQuery(query, articleId):
-        num_words_title = indexArticleTitle(db, articleId, article[1])
-        num_words_content = indexArticleContent(db, articleId, article[2])
-        update_query = "UPDATE article SET TitleWordCount=%s, ContentWordCount=%s WHERE Id=%s"
-        db.manipulationQuery(update_query, (num_words_title, num_words_content, articleId))
+    for id, title, content in db.iterQuery(query, articleId):
+        indexArticleTitle(db, id, title)
+        indexArticleContent(db, id, content)

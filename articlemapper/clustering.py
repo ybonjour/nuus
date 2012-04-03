@@ -50,7 +50,7 @@ class Clusterer:
         numArticlesInCluster = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article WHERE Cluster=%s", clusterId)
         
         averageWordImportance = {}
-        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE ClusterId=%s"
+        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Cluster=%s"
         for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)):
             for word, importance in self.similarity.wordImportanceDict(article).items():
                 averageWordImportance[word] = averageWordImportance.get(word, 0) + (float(importance)/numArticlesInCluster)

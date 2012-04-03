@@ -17,11 +17,7 @@ class Clusterer:
         self.db = db
         self.centroids = {}
         self.k = k
-    
-    def createArticleFromItem(self, articleItem):
-        return Article(articleItem[0], articleItem[1], articleItem[2], articleItem[3],
-                                    articleItem[4], articleItem[5], articleItem[6], articleItem[7])
-    
+        
     def initializeCentroids(self):
         self.db.manipulationQuery("UPDATE article SET cluster=NULL")
         self.db.manipulationQuery("DELETE FROM cluster")
@@ -31,7 +27,7 @@ class Clusterer:
             article = Article._make(self.db.uniqueQuery(query))
             if article.id in self.centroids.keys(): continue
             self.centroids[article.id] = article
-            self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", articleItem[0])
+            self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", article.id)
             
     def assignArticlesToCluster(self):
         query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,

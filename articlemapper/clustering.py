@@ -33,7 +33,7 @@ class Clusterer:
             
             clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid.id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
-            print "assignend article {0} to cluster {1}({2})".format(article.id, clusterId, bestCentroid.id)
+            self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
     
     def determineNewCentroid(self, clusterId):
         numArticles = self.similarity.numArticles() #TODO: move numArticles
@@ -51,10 +51,10 @@ class Clusterer:
         changed = False
         for clusterId, oldCentroidId in self.db.iterQuery("SELECT Id, Centroid FROM cluster"):
             self.centroids.pop(oldCentroidId)
-            print "determine for cluster {0}".format(clusterId)
             centroid = self.determineNewCentroid(clusterId)
             self.centroids[centroid.id] = centroid
             self.db.manipulationQuery("UPDATE cluster SET Centroid=%s WHERE Id=%s", (centroid.id, clusterId))
+            if oldCentroidId != centroid.id: "centroid changed from {0} to {1}".format(oldCentoidId, centroid.id)
             changed |= (oldCentroidId != centroid.id)
         return changed 
     

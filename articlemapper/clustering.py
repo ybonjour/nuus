@@ -63,11 +63,11 @@ class Clusterer:
     def updateCentroids(self):
         changed = False
         for clusterId, oldCentroidId in self.db.iterQuery("SELECT Id, Centroid FROM cluster"):
-            self.centroids.pop(oldCentroidId)
+            oldCentroid = self.centroids.pop(oldCentroidId)
             centroid = self.determineNewCentroid(clusterId)
             self.centroids[centroid.id] = centroid
             self.db.manipulationQuery("UPDATE cluster SET Centroid=%s WHERE Id=%s", (centroid.id, clusterId))
-            if oldCentroidId != centroid.id: print "centroid changed from {0} to {1}".format(oldCentroidId, centroid.id)
+            if oldCentroidId != centroid.id: print "centroid changed from {0} to {1}: {2}".format(oldCentroidId, centroid.id, self.similarity.articleSimilarity(oldCentroid, centroid))
             changed |= (oldCentroidId != centroid.id)
         return changed 
     

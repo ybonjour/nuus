@@ -38,7 +38,6 @@ class Similarity:
         for commonWordId in commonWords:
             scalarProduct += wordImportanceDictionary1[commonWordId]*wordImportanceDictionary2[commonWordId]
         
-        #scale x100
         return float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
     def wordImportanceDict(self, article):

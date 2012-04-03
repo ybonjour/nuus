@@ -33,23 +33,11 @@ class Clusterer:
         query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
                     ContentWordCount, Language FROM article"""
 
-        for articleItem in self.db.iterQuery(query):
-            maxSimilarity = 0.0
-            maxCentroid = None
-            for centroid in self.centroids.values():
-                similarity = self.similarity.articleSimilarity(centroid, article)
-                print "article {0} for centroid {1} has similarity {2}".format(article.id, centroid.id, similarity)
-                if similarity > maxSimilarity:
-                    maxCentroid = centroid
-                    maxSimilarity = similarity
-            
-            #if no centroid can be chosen, just select one randomly
-            if maxCentroid == None:
-                maxCentroid = choice(self.centroids.values())
-            
-            clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", maxCentroid.id)
+        for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query)):
+            bestCentroid = max(self.centroids.values(), key=lambda centroid: self.similarity.articleSimilarity(centroid, article))
+            clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid.id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
-            print "assignend article {0} to cluster {1}({2}), with similarity {3}".format(article.id, clusterId, maxCentroid.id, maxSimilarity)
+            print "assignend article {0} to cluster {1}({2})".format(article.id, clusterId, bestCentroid.id)
     
     def determineNewCentroid(self, clusterId):
         numArticles = self.similarity.numArticles() #TODO: move numArticles

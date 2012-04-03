@@ -28,6 +28,7 @@ class Similarity:
     def l2Norm(self, vector):
         return sum(pow(value, 2) for value in vector)
     
+    
     def similarity(self, wordImportanceDictionary1, wordImportanceDictionary2):
         words1 = set(wordImportanceDictionary1.keys())
         words2 = set(wordImportanceDictionary2.keys())
@@ -37,7 +38,8 @@ class Similarity:
         for commonWordId in commonWords:
             scalarProduct += wordImportanceDictionary1[commonWordId]*wordImportanceDictionary2[commonWordId]
         
-        return float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
+        #scale x100
+        return 100*float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"

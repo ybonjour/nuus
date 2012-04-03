@@ -7,8 +7,6 @@ Article = namedtuple('Article', ('id',
                           'content',
                           'feedId',
                           'updated',
-                          'titleWordCount',
-                          'contentWordCount',
                           'language'))
 
 class Clusterer:
@@ -22,17 +20,14 @@ class Clusterer:
         self.db.manipulationQuery("UPDATE article SET cluster=NULL")
         self.db.manipulationQuery("DELETE FROM cluster")
         while len(self.centroids) < self.k:
-            query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
-                    ContentWordCount, Language FROM article ORDER BY rand() LIMIT 1"""
+            query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article ORDER BY rand() LIMIT 1"
             article = Article._make(self.db.uniqueQuery(query))
             if article.id in self.centroids.keys(): continue
             self.centroids[article.id] = article
             self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", article.id)
             
     def assignArticlesToCluster(self):
-        query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
-                    ContentWordCount, Language FROM article"""
-
+        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article"
         for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query)):
             bestCentroid = max(self.centroids.values(), key=lambda centroid: self.similarity.articleSimilarity(centroid, article))
             
@@ -48,8 +43,7 @@ class Clusterer:
         averageWordImportance = dict((word, float(sum)/numArticles) for word, sum in self.db.iterQuery(query, clusterId))
         
         #article in cluster with minimal distance to average
-        articleQuery = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
-                    ContentWordCount, Language FROM article WHERE Cluster=%s"""
+        articleQuery = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Cluster=%s"
         return min((Article._make(row) for row in self.db.iterQuery(articleQuery, clusterId)),
                     key=lambda article: self.similarity.similarityToAverage(article, averageWordImportance))
 

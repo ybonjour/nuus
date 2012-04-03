@@ -9,8 +9,7 @@ def testTwoArticles(articleId1, articleId2):
     try:
         s = Similarity(db)
 
-        query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
-                            ContentWordCount, Language FROM article WHERE Id IN (%s, %s)"""
+        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Id IN (%s, %s)"
         
         articles = [Article._make(articleItem) for articleItem in db.iterQuery(query, (articleId1, articleId2))]       
         print s.articleSimilarity(articles[0], articles[1])
@@ -23,8 +22,7 @@ def testAllArticles():
     try:
         s = Similarity(db)
         
-        query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
-                    ContentWordCount, Language FROM article"""
+        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article"
         
         articles =[Article._make(articleItem) for articleItem in db.iterQuery(query)]
         

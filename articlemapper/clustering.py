@@ -33,7 +33,7 @@ class Clusterer:
             bestCentroid = max(self.centroids.values(), key=lambda centroid: self.similarity.articleSimilarity(centroid, article))
             
             if article.id in self.centroids:
-                print "Got a centroid {0}, assigned to {1}".format(article.id, betCentroid.id)
+                print "Got a centroid {0}, assigned to {1}".format(article.id, bestCentroid.id)
             
             clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid.id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))

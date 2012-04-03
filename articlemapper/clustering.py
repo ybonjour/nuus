@@ -15,6 +15,7 @@ class Clusterer:
         self.db = db
         self.centroids = {}
         self.k = k
+        self.articles = {}
         
     def initializeCentroids(self):
         self.db.manipulationQuery("UPDATE article SET cluster=NULL")
@@ -31,16 +32,28 @@ class Clusterer:
         for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query)):
             bestCentroid = max(self.centroids.values(), key=lambda centroid: self.similarity.articleSimilarity(centroid, article))
             
+            if article.id in self.centroids:
+                print "Got a centroid {0}, assigned to {1}".format(article.id, betCentroid.id)
+            
             clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid.id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
     
+    def getArticle(self, articleId):
+        if not article in self.articles:
+            query = "SELECT Id, Title, content, Feed, Updated, Language FROM article WHERE Id=%s"
+            articleItem = self.db.uniqueQuery(query, articleId)
+            self.articles[articleId] = Article._make(articleItem)
+        return self.articles[articleId]    
+    
     def determineNewCentroid(self, clusterId):
-        numArticles = self.similarity.numArticles() #TODO: move numArticles
-        query = """SELECT Word, sum(word_index.Count) FROM word_index
-                    WHERE Article IN (SELECT Id FROM article WHERE Cluster=%s)
-                    GROUP BY Word"""
-        averageWordImportance = dict((word, float(sum)/numArticles) for word, sum in self.db.iterQuery(query, clusterId))
+        numArticlesInCluster = db.uniqueScalarOrZero("SELECT COUNT(Id) FROM Article WHERE Cluster=%s", clusterId)
+        
+        averageWordImportance = {}
+        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE ClusterId=%s"
+        for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)):
+            for word, importance in self.similarity.wordImportanceDict(article).items():
+                averageWordImportance[word] = averageWordImportance.get(word, 0) + (float(importance)/numArticlesInCluster)
         
         #article in cluster with minimal distance to average
         articleQuery = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Cluster=%s"

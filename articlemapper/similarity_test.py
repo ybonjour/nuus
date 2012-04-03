@@ -1,5 +1,5 @@
 from similarity import Similarity
-from similarity import Article
+from clustering import Article
 import database
 
 def testTwoArticles(articleId1, articleId2):
@@ -11,12 +11,7 @@ def testTwoArticles(articleId1, articleId2):
         query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
                             ContentWordCount, Language FROM article WHERE Id IN (%s, %s)"""
         
-        articles = []
-        for article in db.iterQuery(query, (articleId1, articleId2)):
-            articles.append(Article(article[0], article[1], article[2], article[3],
-                                    article[4], article[5], article[6], article[7]))
-
-        
+        articles = [Article._make(articleItem) for articleItem in db.iterQuery(query, (articleId1, articleId2))]       
         s.articleSimilarity(articles[0], articles[1])
     finally:
         db.close()
@@ -26,13 +21,11 @@ def testAllArticles():
     db.connect()
     try:
         s = Similarity(db)
-        articles =[]
+        
         query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
                     ContentWordCount, Language FROM article"""
-
-        for article in db.iterQuery(query):
-            articles.append(Article(article[0], article[1], article[2], article[3],
-                                    article[4], article[5], article[6], article[7]))
+        
+        articles =[Article._make(articleItem) for articleItem in db.iterquerQuery(query)]
         
         maxSimilarity = 0.0
         minSimilarity = 1.0

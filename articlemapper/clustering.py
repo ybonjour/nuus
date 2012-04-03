@@ -1,6 +1,15 @@
 from similarity import Similarity
-from similarity import Article
 from random import choice
+from collections import namedtuple
+
+Article = namedtuple('Article', ('id',
+                          'title',
+                          'content',
+                          'feed',
+                          'updated',
+                          'titleWordCount',
+                          'contentWordCount',
+                          'language'))
 
 class Clusterer:
     def __init__(self, similarity, db, k):
@@ -19,9 +28,8 @@ class Clusterer:
         while len(self.centroids) < self.k:
             query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
                     ContentWordCount, Language FROM article ORDER BY rand() LIMIT 1"""
-            articleItem = self.db.uniqueQuery(query)
-            if articleItem[0] in self.centroids: continue
-            article = self.createArticleFromItem(articleItem)
+            article = Article._make(self.db.uniqueQuery(query))
+            if article.id in self.centroids.keys(): continue
             self.centroids[article.id] = article
             self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", articleItem[0])
             
@@ -30,9 +38,6 @@ class Clusterer:
                     ContentWordCount, Language FROM article"""
 
         for articleItem in self.db.iterQuery(query):
-            article = Article(articleItem[0], articleItem[1], articleItem[2], articleItem[3],
-                                    articleItem[4], articleItem[5], articleItem[6], articleItem[7])
-            
             maxSimilarity = 0.0
             maxCentroid = None
             for centroid in self.centroids.values():
@@ -50,44 +55,22 @@ class Clusterer:
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
             print "assignend article {0} to cluster {1}({2}), with similarity {3}".format(article.id, clusterId, maxCentroid.id, maxSimilarity)
     
-    def getSummedSimilarity(self, clusterId, article):
-        sumSimilarity = 0.0
-        query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
-                    ContentWordCount, Language FROM article WHERE Cluster=%s"""            
-        for compareArticleItem in self.db.iterQuery(query, clusterId):
-            if compareArticleItem[0] == article.id : continue #do not count the article itself
-            compareArticle = self.createArticleFromItem(compareArticleItem)
-            sumSimilarity += self.similarity.articleSimilarity(article, compareArticle)
-        return sumSimilarity
-    
     def determineNewCentroid(self, clusterId):
-        #TODO: can be optimized by first calculating all the similarities between
-        #the articles in a cluster
+        numArticles = self.similarity.numArticles() #TODO: move numArticles
+        query = """SELECT Word, sum(word_index.Count) FROM word_index
+                    WHERE Article IN (SELECT Id FROM article WHERE Cluster=%s)
+                    GROUP BY Word"""
+        averageWordImportance = dict((word, sum/numArticles) for word, sum in self.db.iterQuery(query, clusterId))
         
-        #assume that old centroid is new centroid
-        query = """SELECT article.Id, Title, Content, Feed, Updated, TitleWordCount,
-                    ContentWordCount, Language FROM article
-                    INNER JOIN cluster ON cluster.Centroid=article.Id AND cluster.Id=%s"""
-        articleItem = self.db.uniqueQuery(query, clusterId)
-        maxSumSimilarityArticle = self.createArticleFromItem(articleItem)      
-        maxSumSimilarity = self.getSummedSimilarity(clusterId, maxSumSimilarityArticle)
-
-        query = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
+        #article in cluster with minimal distance to average
+        articleQuery = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,
                     ContentWordCount, Language FROM article WHERE Cluster=%s"""
-        for articleItem in self.db.iterQuery(query, clusterId):
-            print "next article"
-            article = self.createArticleFromItem(articleItem)
-            sumSimilarity = self.getSummedSimilarity(clusterId, article)  
-            if sumSimilarity > maxSumSimilarity:
-                maxSumSimilarity = sumSimilarity
-                maxSumSimilarityArticle = article
-        print "maxSimilarity: {0}".format(maxSumSimilarity)
-        return maxSumSimilarityArticle
-    
+        return min((Article._make(row) for row in self.db.iterQuery(articleQuery, clusterId)),
+                    key=lambda article: self.similarity.similarityToAverage(article, averageWordImportance))
+
     def updateCentroids(self):
         changed = False
-        for cluster in self.db.iterQuery("SELECT Id, Centroid FROM cluster"):
-            clusterId, oldCentroidId = cluster
+        for clusterId, oldCentroidId in self.db.iterQuery("SELECT Id, Centroid FROM cluster"):
             self.centroids.pop(oldCentroidId)
             print "determine for cluster {0}".format(clusterId)
             centroid = self.determineNewCentroid(clusterId)
@@ -101,6 +84,7 @@ class Clusterer:
         print "centroids:"
         for centroid in self.centroids.values():
             print "Article {0}, Feed{1}".format(centroid.id, centroid.feedId)
+        
         changed = True
         while changed:
             print "next iteration"

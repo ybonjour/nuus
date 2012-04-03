@@ -35,6 +35,7 @@ class Clusterer:
 
         for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query)):
             bestCentroid = max(self.centroids.values(), key=lambda centroid: self.similarity.articleSimilarity(centroid, article))
+            
             clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid.id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
             print "assignend article {0} to cluster {1}({2})".format(article.id, clusterId, bestCentroid.id)
@@ -44,7 +45,7 @@ class Clusterer:
         query = """SELECT Word, sum(word_index.Count) FROM word_index
                     WHERE Article IN (SELECT Id FROM article WHERE Cluster=%s)
                     GROUP BY Word"""
-        averageWordImportance = dict((word, sum/numArticles) for word, sum in self.db.iterQuery(query, clusterId))
+        averageWordImportance = dict((word, 1.0*sum/numArticles) for word, sum in self.db.iterQuery(query, clusterId))
         
         #article in cluster with minimal distance to average
         articleQuery = """SELECT Id, Title, Content, Feed, Updated, TitleWordCount,

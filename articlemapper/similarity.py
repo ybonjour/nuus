@@ -42,7 +42,7 @@ class Similarity:
 
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"
-        return dict((wordId, self.termWeight(wordId, article.Id, 0)) for (wordId, ) in self.db.iterQuery(query, article.id))
+        return dict((wordId, self.termWeight(wordId, article.id, 0)) for (wordId, ) in self.db.iterQuery(query, article.id))
     
     def textSimilarity(self, article1, article2, inTitle):
         return self.similarity(self.wordImportanceDict(article1), self.wordImportanceDict(article2))

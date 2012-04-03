@@ -5,7 +5,7 @@ from collections import namedtuple
 Article = namedtuple('Article', ('id',
                           'title',
                           'content',
-                          'feed',
+                          'feedId',
                           'updated',
                           'titleWordCount',
                           'contentWordCount',

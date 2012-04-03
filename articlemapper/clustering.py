@@ -33,7 +33,7 @@ class Clusterer:
             bestCentroid = max(self.centroids.values(), key=lambda centroid: self.similarity.articleSimilarity(centroid, article))
             
             if article.id in self.centroids:
-                print "Got a centroid {0}, assigned to {1}".format(article.id, bestCentroid.id)
+                print "Got a centroid {0}, assigned to {1}: {2}".format(article.id, bestCentroid.id, self.similarity.articleSimilarity(bestCentroid, article))
             
             clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid.id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
@@ -54,7 +54,6 @@ class Clusterer:
         for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)):
             for word, importance in self.similarity.wordImportanceDict(article).items():
                 averageWordImportance[word] = averageWordImportance.get(word, 0) + (float(importance)/numArticlesInCluster)
-        print averageWordImportance
         
         #article in cluster with minimal distance to average
         articleQuery = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Cluster=%s"

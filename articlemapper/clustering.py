@@ -57,7 +57,7 @@ class Clusterer:
         
         #article in cluster with minimal distance to average
         return min((Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)),
-            key=lambda article: similarity.distanceToAverage(article, averageWordImportance))
+            key=lambda article: self.similarity.distanceToAverage(article, averageWordImportance))
             
 
     def updateCentroids(self):

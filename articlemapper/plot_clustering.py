@@ -1,3 +1,7 @@
+import matplotlib
+# Force matplotlib to not use any Xwindows backend.
+matplotlib.use('Agg')
+
 from matplotlib import pyplot as plt
 from database import Database
 from clustering import Article

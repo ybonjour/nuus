@@ -140,5 +140,5 @@ class HierarchicalClusterer:
                 
                 
                 if self.clusterSimilarity(cluster, mostSimilarCluster) > self.threshold:
-                    mergeClusters(id, mostSimilarId)
+                    self.mergeClusters(id, mostSimilarId)
                     

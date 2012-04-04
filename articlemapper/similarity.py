@@ -32,7 +32,7 @@ class Similarity:
     def distance(self, wordImportanceDict1, wordImportanceDict2):
         unionWordSet = set(wordImportanceDict1.keys()) | set(wordImportanceDict2.keys())
         difference = dict((wordId, wordImportanceDict1.get(wordId, 0)-wordImportanceDict2.get(wordId, 0)) for wordId in unionWordSet)
-        return self.l2Norm(differece)
+        return self.l2Norm(difference)
     
     def distanceToAverage(self, article, averageWordImportanceDict):
         return self.distance(self.wordImportanceDict(article), averageWordImportanceDict)

@@ -94,4 +94,51 @@ class Clusterer:
             print "next iteration"
             self.assignArticlesToCluster()
             changed = self.updateCentroids()
+
             
+class HierarchicalClusterer:
+    def __init__(self, similarity, db, threshold=0.1):
+        self.db=db
+        self.similarity=similarity
+        self.clusters = {}
+        self.threshold = threshold
+    
+    def initializeClusters(self):
+        for article in (Article._make(articleItem) for articleItem in self.db.iterQuery("SELECT Id, Title, Content, Feed, Updated, Language FROM article")):
+            self.clusters[article.id] = [article]
+    
+    def mergeClusters(self, clusterId1, clusterId2):
+        self.clusters[clusterId1].extend(self.clusters[clusterId2])
+        self.clusters[clusterId2] = []
+    
+    def clusterSimilarity(self, cluster1, cluster2):
+        averageWordImportance1 = {}
+        for article in cluster1:
+            for word, importance in self.similarity.wordImportanceDict(article).items():
+                averageWordImportance1[word] = averageWordImportance1.get(word, 0) + float(importance)/len(cluster1)
+        
+        averageWordImportance2 = {}
+        for article in cluster2:
+            for word, importance in self.similarity.wordImportanceDict(article).items():
+                averageWordImportance2[word] = averageWordImportance2.get(word, 0) + float(importance)/len(cluster2)
+                
+        return self.similarity.similarity(averageWordImportance1, averageWordImportance2)           
+    
+    def nonEmptyClusters(self):
+        return filter(lambda item: item[1] != [], self.clusters.items())
+    
+    def clustering(self):
+        self.initializeClusters()
+        
+        oldLen = len(self.nonEmptyClusters()) + 1
+        
+        while len(self.nonEmptyClusters()) != oldLen:
+            oldLen = len(self.nonEmptyClusters())
+            for id, cluster in self.nonEmptyClusters():
+                mostSimilarId, mostStimilarCluster = max(self.nonEmptyClusters(),
+                                                        key=lambda item: self.clusterSimilarity(item[1], cluster))
+                
+                
+                if self.clusterSimilarity(cluster, mostSimilarCluster) > self.threshold:
+                    mergeClusters(id, mostSimilarId)
+                    

@@ -127,6 +127,13 @@ class HierarchicalClusterer:
     def nonEmptyClusters(self):
         return filter(lambda item: item[1] != [], self.clusters.items())
     
+    def saveClusters(self):
+        self.db.manipulationQuery("UPDATE article SET Cluster=NULL")
+        self.db.manipulationQuery("DELETE FROM cluster")
+        for id, cluster in self.nonEmptyClusters():
+            clusterId = self.db.insertQuery("INSERT INTO cluster (Centroid) VLAUES(%s)", cluster[0].id)
+            self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id IN (%s)", clusterId, ",".join(article.id for article in cluster)
+    
     def clustering(self):
         self.initializeClusters()
         
@@ -141,4 +148,4 @@ class HierarchicalClusterer:
                 
                 if self.clusterSimilarity(cluster, mostSimilarCluster) > self.threshold:
                     self.mergeClusters(id, mostSimilarId)
-                    
+        self.saveClusters()

@@ -148,5 +148,6 @@ class HierarchicalClusterer:
                 
                 
                 if self.clusterSimilarity(cluster, mostSimilarCluster) > self.threshold:
+                    print "merge {0} and {1}".format(id, mostSimilarId)
                     self.mergeClusters(id, mostSimilarId)
         self.saveClusters()

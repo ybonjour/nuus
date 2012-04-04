@@ -142,7 +142,7 @@ class HierarchicalClusterer:
         
         while len(self.nonEmptyClusters()) != oldLen:
             oldLen = len(self.nonEmptyClusters())
-            for (id,) in self.nonEmptyClusters():
+            for (id, _) in self.nonEmptyClusters():
                 cluster = self.clusters[id]
                 if self.clusters[id] == []: continue #might be empty if it was merged before
                 mostSimilarId, mostSimilarCluster = max(filter(lambda item: item[0] != id, self.nonEmptyClusters()),

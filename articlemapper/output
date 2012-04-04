@@ -1,0 +1,134 @@
+centroids:
+Article 49, Feed1
+Article 29, Feed1
+Article 77, Feed4
+Article 53, Feed2
+next iteration
+article 1 for centroid 49 has similarity 1.0
+article 1 for centroid 29 has similarity 1.0
+article 1 for centroid 77 has similarity 0.0
+article 1 for centroid 53 has similarity 0.0
+assignend article 1 to cluster 63(49), with similarity 1.0
+article 11 for centroid 49 has similarity 1.0
+article 11 for centroid 29 has similarity 1.0
+article 11 for centroid 77 has similarity 0.0
+article 11 for centroid 53 has similarity 0.0
+assignend article 11 to cluster 63(49), with similarity 1.0
+article 13 for centroid 49 has similarity 1.0
+article 13 for centroid 29 has similarity 1.0
+article 13 for centroid 77 has similarity 0.0
+article 13 for centroid 53 has similarity 0.0
+assignend article 13 to cluster 63(49), with similarity 1.0
+article 23 for centroid 49 has similarity 1.0
+article 23 for centroid 29 has similarity 1.0
+article 23 for centroid 77 has similarity 0.0
+article 23 for centroid 53 has similarity 0.0
+assignend article 23 to cluster 63(49), with similarity 1.0
+article 29 for centroid 49 has similarity 1.0
+article 29 for centroid 29 has similarity 1.0
+article 29 for centroid 77 has similarity 0.0
+article 29 for centroid 53 has similarity 0.0
+assignend article 29 to cluster 63(49), with similarity 1.0
+article 41 for centroid 49 has similarity 1.0
+article 41 for centroid 29 has similarity 1.0
+article 41 for centroid 77 has similarity 0.0
+article 41 for centroid 53 has similarity 0.0
+assignend article 41 to cluster 63(49), with similarity 1.0
+article 43 for centroid 49 has similarity 1.0
+article 43 for centroid 29 has similarity 1.0
+article 43 for centroid 77 has similarity 0.0
+article 43 for centroid 53 has similarity 0.0
+assignend article 43 to cluster 63(49), with similarity 1.0
+article 49 for centroid 49 has similarity 1.0
+article 49 for centroid 29 has similarity 1.0
+article 49 for centroid 77 has similarity 0.0
+article 49 for centroid 53 has similarity 0.0
+assignend article 49 to cluster 63(49), with similarity 1.0
+article 53 for centroid 49 has similarity 0.0
+article 53 for centroid 29 has similarity 0.0
+article 53 for centroid 77 has similarity 0.0
+article 53 for centroid 53 has similarity 1.0
+assignend article 53 to cluster 61(53), with similarity 1.0
+article 59 for centroid 49 has similarity 0.0
+article 59 for centroid 29 has similarity 0.0
+article 59 for centroid 77 has similarity 0.0
+article 59 for centroid 53 has similarity 1.0
+assignend article 59 to cluster 61(53), with similarity 1.0
+article 61 for centroid 49 has similarity 0.0
+article 61 for centroid 29 has similarity 0.0
+article 61 for centroid 77 has similarity 0.0
+article 61 for centroid 53 has similarity 0.0
+assignend article 61 to cluster 61(53), with similarity 0.0
+article 67 for centroid 49 has similarity 0.0
+article 67 for centroid 29 has similarity 0.0
+article 67 for centroid 77 has similarity 0.0
+article 67 for centroid 53 has similarity 0.0
+assignend article 67 to cluster 61(53), with similarity 0.0
+article 71 for centroid 49 has similarity 0.0
+article 71 for centroid 29 has similarity 0.0
+article 71 for centroid 77 has similarity 0.0
+article 71 for centroid 53 has similarity 0.0
+assignend article 71 to cluster 60(77), with similarity 0.0
+article 73 for centroid 49 has similarity 0.0
+article 73 for centroid 29 has similarity 0.0
+article 73 for centroid 77 has similarity 0.0
+article 73 for centroid 53 has similarity 0.0
+assignend article 73 to cluster 63(49), with similarity 0.0
+article 77 for centroid 49 has similarity 0.0
+article 77 for centroid 29 has similarity 0.0
+article 77 for centroid 77 has similarity 1.0
+article 77 for centroid 53 has similarity 0.0
+assignend article 77 to cluster 60(77), with similarity 1.0
+article 83 for centroid 49 has similarity 0.0
+article 83 for centroid 29 has similarity 0.0
+article 83 for centroid 77 has similarity 1.0
+article 83 for centroid 53 has similarity 0.0
+assignend article 83 to cluster 60(77), with similarity 1.0
+article 89 for centroid 49 has similarity 0.0
+article 89 for centroid 29 has similarity 0.0
+article 89 for centroid 77 has similarity 1.0
+article 89 for centroid 53 has similarity 0.0
+assignend article 89 to cluster 60(77), with similarity 1.0
+article 91 for centroid 49 has similarity 0.0
+article 91 for centroid 29 has similarity 0.0
+article 91 for centroid 77 has similarity 1.0
+article 91 for centroid 53 has similarity 0.0
+assignend article 91 to cluster 60(77), with similarity 1.0
+article 97 for centroid 49 has similarity 0.0
+article 97 for centroid 29 has similarity 0.0
+article 97 for centroid 77 has similarity 1.0
+article 97 for centroid 53 has similarity 0.0
+assignend article 97 to cluster 60(77), with similarity 1.0
+article 103 for centroid 49 has similarity 0.0
+article 103 for centroid 29 has similarity 0.0
+article 103 for centroid 77 has similarity 1.0
+article 103 for centroid 53 has similarity 0.0
+assignend article 103 to cluster 60(77), with similarity 1.0
+determine for cluster 62
+maxSimilarity: 0.0
+determine for cluster 63
+next article
+next article
+next article
+next article
+next article
+next article
+next article
+next article
+next article
+maxSimilarity: 7.0
+determine for cluster 61
+next article
+next article
+next article
+next article
+maxSimilarity: 1.0
+determine for cluster 60
+next article
+next article
+next article
+next article
+next article
+next article
+next article
+maxSimilarity: 5.0

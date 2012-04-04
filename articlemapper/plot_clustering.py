@@ -26,7 +26,7 @@ try:
         clusterNr += 10
     ax.set_title('Clusters')
     plt.savefig('clusters.png')
-    plt.show()
+    #plt.show()
     
 finally:
     db.close()

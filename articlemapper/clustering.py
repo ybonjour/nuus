@@ -128,6 +128,7 @@ class HierarchicalClusterer:
         return filter(lambda item: item[1] != [], self.clusters.items())
     
     def saveClusters(self):
+        print len(self.nonEmptyClusters())
         self.db.manipulationQuery("UPDATE article SET Cluster=NULL")
         self.db.manipulationQuery("DELETE FROM cluster")
         for id, cluster in self.nonEmptyClusters():

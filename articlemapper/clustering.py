@@ -1,4 +1,5 @@
 from similarity import Similarity
+from random import randint
 from random import choice
 from collections import namedtuple
 
@@ -21,8 +22,15 @@ class Clusterer:
         self.db.manipulationQuery("UPDATE article SET cluster=NULL")
         self.db.manipulationQuery("DELETE FROM cluster")
         while len(self.centroids) < self.k:
-            query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article ORDER BY rand() LIMIT 1"
-            article = Article._make(self.db.uniqueQuery(query))
+            min = self.db.uniqueScalarOrZero("SELECT MIN(Id) FROM article")
+            max = self.db.uniqueScalarOrZero("SELECT MAX(Id) FROM article")
+            id = randint(min, max)
+            
+            count = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article WHERE Id=%s", id)
+            if count == 0: continue            
+            
+            query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Id=%s"
+            article = Article._make(self.db.uniqueQuery(query, id))
             if article.id in self.centroids.keys(): continue
             self.centroids[article.id] = article
             self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", article.id)

@@ -44,7 +44,7 @@ class Clusterer:
             query = "SELECT Id, Title, content, Feed, Updated, Language FROM article WHERE Id=%s"
             articleItem = self.db.uniqueQuery(query, articleId)
             self.articles[articleId] = Article._make(articleItem)
-        return self.articles[articleId]    
+        return self.articles[articleId]
     
     def determineNewCentroid(self, clusterId):
         numArticlesInCluster = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article WHERE Cluster=%s", clusterId)
@@ -56,9 +56,9 @@ class Clusterer:
                 averageWordImportance[word] = averageWordImportance.get(word, 0) + (float(importance)/numArticlesInCluster)
         
         #article in cluster with minimal distance to average
-        articleQuery = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Cluster=%s"
-        return min((Article._make(row) for row in self.db.iterQuery(articleQuery, clusterId)),
-                    key=lambda article: self.similarity.similarityToAverage(article, averageWordImportance))
+        return min((Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)),
+            key=lambda article: similarity.distanceToAverage(article, averageWordImportance))
+            
 
     def updateCentroids(self):
         changed = False

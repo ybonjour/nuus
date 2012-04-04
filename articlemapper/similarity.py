@@ -29,6 +29,14 @@ class Similarity:
     def l2Norm(self, vector):
         return sqrt(float(sum(pow(value, 2) for value in vector)))
     
+    def distance(self, wordImportanceDict1, wordImportanceDict2):
+        unionWordSet = set(wordImportanceDict1.keys()) | set(wordImportanceDict2.keys())
+        difference = dict((wordId, wordSet1.get(wordId, 0)-wordSet2.get(wordId, 0)) for wordId in unionWordSet)
+        return self.l2Norm(differece)
+    
+    def distanceToAverage(self, article, averageWordImportanceDict):
+        return self.distance(self.wordImportanceDict(article), averageWordImportanceDict)
+    
     def similarity(self, wordImportanceDictionary1, wordImportanceDictionary2):
         words1 = set(wordImportanceDictionary1.keys())
         words2 = set(wordImportanceDictionary2.keys())
@@ -43,9 +51,6 @@ class Similarity:
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"
         return dict((wordId, self.termWeight(wordId, article.id)) for (wordId, ) in self.db.iterQuery(query, article.id))
-
-    def similarityToAverage(self, article, averageWordImportance):
-        return self.similarity(self.wordImportanceDict(article), averageWordImportance)
     
     def articleSimilarity(self, article1, article2):
         return self.similarity(self.wordImportanceDict(article1), self.wordImportanceDict(article2))

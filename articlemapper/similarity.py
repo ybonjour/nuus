@@ -48,6 +48,9 @@ class Similarity:
         
         return float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
+    def similarityToVector(self, article, wordImportanceDict):
+        return self.similarity(self.wordImportanceDict(article), wordImportanceDict)
+        
     def wordImportanceDict(self, article):
         query = "SELECT Word FROM word_index WHERE Article=%s"
         return dict((wordId, self.termWeight(wordId, article.id)) for (wordId, ) in self.db.iterQuery(query, article.id))

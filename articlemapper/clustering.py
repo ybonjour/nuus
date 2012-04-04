@@ -63,9 +63,13 @@ class Clusterer:
             for word, importance in self.similarity.wordImportanceDict(article).items():
                 averageWordImportance[word] = averageWordImportance.get(word, 0) + (float(importance)/numArticlesInCluster)
         
+        #print averageWordImportance
+        
         #article in cluster with minimal distance to average
-        return min((Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)),
-            key=lambda article: self.similarity.distanceToVector(article, averageWordImportance))
+        return max((Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)),
+                    key=lambda article: self.similarity.similarityToVector(article, averageWordImportance))
+        # return min((Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)),
+            # key=lambda article: self.similarity.distanceToVector(article, averageWordImportance))
             
 
     def updateCentroids(self):

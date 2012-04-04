@@ -132,7 +132,7 @@ class HierarchicalClusterer:
         self.db.manipulationQuery("UPDATE article SET Cluster=NULL")
         self.db.manipulationQuery("DELETE FROM cluster")
         for id, cluster in self.nonEmptyClusters():
-            clusterId = self.db.insertQuery("INSERT INTO cluster (Centroid) VLAUES(%s)", cluster[0].id)
+            clusterId = self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", cluster[0].id)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id IN (%s)", clusterId, ",".join(article.id for article in cluster))
     
     def clustering(self):

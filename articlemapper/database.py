@@ -57,8 +57,7 @@ class Database:
             return row[0]
         finally:
             cursor.close()
-    
-    
+
     def iterQuery(self, query, parameters=None):
         if not self.isConnected():
             raise Exception

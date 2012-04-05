@@ -37,7 +37,7 @@ class Clusterer:
         for (articleId,) in self.db.iterQuery("SELECT Id FROM article"):
             bestCentroid = max(self.centroids, key=lambda centroid: self.similarity.articleSimilarity(centroid, articleId))
             
-            if article.id in self.centroids:
+            if articleId in self.centroids:
                 print "Got a centroid {0}, assigned to {1}: {2}".format(articleId, bestCentroid, self.similarity.articleSimilarity(bestCentroid, articleId))
             
             clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid)

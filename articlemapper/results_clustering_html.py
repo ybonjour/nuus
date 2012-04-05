@@ -8,16 +8,16 @@ def htmlSimilarityMatrix(db, similarity):
     html += "<tr>"
     for article in articles:
         print article
-        html += "<td>" + str(article) + "</td>"
+        html += "<td>{0}</td>".format(article)
     html += "</tr>"
     
     
     for article1 in articles:
         print article1
-        html += "<tr><td>" + str(article1) + "</td>"
+        html += "<tr><td>{0}</td>".format(article1)
         for article2 in articles:
             print article2
-            html += "<td>" + str(similarity.articleSimilarity(article1, article2)) + "</td>"
+            html += "<td>{0:2f}</td>".format(similarity.articleSimilarity(article1, article2))
         html += "</tr>"
     html += "</table>"
     return html
@@ -25,8 +25,8 @@ def htmlSimilarityMatrix(db, similarity):
 def htmlClusters(db, similarity):
     html = "<table>"
     for (cluster,) in db.iterQuery("SELECT id FROM cluster"):
-        html += "<tr><td>str(cluster)</td>"
-        html += ",".join(str(article) for (article,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", cluster))
+        html += "<tr><td>{0}</td>".format(cluster)
+        html += "<td>{0}</td>".format(",".join(str(article) for (article,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", cluster)))
         html += "</tr>"
     html += "</table>"
     return html

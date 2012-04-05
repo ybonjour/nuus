@@ -110,6 +110,27 @@ class HierarchicalClusterer:
     def clustering(self):
         self.initializeClusters()
         
+        merged = True
+        while merged:
+            maxSimilarity = 0
+            maxSimilarClusterIds = None
+            for (clusterId1,cluster1) in self.nonEmptyClusters():
+                for (clusterId2,cluster2) in self.nonEmptyClusters():
+                    if clusterId1 > clusterId2: continue
+                    print "."
+                    similarity = self.clusterSimilarity(cluster1, cluster2)
+                    if similarity > maxSimilarity:
+                        maxSimilarity = similarity
+                        maxSimilarClusterIds = (clusterId1, clusterId2)
+            
+            if maxSimilarityClusterIds != None and maxSimilarity > self.threshold:
+                self.mergeClusters(maxSimilarClusterIds[0], maxSimilarClusterIds[1])
+                merged = True
+        self.saveClusters()
+        
+    def clustering_olds(self):
+        self.initializeClusters()
+        
         oldLen = len(self.nonEmptyClusters()) + 1
         merged = True
         while merged and len(self.nonEmptyClusters()) > 1:

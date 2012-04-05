@@ -136,11 +136,10 @@ class HierarchicalClusterer:
             print [article.id for article in cluster]
             clusterId = self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", id)
             print "Cluster id: {0}".format(clusterId)
-            articleIds = [str(article.id) for article in cluster]
             format_strings = ','.join(['%s']*len(articleIds))
+            articleIds = [str(article.id) for article in cluster]
             updateQuery = "UPDATE article SET Cluster=%s WHERE Id IN ({0})".format(format_strings)
-            print updateQuery
-            self.db.manipulationQuery(updateQuery, (clusterId, tuple(articleIds)))
+            self.db.manipulationQuery(updateQuery, (clusterId,)+tuple(articleIds))
     
     def clustering(self):
         self.initializeClusters()

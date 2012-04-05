@@ -7,7 +7,7 @@ db.connect()
 try:
     similarity = similarity.Similarity(db)
     #clusterer = clustering.Clusterer(similarity, db, 4)
-    clusterer = clustering.HierarchicalClusterer(similarity, db, 0.05)
+    clusterer = clustering.HierarchicalClusterer(similarity, db, 0.07)
     clusterer.clustering()
 
     db.commit()

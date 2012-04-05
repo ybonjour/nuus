@@ -89,7 +89,7 @@ class HierarchicalClusterer:
         self.clusters[clusterId2] = []
     
     def clusterSimilarity(self, cluster1, cluster2):               
-        return self.similarity.similarity(self.similarity.averrageWordImportanceDict(cluster1), self.similarity.averrageWordImportanceDict(cluster2))           
+        return self.similarity.similarity(self.similarity.averageWordImportanceDict(cluster1), self.similarity.averageWordImportanceDict(cluster2))           
     
     def nonEmptyClusters(self):
         return filter(lambda item: item[1] != [], self.clusters.items())

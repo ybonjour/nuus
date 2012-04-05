@@ -58,7 +58,7 @@ class Similarity:
     def articleSimilarity(self, articleId1, articleId2):
         return self.similarity(self.wordImportanceDict(articleId1), self.wordImportanceDict(articleId2))
         
-    def averrageWordImportanceDict(self, articleIds):
+    def averageWordImportanceDict(self, articleIds):
         averageWordImportance = {}
         for article in articleIds:
             for word, importance in self.wordImportanceDict(article).items():

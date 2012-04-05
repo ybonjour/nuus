@@ -16,15 +16,14 @@ try:
     clusterNr = 1
     for (clusterId, centroid) in db.iterQuery("SELECT Id, Centroid FROM cluster"):
         zeroVector = {}
-        query = "SELECT Id, Title, content, Feed, Updated, Language FROM article WHERE Cluster=%s"
-        distances = [similarity.distanceToVector(article, zeroVector) for article in
-                    (Article._make(articleItem) for articleItem in db.iterQuery(query, clusterId))]
+        query = "SELECT Id FROM article WHERE Cluster=%s"
+        distances = [similarity.distanceToVector(article, zeroVector) for (article,) in db.iterQuery(query, clusterId))]
 
         ax.plot([clusterNr]*len(distances), distances, 'o')
         
         #Plot centroid
-        centroidQuery = "SELECT Id, Title, content, Feed, Updated, Language FROM article WHERE Id=%s"
-        centroid = Article._make(db.uniqueQuery(centroidQuery, centroid))
+        centroidQuery = "SELECT Id FROM article WHERE Id=%s"
+        centroid = db.uniqueQuery(centroidQuery, centroid)
         ax.plot([clusterNr], [similarity.distanceToVector(centroid, zeroVector)], '-o')
 
         clusterNr += 10

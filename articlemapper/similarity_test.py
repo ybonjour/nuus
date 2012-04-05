@@ -7,15 +7,8 @@ def testTwoArticles(articleId1, articleId2):
     db = Database()
     db.connect()
     try:
-        s = Similarity(db)
-        
-        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Id=%s"
-        
-        #query twice in order to be able to compare the identical article
-        article1 = Article._make(db.uniqueQuery(query, articleId1))
-        article2 = Article._make(db.uniqueQuery(query, articleId2))
-        
-        print s.articleSimilarity(article1, article2)
+        s = Similarity(db)        
+        print s.articleSimilarity(articleId1, articleId2)
     finally:
         db.close()
 
@@ -23,20 +16,15 @@ def testAllArticles():
     db = Database()
     db.connect()
     try:
-        s = Similarity(db)
-        
-        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article"
-        
-        articles =[Article._make(articleItem) for articleItem in db.iterQuery(query)]
-        
+        s = Similarity(db)        
         maxSimilarity = 0.0
         minSimilarity = 1.0
         sumSimilarity = 0.0
         articleCount = 0
-        for article1 in articles:
-            for article2 in articles:
-                if article1.id <= article2.id: continue
-                similarity = s.articleSimilarity(article1, article2)
+        for (articleId1,) in db.iterQuery("SELECT Id FROM article"):
+            for (articleId2,) in db.iterQuery("SELECT Id FROM article"):
+                if articleId1 <= articleId2: continue
+                similarity = s.articleSimilarity(articleId1, articleId2)
                 sumSimilarity += similarity
                 articleCount += 1
                 maxSimilarity = max(maxSimilarity, similarity)

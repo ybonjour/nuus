@@ -34,8 +34,8 @@ class Similarity:
         difference = dict((wordId, wordImportanceDict1.get(wordId, 0)-wordImportanceDict2.get(wordId, 0)) for wordId in unionWordSet)
         return self.l2Norm(difference)
     
-    def distanceToVector(self, article, averageWordImportanceDict):
-        return self.distance(self.wordImportanceDict(article), averageWordImportanceDict)
+    def distanceToVector(self, articleId, averageWordImportanceDict):
+        return self.distance(self.wordImportanceDict(articleId), averageWordImportanceDict)
     
     def similarity(self, wordImportanceDictionary1, wordImportanceDictionary2):
         words1 = set(wordImportanceDictionary1.keys())
@@ -48,12 +48,12 @@ class Similarity:
         
         return float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
-    def similarityToVector(self, article, wordImportanceDict):
-        return self.similarity(self.wordImportanceDict(article), wordImportanceDict)
+    def similarityToVector(self, articleId, wordImportanceDict):
+        return self.similarity(self.wordImportanceDict(articleId), wordImportanceDict)
         
-    def wordImportanceDict(self, article):
+    def wordImportanceDict(self, articleId):
         query = "SELECT Word FROM word_index WHERE Article=%s"
-        return dict((wordId, self.termWeight(wordId, article.id)) for (wordId, ) in self.db.iterQuery(query, article.id))
+        return dict((wordId, self.termWeight(wordId, articleId)) for (wordId, ) in self.db.iterQuery(query, articleId))
     
-    def articleSimilarity(self, article1, article2):
-        return self.similarity(self.wordImportanceDict(article1), self.wordImportanceDict(article2))
+    def articleSimilarity(self, articleId1, articleId2):
+        return self.similarity(self.wordImportanceDict(articleId1), self.wordImportanceDict(articleId2))

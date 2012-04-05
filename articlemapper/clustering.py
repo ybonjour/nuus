@@ -14,7 +14,7 @@ class Clusterer:
     def __init__(self, similarity, db, k):
         self.similarity = similarity
         self.db = db
-        self.centroids = {}
+        self.centroids = []
         self.k = k
         self.articles = {}
         
@@ -24,70 +24,54 @@ class Clusterer:
         while len(self.centroids) < self.k:
             min = self.db.uniqueScalarOrZero("SELECT MIN(Id) FROM article")
             max = self.db.uniqueScalarOrZero("SELECT MAX(Id) FROM article")
-            id = randint(min, max)
+            id = randint(min, max)       
             
-            count = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article WHERE Id=%s", id)
-            if count == 0: continue            
+            articleId = self.db.uniqueScalarOrZero("SELECT Id FROM article WHERE Id=%s", id)
+            if articleId == 0 or articleId in self.centroids: continue
             
-            query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Id=%s"
-            article = Article._make(self.db.uniqueQuery(query, id))
-            if article.id in self.centroids.keys(): continue
-            self.centroids[article.id] = article
-            self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", article.id)
+            self.centroids.append(articleId)
+            self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", articleId)
             
     def assignArticlesToCluster(self):
         query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article"
-        for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query)):
-            bestCentroid = max(self.centroids.values(), key=lambda centroid: self.similarity.articleSimilarity(centroid, article))
+        for (articleId,) in self.db.iterQuery("SELECT Id FROM article"):
+            bestCentroid = max(self.centroids, key=lambda centroid: self.similarity.articleSimilarity(centroid, articleId))
             
             if article.id in self.centroids:
-                print "Got a centroid {0}, assigned to {1}: {2}".format(article.id, bestCentroid.id, self.similarity.articleSimilarity(bestCentroid, article))
+                print "Got a centroid {0}, assigned to {1}: {2}".format(articleId, bestCentroid, self.similarity.articleSimilarity(bestCentroid, articleId))
             
-            clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid.id)
-            self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
-            self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, article.id))
-    
-    def getArticle(self, articleId):
-        if not article in self.articles:
-            query = "SELECT Id, Title, content, Feed, Updated, Language FROM article WHERE Id=%s"
-            articleItem = self.db.uniqueQuery(query, articleId)
-            self.articles[articleId] = Article._make(articleItem)
-        return self.articles[articleId]
+            clusterId = self.db.uniqueScalarOrZero("SELECT Id FROM cluster WHERE Centroid=%s", bestCentroid)
+            self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id=%s", (clusterId, articleId))
     
     def determineNewCentroid(self, clusterId):
         numArticlesInCluster = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article WHERE Cluster=%s", clusterId)
         
         averageWordImportance = {}
-        query = "SELECT Id, Title, Content, Feed, Updated, Language FROM article WHERE Cluster=%s"
-        for article in (Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)):
-            for word, importance in self.similarity.wordImportanceDict(article).items():
+        
+        for (articleId,) in self.db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId):
+            for word, importance in self.similarity.wordImportanceDict(articleId).items():
                 averageWordImportance[word] = averageWordImportance.get(word, 0) + (float(importance)/numArticlesInCluster)
-        
-        #print averageWordImportance
-        
-        #article in cluster with minimal distance to average
-        return max((Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)),
-                    key=lambda article: self.similarity.similarityToVector(article, averageWordImportance))
-        # return min((Article._make(articleItem) for articleItem in self.db.iterQuery(query, clusterId)),
-            # key=lambda article: self.similarity.distanceToVector(article, averageWordImportance))
+                
+        return max((id for (id,) in self.db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)),
+                    key=lambda articleId: self.similarity.similarityToVector(articleId, averageWordImportance))
             
 
     def updateCentroids(self):
         changed = False
-        for clusterId, oldCentroidId in self.db.iterQuery("SELECT Id, Centroid FROM cluster"):
-            oldCentroid = self.centroids.pop(oldCentroidId)
+        for clusterId, oldCentroid in self.db.iterQuery("SELECT Id, Centroid FROM cluster"):
+            self.centroids.remove(oldCentroid)
             centroid = self.determineNewCentroid(clusterId)
-            self.centroids[centroid.id] = centroid
-            self.db.manipulationQuery("UPDATE cluster SET Centroid=%s WHERE Id=%s", (centroid.id, clusterId))
-            if oldCentroidId != centroid.id: print "centroid changed from {0} to {1}".format(oldCentroidId, centroid.id)
-            changed |= (oldCentroidId != centroid.id)
+            self.centroids.append(centroid)
+            self.db.manipulationQuery("UPDATE cluster SET Centroid=%s WHERE Id=%s", (centroid, clusterId))
+            if oldCentroid != centroid: print "centroid changed from {0} to {1}".format(oldCentroid, centroid)
+            changed |= (oldCentroid != centroid)
         return changed 
     
     def clustering(self):
         self.initializeCentroids()
         print "centroids:"
-        for centroid in self.centroids.values():
-            print "Article {0}, Feed{1}".format(centroid.id, centroid.feedId)
+        for centroid in self.centroids:
+            print "Article {0}".format(centroid)
         
         changed = True
         while changed:
@@ -104,8 +88,8 @@ class HierarchicalClusterer:
         self.threshold = threshold
     
     def initializeClusters(self):
-        for article in (Article._make(articleItem) for articleItem in self.db.iterQuery("SELECT Id, Title, Content, Feed, Updated, Language FROM article")):
-            self.clusters[article.id] = [article]
+        for (articleId,) in self.db.iterQuery("SELECT Id FROM article"):
+            self.clusters[articleId] = [articleId]
     
     def mergeClusters(self, clusterId1, clusterId2):
         self.clusters[clusterId1].extend(self.clusters[clusterId2])
@@ -133,13 +117,12 @@ class HierarchicalClusterer:
         self.db.manipulationQuery("DELETE FROM cluster")
         for id, cluster in self.nonEmptyClusters():
             print "Identification: {0}".format(id)
-            print [article.id for article in cluster]
+            print cluster
             clusterId = self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", id)
             print "Cluster id: {0}".format(clusterId)
-            articleIds = [str(article.id) for article in cluster]
-            format_strings = ','.join(['%s']*len(articleIds))
+            format_strings = ','.join(['%s']*len(cluster))
             updateQuery = "UPDATE article SET Cluster=%s WHERE Id IN ({0})".format(format_strings)
-            self.db.manipulationQuery(updateQuery, (clusterId,)+tuple(articleIds))
+            self.db.manipulationQuery(updateQuery, (clusterId,)+tuple(cluster))
     
     def clustering(self):
         self.initializeClusters()

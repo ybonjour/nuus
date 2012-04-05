@@ -142,7 +142,7 @@ class HierarchicalClusterer:
         oldLen = len(self.nonEmptyClusters()) + 1
         
         while len(self.nonEmptyClusters()) != oldLen:
-            print [item[0] for item in self.nonEmptyClusters]
+            print [item[0] for item in self.nonEmptyClusters()]
             oldLen = len(self.nonEmptyClusters())
             for (id, _) in self.nonEmptyClusters():
                 cluster = self.clusters[id]

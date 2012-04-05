@@ -116,7 +116,7 @@ class HierarchicalClusterer:
             maxSimilarClusterIds = None
             for (clusterId1,cluster1) in self.nonEmptyClusters():
                 for (clusterId2,cluster2) in self.nonEmptyClusters():
-                    if clusterId1 > clusterId2: continue
+                    if clusterId1 >= clusterId2: continue
                     similarity = self.clusterSimilarity(cluster1, cluster2)
                     if similarity > maxSimilarity:
                         maxSimilarity = similarity

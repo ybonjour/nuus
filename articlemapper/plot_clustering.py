@@ -24,7 +24,7 @@ try:
         ax.plot([clusterNr]*len(similarities), similarities, 'o')
         
         #Plot average
-        average = similarity.averageWordImportanceDict((articleId for (articleId,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)))
+        average = similarity.averageWordImportanceDict(articleId for (articleId,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId))
         ax.plot([clusterNr], [similarity.similarity(average, totalAverage)], '-o')
         
         # centroidQuery = "SELECT Id FROM article WHERE Id=%s"

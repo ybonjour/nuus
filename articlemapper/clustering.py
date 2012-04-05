@@ -139,14 +139,16 @@ class HierarchicalClusterer:
             articleIds = [str(article.id) for article in cluster]
             format_strings = ','.join(['%s']*len(articleIds))
             updateQuery = "UPDATE article SET Cluster=%s WHERE Id IN ({0})".format(format_strings)
+            print updateQuery
             self.db.manipulationQuery(updateQuery, (clusterId, tuple(articleIds)))
     
     def clustering(self):
         self.initializeClusters()
         
         oldLen = len(self.nonEmptyClusters()) + 1
-        
-        while len(self.nonEmptyClusters()) != oldLen:
+        merged = True
+        while merged:
+            merged = False
             print [item[0] for item in self.nonEmptyClusters()]
             oldLen = len(self.nonEmptyClusters())
             for (id, _) in self.nonEmptyClusters():
@@ -156,6 +158,6 @@ class HierarchicalClusterer:
                                               key=lambda item: self.clusterSimilarity(item[1], cluster))
                 
                 if self.clusterSimilarity(cluster, mostSimilarCluster) > self.threshold:
-                    print "merge {0} and {1}".format(id, mostSimilarId)
                     self.mergeClusters(id, mostSimilarId)
+                    merged = True
         self.saveClusters()

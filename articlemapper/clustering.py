@@ -122,7 +122,7 @@ class HierarchicalClusterer:
                         maxSimilarity = similarity
                         maxSimilarClusterIds = (clusterId1, clusterId2)
             
-            if maxSimilarityClusterIds != None and maxSimilarity > self.threshold:
+            if maxSimilarClusterIds != None and maxSimilarity > self.threshold:
                 print "merge clusters {0] and {1}".format(maxSimilarClusterIds[0], maxSimilarClusterIds[1])
                 self.mergeClusters(maxSimilarClusterIds[0], maxSimilarClusterIds[1])
                 merged = True

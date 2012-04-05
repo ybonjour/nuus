@@ -23,7 +23,7 @@ try:
         
         #Plot centroid
         centroidQuery = "SELECT Id FROM article WHERE Id=%s"
-        centroid = db.uniqueQuery(centroidQuery, centroid)
+        centroid = db.uniqueScalarOrZero(centroidQuery, centroid)
         ax.plot([clusterNr], [similarity.distanceToVector(centroid, zeroVector)], '-o')
 
         clusterNr += 10

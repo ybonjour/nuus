@@ -14,7 +14,7 @@ try:
     similarity = Similarity(db)
     clusterNr = 1
     
-    totalAverage = similarity.averageWordImportanceDict(articleId for (articleId,) in db.iterQuery("SELECT id FROM article"))
+    totalAverage = similarity.averageWordImportanceDict([articleId for (articleId,) in db.iterQuery("SELECT id FROM article")])
     #zeroVector = {}
     for (clusterId, centroid) in db.iterQuery("SELECT Id, Centroid FROM cluster"):
         #distances = [similarity.distanceToVector(article, zeroVector) for (article,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)]

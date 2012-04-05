@@ -17,7 +17,7 @@ try:
     for (clusterId, centroid) in db.iterQuery("SELECT Id, Centroid FROM cluster"):
         zeroVector = {}
         query = "SELECT Id FROM article WHERE Cluster=%s"
-        distances = [similarity.distanceToVector(article, zeroVector) for (article,) in db.iterQuery(query, clusterId))]
+        distances = [similarity.distanceToVector(article, zeroVector) for (article,) in db.iterQuery(query, clusterId)]
 
         ax.plot([clusterNr]*len(distances), distances, 'o')
         

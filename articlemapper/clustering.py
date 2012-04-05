@@ -134,7 +134,7 @@ class HierarchicalClusterer:
         for id, cluster in self.nonEmptyClusters():
             print "Identification: {0}".format(id)
             clusterId = self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", id)
-            if clusterId == 0: print "ERRROR"
+            print "Cluster id: {0}".format(clusterId)
             self.db.manipulationQuery("UPDATE article SET Cluster=%s WHERE Id IN (%s)", (clusterId, ",".join(str(article.id) for article in cluster)))
     
     def clustering(self):

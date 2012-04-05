@@ -4,7 +4,6 @@ matplotlib.use('Agg')
 
 from matplotlib import pyplot as plt
 from database import Database
-from clustering import Article
 from similarity import Similarity
 
 db = Database()
@@ -16,15 +15,20 @@ try:
     clusterNr = 1
     for (clusterId, centroid) in db.iterQuery("SELECT Id, Centroid FROM cluster"):
         zeroVector = {}
-        query = "SELECT Id FROM article WHERE Cluster=%s"
-        distances = [similarity.distanceToVector(article, zeroVector) for (article,) in db.iterQuery(query, clusterId)]
-
-        ax.plot([clusterNr]*len(distances), distances, 'o')
         
-        #Plot centroid
-        centroidQuery = "SELECT Id FROM article WHERE Id=%s"
-        centroid = db.uniqueScalarOrZero(centroidQuery, centroid)
-        ax.plot([clusterNr], [similarity.distanceToVector(centroid, zeroVector)], '-o')
+        #distances = [similarity.distanceToVector(article, zeroVector) for (article,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)]
+        #ax.plot([clusterNr]*len(distances), distances, 'o')
+        
+        similarities = [similarity.similarityToVector(article, zeroVector) for (article,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)]
+        ax.plot([clusterNr]*len(similarities), similarities, 'o')
+        
+        #Plot average
+        average = similarity.averrageWordImportanceDict((articleId for (articleId,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)))
+        ax.plot([clusterNr], [similarity.similarity(average, zeroVector)], '-o')
+        
+        # centroidQuery = "SELECT Id FROM article WHERE Id=%s"
+        # centroid = db.uniqueScalarOrZero(centroidQuery, centroid)
+        # ax.plot([clusterNr], [similarity.distanceToVector(centroid, zeroVector)], '-o')
 
         clusterNr += 10
     ax.set_title('Clusters')

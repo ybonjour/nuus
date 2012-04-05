@@ -3,13 +3,6 @@ from random import randint
 from random import choice
 from collections import namedtuple
 
-Article = namedtuple('Article', ('id',
-                          'title',
-                          'content',
-                          'feedId',
-                          'updated',
-                          'language'))
-
 class Clusterer:
     def __init__(self, similarity, db, k):
         self.similarity = similarity
@@ -95,18 +88,8 @@ class HierarchicalClusterer:
         self.clusters[clusterId1].extend(self.clusters[clusterId2])
         self.clusters[clusterId2] = []
     
-    def clusterSimilarity(self, cluster1, cluster2):
-        averageWordImportance1 = {}
-        for article in cluster1:
-            for word, importance in self.similarity.wordImportanceDict(article).items():
-                averageWordImportance1[word] = averageWordImportance1.get(word, 0) + float(importance)/len(cluster1)
-        
-        averageWordImportance2 = {}
-        for article in cluster2:
-            for word, importance in self.similarity.wordImportanceDict(article).items():
-                averageWordImportance2[word] = averageWordImportance2.get(word, 0) + float(importance)/len(cluster2)
-                
-        return self.similarity.similarity(averageWordImportance1, averageWordImportance2)           
+    def clusterSimilarity(self, cluster1, cluster2):               
+        return self.similarity.similarity(self.similarity.averrageWordImportanceDict(cluster1), self.similarity.averrageWordImportanceDict(cluster2))           
     
     def nonEmptyClusters(self):
         return filter(lambda item: item[1] != [], self.clusters.items())

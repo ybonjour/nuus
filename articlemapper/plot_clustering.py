@@ -19,12 +19,12 @@ try:
     for (clusterId, centroid) in db.iterQuery("SELECT Id, Centroid FROM cluster"):
         #distances = [similarity.distanceToVector(article, zeroVector) for (article,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)]
         #ax.plot([clusterNr]*len(distances), distances, 'o')
-        
+
         similarities = [similarity.similarityToVector(article, totalAverage) for (article,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)]
         ax.plot([clusterNr]*len(similarities), similarities, 'o')
         
         #Plot average
-        average = similarity.averageWordImportanceDict(articleId for (articleId,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId))
+        average = similarity.averageWordImportanceDict([articleId for (articleId,) in db.iterQuery("SELECT Id FROM article WHERE Cluster=%s", clusterId)])
         ax.plot([clusterNr], [similarity.similarity(average, totalAverage)], '-o')
         
         # centroidQuery = "SELECT Id FROM article WHERE Id=%s"

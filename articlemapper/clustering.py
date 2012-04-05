@@ -129,7 +129,7 @@ class HierarchicalClusterer:
         
         oldLen = len(self.nonEmptyClusters()) + 1
         merged = True
-        while merged:
+        while merged or len(self.emptyClusters()) == 1:
             merged = False
             print [item[0] for item in self.nonEmptyClusters()]
             oldLen = len(self.nonEmptyClusters())

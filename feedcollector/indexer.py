@@ -8,7 +8,7 @@ class Indexer:
         #Word has a unique constraint on database,
         #-> ignore errror if it can not be inserted
         # as it then already exists and id = 0
-        id = db.insertQuery("INSERT IGNORE INTO word (Word) VALUES(%s)", word)
+        id = self.db.insertQuery("INSERT IGNORE INTO word (Word) VALUES(%s)", word)
         if id == 0: 
             id = self.db.uniqueScalarOrZero("SELECT Id FROM word WHERE Word=%s", word)
         return id
@@ -42,7 +42,7 @@ class Indexer:
     def indexArticleContent(self, articleId, content):
         self.indexText(articleId, content, 0)
         
-    def articleAlreadyIndexed(self articleId):
+    def articleAlreadyIndexed(self, articleId):
         count = self.db.uniqueScalarOrZero("SELECT COUNT(Id) FROM word_index WHERE Article=%s", articleId)
         return count > 0
 

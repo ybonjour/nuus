@@ -1,5 +1,6 @@
 from time import strftime
 import feedparser
+from bayesian_classifier import Classifier
 
 class Feedcollector:
     def __init__(self, db, classifier, indexer):
@@ -24,8 +25,8 @@ class Feedcollector:
                                            article.updated_parsed)))
 
     def determineLanguage(self, articleId):
-        article = self.db.uniqueQuery("SELECT Content FROM article WHERE Id=%s", articleId)
-        language = self.classifier.guessCategory(article[0])
+        (content, ) = self.db.uniqueQuery("SELECT Content FROM article WHERE Id=%s", articleId)
+        language = self.classifier.guessCategory(content)
         if language == Classifier.UNKNOWN_CATEGORY: language = "-"
         self.db.manipulationQuery("UPDATE article SET language=%s WHERE Id=%s", (language, articleId)) 
                                                  
@@ -36,9 +37,9 @@ class Feedcollector:
         self.indexer.indexArticle(id)
 
     def collect(self):
-        for feed in self.db.iterQuery("SELECT id, url FROM feed"):    
-            d = feedparser.parse(feed[1])
+        for id, url in self.db.iterQuery("SELECT id, url FROM feed"):    
+            d = feedparser.parse(url)
             query = "UPDATE feed SET Title=%s WHERE Id=%s"
-            self.db.manipulationQuery(query, (d.feed.title, feed[0]))
+            self.db.manipulationQuery(query, (d.feed.title, id))
             for article in d.entries:
-                self.handleArticle(article, feed[0])
+                self.handleArticle(article, id)

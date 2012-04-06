@@ -1,4 +1,4 @@
-from similarity import Similarity
+bbbbbbbbbbbbbbfrom similarity import Similarity
 from random import randint
 from random import choice
 from collections import namedtuple
@@ -61,7 +61,7 @@ class Clusterer:
         return changed 
     
     def clustering(self):
-        self.initializeCentroids()
+        self.initializeCentroids() 
         print "centroids:"
         for centroid in self.centroids:
             print "Article {0}".format(centroid)
@@ -104,7 +104,7 @@ class HierarchicalClusterer:
             updateQuery = "UPDATE article SET Cluster=%s WHERE Id IN ({0})".format(format_strings)
             self.db.manipulationQuery(updateQuery, (clusterId,)+tuple(cluster))
     
-    def clustering(self):
+    def clustering_new(self):
         self.initializeClusters()
         
         merged = True
@@ -127,7 +127,7 @@ class HierarchicalClusterer:
         self.saveClusters()
         print "Finished"
         
-    def clustering_olds(self):
+    def clustering(self):
         self.initializeClusters()
         
         oldLen = len(self.nonEmptyClusters()) + 1

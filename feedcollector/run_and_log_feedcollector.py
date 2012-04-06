@@ -1,14 +1,25 @@
 from timeit import Timer
 import datetime
-import feedcollector
-import database
+from feedcollector import Feedcollector
+from database import Database
+from bayesian_classifier import Classifier
+from indexer import Indexer
 
 def run():
-    feedCollector = feedcollector.Feedcollector()
-    feedCollector.collect()
+    db = Database()
+    db.connect()
+    try:
+        classifier = Classifier()
+        classifier.load("language_detection")
+        indexer = Indexer(db)
+        feedCollector = Feedcollector(db, classifier, indexer)
+        feedCollector.collect()
+        db.commit()
+    finally:
+        db.close()
 
 def getCounts():
-    db = database.Database()
+    db = Database()
     db.connect()
     try:
         article_count = db.uniqueScalarOrZero("SELECT COUNT(Id) FROM article")
@@ -19,8 +30,7 @@ def getCounts():
         db.close()
             
 if __name__ == '__main__':
-    log = open('log/collector.log', 'a')
-    try:
+    with open('log/collector.log', 'a') as log:
         now = str(datetime.datetime.now())
         log.write("--------------------------------\n")
         log.write("Started: {0}\n".format(now))
@@ -35,6 +45,3 @@ if __name__ == '__main__':
         log.write("Added {0} articles, {1} words, {2} indices\n".format(count_after[0]-count_before[0],
                                                                      count_after[1]-count_before[1],
                                                                      count_after[2]-count_before[2]))
-    finally:
-        log.close()
-

@@ -10,9 +10,7 @@ def removeHtmlTags(data):
 def getWordList(text):
     text = removeHtmlTags(text)
     tokenizer = nltk.tokenize.WordPunctTokenizer()
-    words = tokenizer.tokenize(text)
-    return words
+    return tokenizer.tokenize(text)
     
 def containsLetters(word):
     return re.search("[a-zA-Z]+", word)
-    

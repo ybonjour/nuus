@@ -99,10 +99,7 @@ class HierarchicalClusterer:
         self.db.manipulationQuery("UPDATE article SET Cluster=NULL")
         self.db.manipulationQuery("DELETE FROM cluster")
         for id, cluster in self.nonEmptyClusters():
-            print "Identification: {0}".format(id)
-            print cluster
             clusterId = self.db.insertQuery("INSERT INTO cluster (Centroid) VALUES(%s)", id)
-            print "Cluster id: {0}".format(clusterId)
             format_strings = ','.join(['%s']*len(cluster))
             updateQuery = "UPDATE article SET Cluster=%s WHERE Id IN ({0})".format(format_strings)
             self.db.manipulationQuery(updateQuery, (clusterId,)+tuple(cluster))
@@ -117,7 +114,6 @@ class HierarchicalClusterer:
             for (clusterId1,cluster1) in self.nonEmptyClusters():
                 for (clusterId2,cluster2) in self.nonEmptyClusters():
                     if clusterId1 >= clusterId2: continue
-                    print clusterId2
                     similarity = self.clusterSimilarity(cluster1, cluster2)
                     if similarity > maxSimilarity:
                         maxSimilarity = similarity
@@ -127,7 +123,9 @@ class HierarchicalClusterer:
                 print "merge clusters {0} and {1}".format(maxSimilarClusterIds[0], maxSimilarClusterIds[1])
                 self.mergeClusters(maxSimilarClusterIds[0], maxSimilarClusterIds[1])
                 merged = True
+        print "Save clusters"
         self.saveClusters()
+        print "Finished"
         
     def clustering_olds(self):
         self.initializeClusters()

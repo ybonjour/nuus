@@ -1,4 +1,4 @@
-bbbbbbbbbbbbbbfrom similarity import Similarity
+from similarity import Similarity
 from random import randint
 from random import choice
 from collections import namedtuple

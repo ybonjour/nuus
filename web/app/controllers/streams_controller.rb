@@ -1,4 +1,4 @@
-class StreamsController < ActionController::Base
+class StreamsController < ApplicationController
   
   def index
     

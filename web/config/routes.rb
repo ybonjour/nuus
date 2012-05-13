@@ -2,6 +2,10 @@ Web::Application.routes.draw do
   
   root :to => 'sessions#create'
 
+  get "log_out" => "sessions#destroy", :as => "log_out"
+  get "log_in" => "sessions#new", :as => "log_in"
+  get "sign_up" => "users#new", :as => "sign_up"
+  
   resources :sessions, :only => [:create]
   resources :users, :only => [:new, :create]
   resources :streams, :only => [:index]

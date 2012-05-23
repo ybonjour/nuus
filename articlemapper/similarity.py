@@ -48,6 +48,9 @@ class Similarity:
         
         return float(scalarProduct) / (self.l2Norm(wordImportanceDictionary1.values())*self.l2Norm(wordImportanceDictionary2.values()))
 
+    def clusterSimilarity(self, articleIds1, articleIds2):
+        return self.similarity(self.averageWordImportanceDict(articleIds1), self.averageWordImportanceDict(articleIds2))
+        
     def similarityToVector(self, articleId, wordImportanceDict):
         return self.similarity(self.wordImportanceDict(articleId), wordImportanceDict)
         

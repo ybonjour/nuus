@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<style type="text/css">
+	#streamtitle
+	{
+		font-weight:bold;
+		font-size:18pt;
+		padding:2px;
+		border: 2px solid #AAA;
+		background
+	}
+	
+	.stream_entry
+	{
+		color:#BBB;
+		background-color:#EEE;
+		padding: 5px;
+		border: 1px solid #BBB;
+	}
+	
+	.stream_entry_selected
+	{ 
+		padding: 5px;
+		border: 1px solid #888;
+		font-weight:bold;
+	}
+	
+	
+	#article
+	{
+		padding:20px;
+	}
+	
+	#articlebar
+	{
+		background-color:#EEE;
+		width:100%;
+		height:20px;
+		padding:5px;
+	}
+</style>
+<link rel="stylesheet" href="jqx.base.css" type="text/css" />
+<script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+<script type="text/javascript" src="jqxcore.js"></script>
+<script type="text/javascript" src="jqxsplitter.js"></script>
+<script type="text/javascript" src="jqxpanel.js"></script>
+<script type="text/javascript" src="jqxscrollbar.js"></script>
+<script type="text/javascript" src="jqxbuttons.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$('#container').jqxSplitter({height: $(document).height(), panels: [{ size: 200}, { size: 450}] });
+	$('#stream > div').click(function() {
+		$('.stream_entry_selected').removeClass("stream_entry_selected").addClass("stream_entry");
+		$(this).removeClass("stream_entry").addClass("stream_entry_selected");
+	});
+});
+</script>
+</head>
+<body class='default'>
+<div id="container">
+	<div id="streambox">
+		<div id="streamtitle">
+			nuus Stream
+		</div>
+		<div id="stream">
+			<div class="stream_entry">
+				Gr&ouml;sste Nacht-Demo seit 1987
+			</div>
+			<div class="stream_entry_selected">
+				Bern ist im Lauf-Fieber
+			</div>
+			<div class="stream_entry">
+				Autofahrer stirbt nach Frontalkollision
+			</div>
+			<div class="stream_entry">
+				Wildh&uuml;ter finden m&ouml;gliches Panther-Haar
+			</div>
+		</div>
+	</div>
+	<div id="articlebox">
+		<div id="articlebar">
+			Favorit&nbsp;
+		</div>
+		<div id="article">
+			<h1>Bern ist im Lauf-Fieber</h1>
+			Wie auch im Vorjahr wird der diesjährige Grand-Prix von Regen heimgesucht. Bei Temperaturen um die 13 Grad heisst es am Samstag für 29'107 Läufer «Gring abe und seckle».
+			Für die Königsdiziplin des 10-Meilen-Laufes haben sich 15'839 Läufer angemeldet, wie die Organisation am Donnerstag mitteilte. Darauf folgt der Altstadt-GP mit 8102 Teilnehmenden, der Bären-GP mit 4386 und 780 Walkerinnen und Walker.
+			<br/><b>Schweizer Hoffnungen</b><br/>
+			Alle Hoffnungen auf einen Schweizer Sieg am GP liegen beim Innerschweizer Viktor Röthlin. «Ich werde nichts unversucht lassen. Die Strecke liegt mir, und auch der Zeitpunkt ist ideal.», so Röthlin im Interview vom 10.Mai. Daniel Chebii dürfte Röthlin den Sieg am ehesten streitig machen. Der Kenianer lief 2010 zuoberst aufs Podest und gewann 2011 erneut mit dem Rekordvorsprung von beinahe einer Minute.
+			Im Frauenrennen gilt die 27-jährige Kenianerin Caroline Chepkwony als Favoritin. Due Bernerin Maja Neuenschwander, die letztes Jahr als beste Schweizerin auf Rang 4. lief, hat sich dieses Jahr gegen den GP in Bern entschieden. Ursula Spielmann aus Spiez ist die grösste Hoffnung für die Schweizer Frauen.
+			Neu werden am GP systematisch Dopingkontrollen durchgeführt: Getestet werden die Siegerin und der Sieger sowie weitere, per Los bestimmte Podestläuferinnen- und Läufer.
+		</div>
+	</div>
+</div>
+</body>
+</html>

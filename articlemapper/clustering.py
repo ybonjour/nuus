@@ -1,9 +1,6 @@
-from similarity import Similarity
 from random import randint
-from random import choice
-from collections import namedtuple
 
-class Clusterer:
+class KMeansClusterer:
     def __init__(self, similarity, db, k):
         self.similarity = similarity
         self.db = db
@@ -72,9 +69,8 @@ class Clusterer:
             self.assignArticlesToCluster()
             changed = self.updateCentroids()
 
-            
 class HierarchicalClusterer:
-    def __init__(self, similarity, db, threshold=0.1):
+    def __init__(self, similarity, db, threshold=1.0):
         self.db=db
         self.similarity=similarity
         self.clusters = {}
@@ -88,11 +84,8 @@ class HierarchicalClusterer:
         self.clusters[clusterId1].extend(self.clusters[clusterId2])
         self.clusters[clusterId2] = []
     
-    def clusterSimilarity(self, cluster1, cluster2):               
-        return self.similarity.similarity(self.similarity.averageWordImportanceDict(cluster1), self.similarity.averageWordImportanceDict(cluster2))           
-    
     def nonEmptyClusters(self):
-        return filter(lambda item: item[1] != [], self.clusters.items())
+        return filter(lambda (id, cluster): cluster != [], self.clusters.items())
     
     def saveClusters(self):
         print len(self.nonEmptyClusters())
@@ -104,17 +97,18 @@ class HierarchicalClusterer:
             updateQuery = "UPDATE article SET Cluster=%s WHERE Id IN ({0})".format(format_strings)
             self.db.manipulationQuery(updateQuery, (clusterId,)+tuple(cluster))
     
-    def clustering_new(self):
+    def clustering(self):
         self.initializeClusters()
         
         merged = True
         while merged:
+            merged = False
             maxSimilarity = 0
             maxSimilarClusterIds = None
             for (clusterId1,cluster1) in self.nonEmptyClusters():
                 for (clusterId2,cluster2) in self.nonEmptyClusters():
                     if clusterId1 >= clusterId2: continue
-                    similarity = self.clusterSimilarity(cluster1, cluster2)
+                    similarity = self.similarity.clusterSimilarity(cluster1, cluster2)
                     if similarity > maxSimilarity:
                         maxSimilarity = similarity
                         maxSimilarClusterIds = (clusterId1, clusterId2)
@@ -127,7 +121,7 @@ class HierarchicalClusterer:
         self.saveClusters()
         print "Finished"
         
-    def clustering(self):
+    def clustering_old(self):
         self.initializeClusters()
         
         oldLen = len(self.nonEmptyClusters()) + 1
@@ -146,3 +140,14 @@ class HierarchicalClusterer:
                     self.mergeClusters(id, mostSimilarId)
                     merged = True
         self.saveClusters()
+
+class GMMClusterer:
+    def __init__(self, k):
+        self.k = k
+        self.centroids = []
+
+    def initializeParameters(self):
+        while len(self.centroids) < self.k:
+            self.centroids.append((2, 5))
+
+    def assignToCentroids(self):

@@ -1,4 +1,5 @@
 import MySQLdb
+import sys
 
 class Database:
     def __this__(self):
@@ -12,11 +13,11 @@ class Database:
                                  db='nuus',
                                  charset='utf8')
         except MySQLdb.Error, e:
-            print "Error " + e.args[0] + ": " + e.args[1]
+            print "Error " + str(e.args[0]) + ": " + str(e.args[1])
             sys.exit(1)
 
     def isConnected(self):
-        return self.connection != None
+        return self.connection is not None
     
     def close(self):
         if self.isConnected():

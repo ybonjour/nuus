@@ -1,3 +1,4 @@
+require 'rubygems'
 require 'httparty'
 
 class GoogleReader
@@ -39,7 +40,7 @@ class GoogleReader
         key_and_value = l.split("=")
         @authentication[key_and_value[0]] = key_and_value[1]
     end
-    
-    return @authentication
+
+    @authentication
   end
 end

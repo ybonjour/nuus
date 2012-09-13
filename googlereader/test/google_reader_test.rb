@@ -1,7 +1,7 @@
 $:.unshift File.join(File.dirname(__FILE__),'..','lib')
 
 require 'test/unit'
-require 'google_reader'
+require 'lib/google_reader'
 
 class GoogleReaderTest < Test::Unit::TestCase
   

@@ -14,9 +14,11 @@ development:
   reconnect: false
   database: nuus
   pool: 5
+  port: 3306
   username: nuus
   password: nuus
   socket: /var/run/mysqld/mysqld.sock
+  host: 127.0.0.1
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

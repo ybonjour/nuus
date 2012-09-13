@@ -9,7 +9,7 @@ gem 'mysql2'
 # :Platforms => :ruby damit das Web auch unter Windows läuft
 gem 'therubyracer', :platforms => :ruby
 gem 'json'
-
+gem 'jquery-rails'
 gem 'bcrypt-ruby'
 
 # Gems used only for assets and not required
@@ -20,7 +20,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

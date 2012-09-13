@@ -1,7 +1,8 @@
 Web::Application.routes.draw do
   
-  root :to => 'sessions#create'
+  root :to => 'main#index'
 
+  # Session-Handling and sign up
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "sign_up" => "users#new", :as => "sign_up"
@@ -58,7 +59,7 @@ Web::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
+  # just remember to delete public/index.erb.
 
   # See how all your routes lay out with "rake routes"
 

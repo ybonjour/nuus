@@ -14,7 +14,6 @@ development:
   reconnect: false
   database: nuus
   pool: 5
-  port: 3306
   username: nuus
   password: nuus
   socket: /var/run/mysqld/mysqld.sock
@@ -32,6 +31,7 @@ test:
   username: nuus
   password: nuus
   socket: /var/run/mysqld/mysqld.sock
+  host: 127.0.0.1
 
 production:
   adapter: mysql2

@@ -1,0 +1,17 @@
+1:
+  content: test test test
+  language: de
+  title: tiiiitel
+  updated: '2012-01-01'
+
+2:
+  content: etwas anderes, was auch immer...
+  language: de
+  title: anderer titel
+  updated: '2012-01-01'
+
+3:
+  content: noch ein Artikel!
+  language: de
+  title: noch ein Titel
+  updated: '2012-01-01'

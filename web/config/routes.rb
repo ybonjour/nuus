@@ -1,6 +1,6 @@
 Web::Application.routes.draw do
   
-  root :to => 'main#index'
+  root :to => 'main#stream'
 
   # Session-Handling and sign up
   get "log_out" => "sessions#destroy", :as => "log_out"

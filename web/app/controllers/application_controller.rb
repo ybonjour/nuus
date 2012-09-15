@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     begin
       @current_user ||= User.find(session[:user_id]) if session[:user_id]
     rescue
-      redirect_to :controller => :sessions, :action => :new
+      redirect_to log_in_path
     end
   end
   

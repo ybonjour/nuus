@@ -6,11 +6,11 @@ class MainControllerTest < ActionController::TestCase
     @request.session[:user_id] = 'bullshit'
 
     get :stream
-    assert_redirected_to :controller => :sessions, :action => :new
+    assert_redirected_to log_in_path
   end
 
   test "get stream when logged out" do
     get :stream
-    assert_redirected_to :controller => :sessions, :action => :new
+    assert_redirected_to log_in_path
   end
 end

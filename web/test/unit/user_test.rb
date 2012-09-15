@@ -5,7 +5,7 @@ class UserTest < ActiveSupport::TestCase
     
     user = User.new
     user.email = 'test@nuus.ch'
-    user.password_digest = '1234'
+    user.password = 'test'
     
     assert user.save, user.errors
     

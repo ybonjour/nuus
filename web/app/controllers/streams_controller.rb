@@ -2,8 +2,8 @@ class StreamsController < ApplicationController
   
   def index
 
-    if current_user.nil?
-      redirect_to :controller=>"main"
+    if logged_out?
+      head :forbidden
       return
     end
 

@@ -2,7 +2,13 @@ require 'test_helper'
 
 class StreamsControllerTest < ActionController::TestCase
 
-  test "Get Stream" do
+  test "get stream when logged out" do
+
+    get :index, :format => :json
+    assert_response :forbidden
+  end
+
+  test "get stream when logged in" do
 
     @request.session[:user_id] = users(:Yves).user_id
 

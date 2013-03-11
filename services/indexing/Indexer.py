@@ -33,7 +33,6 @@ class MemoryIndexStore:
 
     def term_document_frequency(self, document, term):
         if term not in self.posting_lists or document not in self.posting_lists[term]: return 0
-
         return self.posting_lists[term][document]
 
     def add(self, document, term):

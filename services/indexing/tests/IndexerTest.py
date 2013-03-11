@@ -256,7 +256,7 @@ class IndexerTest(unittest.TestCase):
 
         self.assertFalse(self.store_mock.was_called("add"))
 
-    def test_index_empty_one_token(self):
+    def test_index_one_token(self):
         # Arrange
         document = uuid.uuid4()
         text = "foo"
@@ -275,7 +275,7 @@ class IndexerTest(unittest.TestCase):
         self.assertEqual(document, add_arguments[0])
         self.assertEqual(text, add_arguments[1])
 
-    def test_index_empty_two_tokens(self):
+    def test_index_two_tokens(self):
         # Arrange
         document = uuid.uuid4()
         tokens = ["foo", "bar"]

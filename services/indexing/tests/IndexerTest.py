@@ -4,7 +4,7 @@ import unittest
 
 from Indexer import MemoryIndexStore
 import uuid
-from Mock import Mock
+from IndexStoreMock import IndexStoreMock
 from Indexer import Indexer
 from nltk.tokenize import WordPunctTokenizer
 
@@ -201,7 +201,7 @@ class MemoryIndexStoreTest(unittest.TestCase):
 
 class IndexerTest(unittest.TestCase):
     def setUp(self):
-        self.store_mock = Mock()
+        self.store_mock = IndexStoreMock()
         self.indexer = Indexer(self.store_mock, WordPunctTokenizer())
 
 
@@ -218,6 +218,27 @@ class IndexerTest(unittest.TestCase):
         arguments =  self.store_mock.get_arguments("term_document_frequency")
         self.assertEqual(document, arguments[0])
         self.assertEqual(term, arguments[1])
+
+    def test_document_frequency_normalized(self):
+        # Arrange
+        term = "foo"
+        document_frequency = 22
+        num_documents = 100
+        self.store_mock.set_document_frequency(document_frequency)
+        self.store_mock.set_num_documents(num_documents)
+
+        # Act
+        result = self.indexer.document_frequency_normalized(term)
+
+        # Assert
+        self.assertEqual(1, self.store_mock.num_method_calls("document_frequency"))
+        document_frequency_args = self.store_mock.get_arguments("document_frequency")
+        self.assertEqual(term, document_frequency_args[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("num_documents"))
+
+        self.assertEqual(result, 0.22)
+
 
 if __name__ == '__main__':
     unittest.main()

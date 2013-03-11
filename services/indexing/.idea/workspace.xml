@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/IndexStoreMock.py" afterPath="$PROJECT_DIR$/tests/IndexStoreMock.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/IndexerTest.py" afterPath="$PROJECT_DIR$/tests/IndexerTest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Mock.py" afterPath="$PROJECT_DIR$/tests/Mock.py" />
     </list>
     <ignored path="indexing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,7 +28,7 @@
       <file leaf-file-name="Indexer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Indexer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="50" selection-start="362" selection-end="363" vertical-scroll-proportion="0.0">
+            <state line="13" column="50" selection-start="396" selection-end="414" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -36,26 +38,24 @@
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="2" column="0" selection-start="29" selection-end="73" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#29#73#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Mock.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/tests/Mock.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="1046" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexerTest.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Mock.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Mock.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="2" column="17" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexerTest.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="198" column="16" selection-start="5008" selection-end="5008" vertical-scroll-proportion="0.0">
+            <state line="239" column="0" selection-start="6390" selection-end="6390" vertical-scroll-proportion="0.7781065">
               <folding>
                 <element signature="e#29#44#0" expanded="true" />
               </folding>
@@ -66,7 +66,7 @@
       <file leaf-file-name="IndexStoreMock.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
+            <state line="19" column="45" selection-start="494" selection-end="544" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -88,9 +88,11 @@
         <option value="$PROJECT_DIR$/tests/test.py" />
         <option value="$PROJECT_DIR$/Indexer.py" />
         <option value="$PROJECT_DIR$/tests/IndexerStoreMock.py" />
+        <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/tests/IndexStoreMock.py" />
         <option value="$PROJECT_DIR$/tests/Mock.py" />
-        <option value="$PROJECT_DIR$/tests/IndexerTest.py" />
         <option value="$PROJECT_DIR$/tests/IndexStoreMock.py" />
+        <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/tests/IndexerTest.py" />
+        <option value="$PROJECT_DIR$/tests/IndexerTest.py" />
       </list>
     </option>
   </component>
@@ -166,11 +168,11 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.searchVisible" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -194,50 +196,6 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/IndexerTest.py" />
       <option name="PARAMETERS" value="" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Nosetests in MemoryIndexStoreTest.test_document_frequency_multiple_terms_in_store" type="tests" factoryName="Nosetests" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <module name="indexing" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/IndexerTest.py" />
-      <option name="CLASS_NAME" value="MemoryIndexStoreTest" />
-      <option name="METHOD_NAME" value="test_document_frequency_multiple_terms_in_store" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
-    <configuration default="false" name="Nosetests in IndexerTest.test_term_document_frequency" type="tests" factoryName="Nosetests" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <module name="indexing" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/IndexerTest.py" />
-      <option name="CLASS_NAME" value="IndexerTest" />
-      <option name="METHOD_NAME" value="test_term_document_frequency" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_METHOD" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -279,6 +237,45 @@
       <option name="PARAMETERS" value="" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="IndexStoreMock" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="indexing" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/IndexStoreMock.py" />
+      <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Nosetests in IndexerTest.test_document_frequency_normalized" type="tests" factoryName="Nosetests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="indexing" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/IndexerTest.py" />
+      <option name="CLASS_NAME" value="IndexerTest" />
+      <option name="METHOD_NAME" value="test_document_frequency_normalized" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_METHOD" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <method />
     </configuration>
     <configuration default="true" type="tests" factoryName="Nosetests">
@@ -336,18 +333,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.IndexerTest" />
-      <item index="1" class="java.lang.String" itemvalue="Python's test.Nosetests in MemoryIndexStoreTest.test_document_frequency_multiple_terms_in_store" />
-      <item index="2" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest.test_term_document_frequency" />
-      <item index="3" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest" />
-      <item index="4" class="java.lang.String" itemvalue="Python.Service" />
+      <item index="1" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest" />
+      <item index="2" class="java.lang.String" itemvalue="Python.Service" />
+      <item index="3" class="java.lang.String" itemvalue="Python.IndexStoreMock" />
+      <item index="4" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest.test_document_frequency_normalized" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.IndexerTest" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Service" />
-        <item index="2" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest" />
-        <item index="3" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest.test_term_document_frequency" />
-        <item index="4" class="java.lang.String" itemvalue="Python's test.Nosetests in MemoryIndexStoreTest.test_document_frequency_multiple_terms_in_store" />
+        <item index="1" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest.test_document_frequency_normalized" />
+        <item index="2" class="java.lang.String" itemvalue="Python.IndexStoreMock" />
+        <item index="3" class="java.lang.String" itemvalue="Python.Service" />
+        <item index="4" class="java.lang.String" itemvalue="Python's test.Nosetests in IndexerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -386,11 +383,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2531856" sideWeight="0.67015207" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2565097" sideWeight="0.67015207" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39923954" sideWeight="0.49584487" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298479" sideWeight="0.37839335" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298479" sideWeight="0.61772853" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298479" sideWeight="0.38116345" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3298479" sideWeight="0.61495847" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -452,29 +449,34 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="1" />
+      <option name="time" value="3" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Service.py">
+    <entry file="file://$PROJECT_DIR$/Indexer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="2" column="0" selection-start="29" selection-end="73" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#29#73#0" expanded="true" />
-          </folding>
+        <state line="13" column="50" selection-start="396" selection-end="414" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Indexer.py">
+    <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="50" selection-start="362" selection-end="363" vertical-scroll-proportion="0.0">
+        <state line="2" column="0" selection-start="29" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="17" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="198" column="16" selection-start="5008" selection-end="5008" vertical-scroll-proportion="0.0">
+        <state line="239" column="21" selection-start="6411" selection-end="6411" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#29#44#0" expanded="true" />
           </folding>
@@ -483,15 +485,59 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
+        <state line="19" column="45" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="29" selection-end="73" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/tests/IndexStoreMock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="0" selection-start="79" selection-end="79" vertical-scroll-proportion="0.088757396">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/Mock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="1046" vertical-scroll-proportion="0.0">
+        <state line="2" column="17" selection-start="46" selection-end="46" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Indexer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="50" selection-start="396" selection-end="414" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="45" selection-start="494" selection-end="544" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/tests/IndexerTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="226" column="14" selection-start="5871" selection-end="5871" vertical-scroll-proportion="0.48964497">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="239" column="0" selection-start="6390" selection-end="6390" vertical-scroll-proportion="0.7781065">
+          <folding>
+            <element signature="e#29#44#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

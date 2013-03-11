@@ -218,6 +218,6 @@ class IndexerTest(unittest.TestCase):
         arguments =  self.store_mock.get_arguments("term_document_frequency")
         self.assertEqual(document, arguments[0])
         self.assertEqual(term, arguments[1])
-        
+
 if __name__ == '__main__':
     unittest.main()

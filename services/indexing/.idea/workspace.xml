@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/sass_stdlib.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/IndexStoreMock.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/Mock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Indexer.py" afterPath="$PROJECT_DIR$/Indexer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/IndexStoreMock.py" afterPath="$PROJECT_DIR$/tests/IndexStoreMock.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/IndexerTest.py" afterPath="$PROJECT_DIR$/tests/IndexerTest.py" />
     </list>
     <ignored path="indexing.iws" />
@@ -50,22 +43,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Mock.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Mock.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/tests/Mock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="30" column="40" selection-start="962" selection-end="1025" vertical-scroll-proportion="0.0">
+            <state line="0" column="0" selection-start="0" selection-end="1046" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexerTest.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IndexerTest.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="220" column="8" selection-start="5685" selection-end="5685" vertical-scroll-proportion="0.8446745">
+            <state line="198" column="16" selection-start="5008" selection-end="5008" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#29#44#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IndexStoreMock.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="5" column="0" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -86,9 +88,9 @@
         <option value="$PROJECT_DIR$/tests/test.py" />
         <option value="$PROJECT_DIR$/Indexer.py" />
         <option value="$PROJECT_DIR$/tests/IndexerStoreMock.py" />
-        <option value="$PROJECT_DIR$/tests/IndexStoreMock.py" />
         <option value="$PROJECT_DIR$/tests/Mock.py" />
         <option value="$PROJECT_DIR$/tests/IndexerTest.py" />
+        <option value="$PROJECT_DIR$/tests/IndexStoreMock.py" />
       </list>
     </option>
   </component>
@@ -449,29 +451,17 @@
     <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="51" selection-end="51" vertical-scroll-proportion="0.06656805">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="2" column="0" selection-start="29" selection-end="73" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#29#73#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/Mock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="40" selection-start="962" selection-end="1025" vertical-scroll-proportion="0.0">
-          <folding />
         </state>
       </provider>
     </entry>
@@ -484,10 +474,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="220" column="8" selection-start="5685" selection-end="5685" vertical-scroll-proportion="0.8446745">
+        <state line="198" column="16" selection-start="5008" selection-end="5008" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#29#44#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="5" column="0" selection-start="143" selection-end="143" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Mock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="1046" vertical-scroll-proportion="0.0">
+          <folding />
         </state>
       </provider>
     </entry>

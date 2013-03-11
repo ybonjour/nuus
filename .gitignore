@@ -1,5 +1,6 @@
 ﻿/web/nbproject/private/
 *.pyc
+*/.idea
 /feedcollector/language_detection.dict
 /feedcollector/language_detection.words
 /feedcollector/log/*.*

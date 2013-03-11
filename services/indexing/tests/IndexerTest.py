@@ -5,6 +5,7 @@ import unittest
 from Indexer import MemoryIndexStore
 import uuid
 from IndexStoreMock import IndexStoreMock
+from TokenizerMock import TokenizerMock
 from Indexer import Indexer
 from nltk.tokenize import WordPunctTokenizer
 
@@ -202,8 +203,8 @@ class MemoryIndexStoreTest(unittest.TestCase):
 class IndexerTest(unittest.TestCase):
     def setUp(self):
         self.store_mock = IndexStoreMock()
-        self.indexer = Indexer(self.store_mock, WordPunctTokenizer())
-
+        self.tokenizer_mock = TokenizerMock()
+        self.indexer = Indexer(self.store_mock, self.tokenizer_mock)
 
     def test_term_document_frequency(self):
         # Arrange
@@ -239,6 +240,65 @@ class IndexerTest(unittest.TestCase):
 
         self.assertEqual(result, 0.22)
 
+    def test_index_empty_text(self):
+        # Arrange
+        document = uuid.uuid4()
+        text = ""
+        self.tokenizer_mock.set_tokens([])
+
+        # Act
+        self.indexer.index(text, document)
+
+        # Assert
+        self.assertEqual(1, self.tokenizer_mock.num_method_calls("tokenize"))
+        tokenize_arguments = self.tokenizer_mock.get_arguments("tokenize")
+        self.assertEqual(text, tokenize_arguments[0])
+
+        self.assertFalse(self.store_mock.was_called("add"))
+
+    def test_index_empty_one_token(self):
+        # Arrange
+        document = uuid.uuid4()
+        text = "foo"
+        self.tokenizer_mock.set_tokens([text])
+
+        # Act
+        self.indexer.index(text, document)
+
+        # Assert
+        self.assertEqual(1, self.tokenizer_mock.num_method_calls("tokenize"))
+        tokenize_arguments = self.tokenizer_mock.get_arguments("tokenize")
+        self.assertEqual(text, tokenize_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("add"))
+        add_arguments = self.store_mock.get_arguments("add")
+        self.assertEqual(document, add_arguments[0])
+        self.assertEqual(text, add_arguments[1])
+
+    def test_index_empty_two_tokens(self):
+        # Arrange
+        document = uuid.uuid4()
+        tokens = ["foo", "bar"]
+        text = " ".join(tokens)
+        self.tokenizer_mock.set_tokens(tokens)
+
+        # Act
+        self.indexer.index(text, document)
+
+        # Assert
+        self.assertEqual(1, self.tokenizer_mock.num_method_calls("tokenize"))
+        tokenize_arguments = self.tokenizer_mock.get_arguments("tokenize")
+        self.assertEqual(text, tokenize_arguments[0])
+
+        self.assertEqual(2, self.store_mock.num_method_calls("add"))
+
+        add_arguments1 = self.store_mock.get_arguments("add", 1)
+        self.assertEqual(document, add_arguments1[0])
+        self.assertEqual(tokens[0], add_arguments1[1])
+
+        add_arguments2 = self.store_mock.get_arguments("add", 2)
+        self.assertEqual(document, add_arguments2[0])
+        self.assertEqual(tokens[1], add_arguments2[1])
 
 if __name__ == '__main__':
     unittest.main()

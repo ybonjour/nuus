@@ -3,17 +3,14 @@ __author__ = 'Yves Bonjour'
 import unittest
 
 from Indexer import MemoryIndexStore
+from Indexer import RedisIndexStore
 import uuid
 from IndexStoreMock import IndexStoreMock
 from TokenizerMock import TokenizerMock
 from Indexer import Indexer
-from nltk.tokenize import WordPunctTokenizer
+import redis
 
-class MemoryIndexStoreTest(unittest.TestCase):
-
-    def setUp(self):
-        self.store = MemoryIndexStore()
-
+class StoreIndexTest(object):
     def test_add_new_term_new_document(self):
         # Arrange
         term = "foo"
@@ -207,6 +204,91 @@ class MemoryIndexStoreTest(unittest.TestCase):
         # Assert
         self.assertEqual(0, len(posting_list))
 
+    def test_get_terms_not_existing_document(self):
+        # Arrange
+        document = uuid.uuid4()
+
+        # Act
+        terms = self.store.get_terms(document)
+
+        # Assert
+        self.assertEqual(0, len(terms))
+
+    def test_get_terms_one_term(self):
+        # Arrange
+        document = uuid.uuid4()
+        term = "foo"
+        self.store.add(document, term)
+
+        # Act
+        terms = self.store.get_terms(document)
+
+        # Assert
+        self.assertEqual(1, len(terms))
+        self.assertIn(term, terms)
+
+    def test_get_terms_one_term_with_other_document(self):
+        # Arrange
+        document1 = uuid.uuid4()
+        document2 = uuid.uuid4()
+        term1 = "foo"
+        term2 = "bar"
+
+        self.store.add(document1, term1)
+        self.store.add(document2, term2)
+
+        # Act
+        terms = self.store.get_terms(document1)
+
+        # Assert
+        self.assertEqual(1, len(terms))
+        self.assertIn(term1, terms)
+
+    def test_get_terms_two_terms(self):
+        # Arrange
+        document = uuid.uuid4()
+        term1 = "foo"
+        term2 = "bar"
+
+        self.store.add(document, term1)
+        self.store.add(document, term2)
+
+        # Act
+        terms = self.store.get_terms(document)
+
+        # Assert
+        self.assertEqual(2, len(terms))
+        self.assertIn(term1, terms)
+        self.assertIn(term2, terms)
+
+    def test_get_terms_same_term_twice(self):
+        # Arrange
+        document = uuid.uuid4()
+        term = "foo"
+
+        self.store.add(document, term)
+        self.store.add(document, term)
+
+        # Act
+        terms = self.store.get_terms(document)
+
+        # Assert
+        self.assertEqual(1, len(terms))
+        self.assertIn(term, terms)
+
+class MemoryIndexStoreTest(StoreIndexTest, unittest.TestCase):
+    def setUp(self):
+        self.store = MemoryIndexStore()
+
+class RedisIndexStoreTest(StoreIndexTest, unittest.TestCase):
+    def setUp(self):
+        self.redis = redis.Redis("localhost", 6379, db=2)
+        self.redis.flushdb()
+        self.store = RedisIndexStore(self.redis)
+
+    def tearDown(self):
+        self.redis.flushdb()
+
 class IndexerTest(unittest.TestCase):
     def setUp(self):
         self.store_mock = IndexStoreMock()
@@ -318,6 +400,22 @@ class IndexerTest(unittest.TestCase):
         self.assertEqual(1, self.store_mock.num_method_calls("posting_list"))
         arguments = self.store_mock.get_arguments("posting_list")
         self.assertEqual(term, arguments[0])
+
+    def test_get_terms(self):
+        # Arrange
+        terms = {"foo", "bar"}
+        document = uuid.uuid4()
+
+        self.store_mock.set_terms(terms)
+
+        # Act
+        result = self.indexer.get_terms(document)
+
+        # Assert
+        self.assertEqual(1, self.store_mock.num_method_calls("get_terms"))
+        arguments = self.store_mock.get_arguments("get_terms")
+        self.assertEqual(document, arguments[0])
+        self.assertEqual(terms, result)
 
 if __name__ == '__main__':
     unittest.main()

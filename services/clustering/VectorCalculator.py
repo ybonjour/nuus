@@ -1,4 +1,5 @@
 __author__ = 'Yves Bonjour'
+
 from math import log
 
 class VectorCalculator:
@@ -19,9 +20,9 @@ class VectorCalculator:
     def get_tfidf_vector(self, document_id):
         terms = self.index_service.get_terms(document_id)
 
-        return {t : self.calculate_tfidf(document_id, t) for t in terms}
+        return {t : self._calculate_tfidf(document_id, t) for t in terms}
 
-    def calculate_tfidf(self, document_id, term):
+    def _calculate_tfidf(self, document_id, term):
         tf = self.index_service.term_document_frequency(document_id, term)
         tf_log = 1 + log(tf, 10) if tf > 0 else 0
 

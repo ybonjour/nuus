@@ -1,5 +1,3 @@
-from gnomekeyring import Error
-
 __author__ = 'Yves Bonjour'
 
 from Indexer import create_indexer
@@ -9,7 +7,6 @@ from werkzeug.exceptions import HTTPException
 
 from werkzeug.wrappers import Request, Response
 import json
-
 
 class IndexService(object):
 
@@ -34,15 +31,9 @@ class IndexService(object):
 
         title = request.form["title"]
         text = request.form["text"]
-        print title
-        print text
-        print document
 
-        try:
-            self.indexer.index(title, document)
-            self.indexer.index(text, document)
-        except Error as e:
-            return create_status_error_response(str(e))
+        self.indexer.index(title, document)
+        self.indexer.index(text, document)
 
         return create_status_ok_response()
 
@@ -70,7 +61,6 @@ def create_status_error_response(message, status=500):
 
 def create_json_response(obj, status_code=200):
     return Response(json.dumps(obj), mimetype="application/json", status=status_code)
-
 
 if __name__ == "__main__":
     service = IndexService()

@@ -1,5 +1,12 @@
 __author__ = 'Yves Bonjour'
 
+from nltk.tokenize import WordPunctTokenizer
+
+def create_indexer():
+    tokenizer = WordPunctTokenizer()
+    store = MemoryIndexStore()
+    return Indexer(store, tokenizer)
+
 class Indexer:
     def __init__(self, store, tokenizer):
         self.store = store
@@ -16,12 +23,16 @@ class Indexer:
     def term_document_frequency(self, document, term):
         return self.store.term_document_frequency(document, term)
 
-class MemoryIndexStore:
+    def get_posting_list(self, term):
+        return self.store.posting_list(term)
+
+class MemoryIndexStore(object):
     def __init__(self):
         self.posting_lists = {}
         self.documents = {}
 
     def posting_list(self, term):
+        if term not in self.posting_lists: return {}
         return self.posting_lists[term]
 
     def document_frequency(self, term):
@@ -44,3 +55,5 @@ class MemoryIndexStore:
 
         self.posting_lists[term][document] += 1
         self.documents[document] = True
+
+class Redis

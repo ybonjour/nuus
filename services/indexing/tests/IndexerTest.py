@@ -200,6 +200,13 @@ class MemoryIndexStoreTest(unittest.TestCase):
         # Assert
         self.assertEquals(2, tf)
 
+    def test_term_posting_list_not_existing_term(self):
+        # Act
+        posting_list = self.store.posting_list("foo")
+
+        # Assert
+        self.assertEqual(0, len(posting_list))
+
 class IndexerTest(unittest.TestCase):
     def setUp(self):
         self.store_mock = IndexStoreMock()
@@ -299,6 +306,18 @@ class IndexerTest(unittest.TestCase):
         add_arguments2 = self.store_mock.get_arguments("add", 2)
         self.assertEqual(document, add_arguments2[0])
         self.assertEqual(tokens[1], add_arguments2[1])
+
+    def test_get_posting_list(self):
+        # Arrange
+        term = "foo"
+
+        # Act
+        self.indexer.get_posting_list(term)
+
+        # Assert
+        self.assertEqual(1, self.store_mock.num_method_calls("posting_list"))
+        arguments = self.store_mock.get_arguments("posting_list")
+        self.assertEqual(term, arguments[0])
 
 if __name__ == '__main__':
     unittest.main()

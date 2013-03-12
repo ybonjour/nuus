@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Client.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Tokenizer.py" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/TokenizerTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Indexer.py" afterPath="$PROJECT_DIR$/Indexer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client.py" afterPath="$PROJECT_DIR$/Client.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
     </list>
     <ignored path="indexing.iws" />
@@ -27,10 +23,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Indexer.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Indexer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Indexer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="31" selection-start="891" selection-end="891" vertical-scroll-proportion="0.64254063">
+            <state line="19" column="0" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#29#41#0" expanded="true" />
               </folding>
@@ -41,16 +37,16 @@
       <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="0" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
+            <state line="29" column="52" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Client.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="19" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
+            <state line="10" column="30" selection-start="222" selection-end="222" vertical-scroll-proportion="0.22156574">
               <folding>
                 <element signature="e#29#40#0" expanded="true" />
               </folding>
@@ -127,12 +123,12 @@
         <option value="$PROJECT_DIR$/tests/IndexStoreMock.py" />
         <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/tests/IndexerTest.py" />
         <option value="$PROJECT_DIR$/tests/TokenizerMock.py" />
-        <option value="$PROJECT_DIR$/Client.py" />
-        <option value="$PROJECT_DIR$/Service.py" />
         <option value="$PROJECT_DIR$/tests/IndexerTest.py" />
         <option value="$PROJECT_DIR$/Tokenizer.py" />
         <option value="$PROJECT_DIR$/tests/TokenizerTest.py" />
         <option value="$PROJECT_DIR$/Indexer.py" />
+        <option value="$PROJECT_DIR$/Service.py" />
+        <option value="$PROJECT_DIR$/Client.py" />
       </list>
     </option>
   </component>
@@ -440,7 +436,7 @@
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39923954" sideWeight="0.4936288" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32889733" sideWeight="0.4060942" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32889733" sideWeight="0.5900277" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32889733" sideWeight="0.5900277" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -565,22 +561,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="19" selection-start="295" selection-end="295" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#29#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="39" column="0" selection-start="1153" selection-end="1153" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/TokenizerMock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="26" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
@@ -615,9 +595,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Indexer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="31" selection-start="891" selection-end="891" vertical-scroll-proportion="0.64254063">
+        <state line="19" column="0" selection-start="507" selection-end="507" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#29#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="52" selection-start="830" selection-end="830" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="30" selection-start="222" selection-end="222" vertical-scroll-proportion="0.22156574">
+          <folding>
+            <element signature="e#29#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

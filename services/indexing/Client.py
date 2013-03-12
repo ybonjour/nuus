@@ -10,6 +10,7 @@ def index(document, title, text):
 
     payload = {"title":title, "text":text}
     r = requests.post(url, data=payload)
+    print r.status_code
     print r.content
 
 

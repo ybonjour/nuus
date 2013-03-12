@@ -27,10 +27,10 @@ class IndexService(object):
 
     def on_index(self, request, document):
         if request.method != "POST":
-            return create_status_error_response("Request must be POST")
+            return create_status_error_response("Request must be POST", status=400)
 
         if "title" not in request.form or "text" not in request.form:
-            return create_status_error_response("Request must have the fields title and text")
+            return create_status_error_response("Request must have the fields title and text", status=400)
 
         title = request.form["title"]
         text = request.form["text"]
@@ -65,11 +65,11 @@ class IndexService(object):
 def create_status_ok_response():
     return create_json_response({"status":"ok"})
 
-def create_status_error_response(message):
-    return create_json_response({"status":"error", "message":message})
+def create_status_error_response(message, status=500):
+    return create_json_response({"status":"error", "message":message}, status)
 
-def create_json_response(obj):
-    return Response(json.dumps(obj), mimetype="application/json")
+def create_json_response(obj, status_code=200):
+    return Response(json.dumps(obj), mimetype="application/json", status=status_code)
 
 
 if __name__ == "__main__":

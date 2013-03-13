@@ -10,9 +10,6 @@ class IndexerMock(Mock):
     def set_index(self, index):
         self.index = index
 
-    def set_num_documents(self, num_documents):
-        self.num_documents = num_documents
-
     def get_terms(self, document):
         self._handle_method_call("get_terms", (document,))
         return self.terms[document]
@@ -23,4 +20,4 @@ class IndexerMock(Mock):
 
     def document_frequency_normalized(self, term):
         self._handle_method_call("document_frequency_normalized", (term,))
-        return float(len(self.index[term])) / float(self.num_documents)
+        return float(len(self.index[term])) / float(len(self.terms))

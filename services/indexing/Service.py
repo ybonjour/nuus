@@ -8,6 +8,7 @@ from werkzeug.exceptions import HTTPException
 from werkzeug.wrappers import Request, Response
 import json
 
+
 class IndexService(object):
 
     def __init__(self):
@@ -18,7 +19,7 @@ class IndexService(object):
 
         self.indexer = create_indexer()
 
-    def on_posting_list(self, request, term):
+    def on_posting_list(self, _, term):
         posting_list = self.indexer.get_posting_list(term)
         return create_json_response(posting_list)
 
@@ -53,14 +54,18 @@ class IndexService(object):
     def __call__(self, environ, start_response):
         return self.wsgi_app(environ, start_response)
 
+
 def create_status_ok_response():
-    return create_json_response({"status":"ok"})
+    return create_json_response({"status": "ok"})
+
 
 def create_status_error_response(message, status=500):
-    return create_json_response({"status":"error", "message":message}, status)
+    return create_json_response({"status": "error", "message": message}, status)
+
 
 def create_json_response(obj, status_code=200):
     return Response(json.dumps(obj), mimetype="application/json", status=status_code)
+
 
 if __name__ == "__main__":
     service = IndexService()

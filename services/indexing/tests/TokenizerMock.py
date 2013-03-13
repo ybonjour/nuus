@@ -2,6 +2,7 @@ __author__ = 'Yves Bonjour'
 
 from Mock import Mock
 
+
 class TokenizerMock(Mock):
     def set_tokens(self, tokens):
         self.tokens = tokens

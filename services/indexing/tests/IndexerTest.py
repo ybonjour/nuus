@@ -10,6 +10,7 @@ from TokenizerMock import TokenizerMock
 from Indexer import Indexer
 import redis
 
+
 class StoreIndexTest(object):
     def test_add_new_term_new_document(self):
         # Arrange

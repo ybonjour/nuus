@@ -2,6 +2,7 @@ __author__ = 'Yves Bonjour'
 
 from Mock import Mock
 
+
 class IndexerMock(Mock):
 
     def set_terms(self, terms):

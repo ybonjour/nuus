@@ -4,11 +4,13 @@ from Tokenizer import create_tokenizer
 import redis
 import uuid
 
+
 def create_indexer():
     tokenizer = create_tokenizer()
     redis_db = redis.Redis("localhost", 6379)
     store = RedisIndexStore(redis_db)
     return Indexer(store, tokenizer)
+
 
 class Indexer:
     def __init__(self, store, tokenizer):
@@ -32,28 +34,37 @@ class Indexer:
     def get_terms(self, document):
         return self.store.get_terms(document)
 
+
 class MemoryIndexStore(object):
     def __init__(self):
         self.posting_lists = {}
         self.documents = {}
 
     def posting_list(self, term):
-        if term not in self.posting_lists: return {}
+        if term not in self.posting_lists:
+            return {}
+
         return self.posting_lists[term]
 
     def get_terms(self, document):
-        if document not in self.documents: return []
+        if document not in self.documents:
+            return []
+
         return self.documents[document]
 
     def document_frequency(self, term):
-        if term not in self.posting_lists: return 0
+        if term not in self.posting_lists:
+            return 0
+
         return len(self.posting_lists[term])
 
     def num_documents(self):
         return len(self.documents)
 
     def term_document_frequency(self, document, term):
-        if term not in self.posting_lists or document not in self.posting_lists[term]: return 0
+        if term not in self.posting_lists or document not in self.posting_lists[term]:
+            return 0
+
         return self.posting_lists[term][document]
 
     def add(self, document, term):
@@ -70,12 +81,14 @@ class MemoryIndexStore(object):
 
         self.documents[document].add(term)
 
+
 class RedisIndexStore(object):
     def __init__(self, redis):
         self.redis = redis
 
     def posting_list(self, term):
-        return {uuid.UUID(document) : int(self.redis.get(self._posting_key(term, document))) for document in self.redis.smembers(self._term_key(term))}
+        return {uuid.UUID(document): int(self.redis.get(self._posting_key(term, document)))
+                for document in self.redis.smembers(self._term_key(term))}
 
     def document_frequency(self, term):
         return len(self.redis.smembers(self._term_key(term)))

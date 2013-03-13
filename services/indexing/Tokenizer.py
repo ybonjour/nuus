@@ -1,9 +1,11 @@
 __author__ = 'Yves Bonjour'
 from nltk.tokenize import WordPunctTokenizer
 
+
 def create_tokenizer():
     tokenizer = WordPunctTokenizer()
     return LowerCaseTokenizer(tokenizer)
+
 
 class LowerCaseTokenizer(object):
     def __init__(self, tokenizer):

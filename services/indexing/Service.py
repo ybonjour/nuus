@@ -8,19 +8,21 @@ from werkzeug.exceptions import HTTPException
 from werkzeug.wrappers import Request, Response
 import json
 
+def create_index_service():
+    return IndexService(create_indexer())
 
 class IndexService(object):
 
-    def __init__(self):
+    def __init__(self, indexer):
         self.url_map = Map([
             Rule('/posting_list/<term>', endpoint='posting_list'),
             Rule('/index/<document>', endpoint='index')
         ])
 
-        self.indexer = create_indexer()
+        self.indexer = indexer
 
     def on_posting_list(self, _, term):
-        posting_list = self.indexer.get_posting_list(term)
+        posting_list = {str(doc_uuid):value for doc_uuid, value in self.indexer.get_posting_list(term).iteritems()}
         return create_json_response(posting_list)
 
     def on_index(self, request, document):
@@ -59,8 +61,8 @@ def create_status_ok_response():
     return create_json_response({"status": "ok"})
 
 
-def create_status_error_response(message, status=500):
-    return create_json_response({"status": "error", "message": message}, status)
+def create_status_error_response(message, status_code=500):
+    return create_json_response({"status": "error", "message": message}, status_code)
 
 
 def create_json_response(obj, status_code=200):
@@ -68,5 +70,5 @@ def create_json_response(obj, status_code=200):
 
 
 if __name__ == "__main__":
-    service = IndexService()
+    service = create_index_service()
     run_simple('127.0.0.1', 5000, service, use_debugger=True, use_reloader=True)

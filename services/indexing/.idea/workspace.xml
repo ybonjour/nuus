@@ -2,23 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../common/Mock.py" afterPath="$PROJECT_DIR$/../../common/Mock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/clustering.iml" afterPath="$PROJECT_DIR$/../clustering/.idea/clustering.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../clustering/tests/ClusterStoreMock.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../clustering/tests/VectorCalculatorMock.py" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../clustering/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/vcs.xml" afterPath="$PROJECT_DIR$/../clustering/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/Clusterer.py" afterPath="$PROJECT_DIR$/../clustering/Clusterer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/VectorCalculator.py" afterPath="$PROJECT_DIR$/../clustering/VectorCalculator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/tests/IndexerMock.py" afterPath="$PROJECT_DIR$/../clustering/tests/IndexerMock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/tests/VectorCalculatorTest.py" afterPath="$PROJECT_DIR$/../clustering/tests/VectorCalculatorTest.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/tests/ClustererTest.py" afterPath="$PROJECT_DIR$/../clustering/tests/ClustererTest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Client.py" afterPath="$PROJECT_DIR$/Client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Indexer.py" afterPath="$PROJECT_DIR$/Indexer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Tokenizer.py" afterPath="$PROJECT_DIR$/Tokenizer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/IndexStoreMock.py" afterPath="$PROJECT_DIR$/tests/IndexStoreMock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/IndexerTest.py" afterPath="$PROJECT_DIR$/tests/IndexerTest.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/TokenizerMock.py" afterPath="$PROJECT_DIR$/tests/TokenizerMock.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/TokenizerTest.py" afterPath="$PROJECT_DIR$/tests/TokenizerTest.py" />
     </list>
     <ignored path="indexing.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -40,10 +32,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Indexer.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Indexer.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Indexer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="83" column="0" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.0">
+            <state line="110" column="33" selection-start="3285" selection-end="3285" vertical-scroll-proportion="0.48766604">
               <folding />
             </state>
           </provider>
@@ -52,7 +44,7 @@
       <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="67" column="0" selection-start="2283" selection-end="2283" vertical-scroll-proportion="0.0">
+            <state line="21" column="30" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -61,16 +53,16 @@
       <file leaf-file-name="Client.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Client.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="20" column="20" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0">
+            <state line="14" column="19" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexerTest.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="IndexerTest.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="0" selection-start="255" selection-end="255" vertical-scroll-proportion="0.028409092">
+            <state line="351" column="20" selection-start="9343" selection-end="9343" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -79,7 +71,7 @@
       <file leaf-file-name="Tokenizer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Tokenizer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="0" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
+            <state line="9" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -88,7 +80,7 @@
       <file leaf-file-name="TokenizerTest.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/TokenizerTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+            <state line="19" column="13" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -97,7 +89,7 @@
       <file leaf-file-name="TokenizerMock.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/TokenizerMock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="29" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0">
+            <state line="6" column="0" selection-start="80" selection-end="142" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -106,7 +98,7 @@
       <file leaf-file-name="IndexStoreMock.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="8" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+            <state line="7" column="8" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -115,7 +107,7 @@
       <file leaf-file-name="Mock.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../common/Mock.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="18" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
+            <state line="19" column="0" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -141,13 +133,14 @@
         <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/tests/IndexerTest.py" />
         <option value="$PROJECT_DIR$/Indexer.py" />
         <option value="$PROJECT_DIR$/Tokenizer.py" />
-        <option value="$PROJECT_DIR$/Service.py" />
-        <option value="$PROJECT_DIR$/Client.py" />
         <option value="$PROJECT_DIR$/tests/TokenizerTest.py" />
         <option value="$PROJECT_DIR$/tests/TokenizerMock.py" />
         <option value="$PROJECT_DIR$/tests/IndexStoreMock.py" />
         <option value="$PROJECT_DIR$/../../common/Mock.py" />
         <option value="$PROJECT_DIR$/tests/IndexerTest.py" />
+        <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/Service.py" />
+        <option value="$PROJECT_DIR$/Client.py" />
+        <option value="$PROJECT_DIR$/Service.py" />
       </list>
     </option>
   </component>
@@ -259,7 +252,7 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.IndexerTest">
+  <component name="RunManager" selected="Python.Service">
     <configuration default="false" name="Nosetests in IndexerTest.test_index_empty_text" type="tests" factoryName="Nosetests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -312,7 +305,9 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Service.py" />
       <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PyDebugRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
     </configuration>
@@ -412,9 +407,9 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.IndexerTest" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Client" />
-        <item index="2" class="java.lang.String" itemvalue="Python.Service" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Client" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Service" />
+        <item index="2" class="java.lang.String" itemvalue="Python.IndexerTest" />
         <item index="3" class="java.lang.String" itemvalue="Python.TokenizerTest" />
       </list>
     </recent_temporary>
@@ -448,17 +443,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1375" height="876" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26339623" sideWeight="0.7726064" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39923954" sideWeight="0.4936288" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27245283" sideWeight="0.7712766" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39893618" sideWeight="0.49056605" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22739361" sideWeight="0.4197861" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22933333" sideWeight="0.5764706" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2287234" sideWeight="0.42566037" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2287234" sideWeight="0.56905663" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -520,17 +515,10 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="5" />
+      <option name="time" value="6" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/TokenizerMock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="26" selection-start="253" selection-end="253" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
@@ -567,65 +555,72 @@
         <state line="9" column="28" selection-start="264" selection-end="264" vertical-scroll-proportion="0.2238806" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Indexer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="83" column="0" selection-start="2233" selection-end="2233" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Tokenizer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="0" selection-start="211" selection-end="211" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="0" selection-start="2283" selection-end="2283" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Client.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="20" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/TokenizerTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="124" selection-end="124" vertical-scroll-proportion="0.0">
+        <state line="9" column="0" selection-start="179" selection-end="179" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../common/Mock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="0" selection-start="568" selection-end="568" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/TokenizerMock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="29" selection-start="202" selection-end="202" vertical-scroll-proportion="0.0">
+        <state line="19" column="0" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="8" selection-start="112" selection-end="112" vertical-scroll-proportion="0.0">
+        <state line="7" column="8" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="49" selection-start="715" selection-end="715" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Client.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="19" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="0" selection-start="255" selection-end="255" vertical-scroll-proportion="0.028409092">
+        <state line="351" column="20" selection-start="9343" selection-end="9343" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TokenizerMock.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="0" selection-start="80" selection-end="142" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/TokenizerTest.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="19" column="13" selection-start="487" selection-end="487" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="21" column="30" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Indexer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="110" column="33" selection-start="3285" selection-end="3285" vertical-scroll-proportion="0.48766604">
           <folding />
         </state>
       </provider>

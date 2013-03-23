@@ -28,6 +28,6 @@ class Mock:
 
     def __getattr__(self, name):
         def method(*args):
-            method_args = tuple(args) if args else None
-            self._handle_method_call(name, tuple(method_args))
+            method_args = tuple(args) if args else (None,)
+            self._handle_method_call(name, method_args)
         return method

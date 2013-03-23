@@ -21,8 +21,8 @@ class ClustererTest(unittest.TestCase):
         doc_vector = {"foo": 0.5, "bar": 0.5}
         self.store_mock.set_cluster_id(cluster_id)
         self.calculator_mock.set_vectors({document_id: doc_vector})
-        self.calculator_mock.set_average_vector(doc_vector)
-        self.store_mock.set_centroids([])
+        self.calculator_mock.set_average_vectors({(document_id,):doc_vector})
+        self.store_mock.set_centroids({})
         self.store_mock.set_documents({cluster_id:[document_id]})
 
         # Act
@@ -42,6 +42,7 @@ class ClustererTest(unittest.TestCase):
         self.assertEqual(1, self.store_mock.num_method_calls("add_to_cluster"))
         add_to_cluster_arguments = self.store_mock.get_arguments("add_to_cluster")
         self.assertEqual(document_id, add_to_cluster_arguments[0])
+        self.assertEqual(cluster_id, add_to_cluster_arguments[1])
 
         self.assertEqual(1, self.calculator_mock.num_method_calls("get_average_vector"))
         get_average_vector_arguments = self.calculator_mock.get_arguments("get_average_vector")
@@ -49,7 +50,156 @@ class ClustererTest(unittest.TestCase):
 
         self.assertEqual(1, self.store_mock.num_method_calls("set_centroid"))
         set_centroid_arguments = self.store_mock.get_arguments("set_centroid")
+        self.assertEqual(cluster_id, set_centroid_arguments[0])
         self.assertEqual(doc_vector, set_centroid_arguments[1])
+
+
+    def test_add_document_to_existing_cluster(self):
+        # Arrange
+        cluster_id = uuid.uuid4()
+        document_id_1 = uuid.uuid4()
+        doc_vector_1 = {"foo": 0.5, "bar": 0.5}
+
+        document_id_2 = uuid.uuid4()
+        doc_vector_2 = {"foo": 0.5, "bar": 0.5}
+
+        avg_vector = {"foo": 0.5, "bar": 0.5}
+
+        self.calculator_mock.set_vectors({document_id_1: doc_vector_1, document_id_2: doc_vector_2})
+        self.calculator_mock.set_average_vectors({(document_id_1, document_id_2): avg_vector})
+
+        self.store_mock.set_centroids({cluster_id:doc_vector_1})
+        self.store_mock.set_documents({cluster_id:[document_id_1, document_id_2]})
+        self.store_mock.set_threshold(0.9)
+
+        # Act
+        self.clusterer.add_document(document_id_2)
+
+        # Assert
+        self.assertEqual(1, self.calculator_mock.num_method_calls("get_tfidf_vector"))
+        vector_arguments = self.calculator_mock.get_arguments("get_tfidf_vector")
+        self.assertEqual(document_id_2, vector_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("get_centroids"))
+
+        self.assertEqual(1, self.store_mock.num_method_calls("get_similarity_threshold"))
+
+        self.assertEqual(0, self.store_mock.num_method_calls("add_cluster"))
+
+        self.assertEqual(1, self.store_mock.num_method_calls("add_to_cluster"))
+        add_to_cluster_arguments = self.store_mock.get_arguments("add_to_cluster")
+        self.assertEqual(document_id_2, add_to_cluster_arguments[0])
+        self.assertEqual(cluster_id, add_to_cluster_arguments[1])
+
+        self.assertEqual(1, self.calculator_mock.num_method_calls("get_average_vector"))
+        get_average_vector_arguments = self.calculator_mock.get_arguments("get_average_vector")
+        self.assertEqual([document_id_1, document_id_2], get_average_vector_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("set_centroid"))
+        set_centroid_arguments = self.store_mock.get_arguments("set_centroid")
+        self.assertEqual(cluster_id, set_centroid_arguments[0])
+        self.assertEqual(avg_vector, set_centroid_arguments[1])
+
+    def test_add_document_to_new_cluster(self):
+        # Arrange
+        cluster_id_1 = uuid.uuid4()
+        cluster_id_2 = uuid.uuid4()
+        document_id_1 = uuid.uuid4()
+        doc_vector_1 = {"foo": 0.5, "bar": 0.5}
+
+        document_id_2 = uuid.uuid4()
+        doc_vector_2 = {"foo": 1.0, "bar": 0.5}
+
+        self.calculator_mock.set_vectors({document_id_1: doc_vector_1, document_id_2: doc_vector_2})
+        self.calculator_mock.set_average_vectors({(document_id_2,): doc_vector_2})
+
+        self.store_mock.set_centroids({cluster_id_1:doc_vector_1})
+        self.store_mock.set_documents({cluster_id_1:[document_id_1], cluster_id_2:[document_id_2]})
+        self.store_mock.set_cluster_id(cluster_id_2)
+
+        # cosine_similarity = 0.75 / (sqrt(0.5) * sqrt(1.25)) = 0.948...
+        self.store_mock.set_threshold(0.95)
+
+        # Act
+        self.clusterer.add_document(document_id_2)
+
+        # Assert
+        self.assertEqual(1, self.calculator_mock.num_method_calls("get_tfidf_vector"))
+        vector_arguments = self.calculator_mock.get_arguments("get_tfidf_vector")
+        self.assertEqual(document_id_2, vector_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("get_centroids"))
+
+        self.assertEqual(1, self.store_mock.num_method_calls("get_similarity_threshold"))
+
+        self.assertEqual(1, self.store_mock.num_method_calls("add_cluster"))
+        add_cluster_arguments = self.store_mock.get_arguments("add_cluster")
+        self.assertEqual(doc_vector_2, add_cluster_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("add_to_cluster"))
+        add_to_cluster_arguments = self.store_mock.get_arguments("add_to_cluster")
+        self.assertEqual(document_id_2, add_to_cluster_arguments[0])
+        self.assertEqual(cluster_id_2, add_to_cluster_arguments[1])
+
+        self.assertEqual(1, self.calculator_mock.num_method_calls("get_average_vector"))
+        get_average_vector_arguments = self.calculator_mock.get_arguments("get_average_vector")
+        self.assertEqual([document_id_2], get_average_vector_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("set_centroid"))
+        set_centroid_arguments = self.store_mock.get_arguments("set_centroid")
+        self.assertEqual(cluster_id_2, set_centroid_arguments[0])
+        self.assertEqual(doc_vector_2, set_centroid_arguments[1])
+
+    def test_add_document_to_nearer_cluster(self):
+        # Arrange
+        cluster_id_1 = uuid.uuid4()
+        cluster_id_2 = uuid.uuid4()
+
+        document_id_1 = uuid.uuid4()
+        doc_vector_1 = {"foo": 0.5, "bar": 0.5}
+
+        document_id_2 = uuid.uuid4()
+        doc_vector_2 = {"foo": 1.0, "bar": 0.5}
+
+        document_id_3 = uuid.uuid4()
+        doc_vector_3 = {"foo": 1.0, "bar": 0.5}
+
+        self.calculator_mock.set_vectors({document_id_3: doc_vector_3})
+        self.calculator_mock.set_average_vectors({(document_id_2, document_id_3): doc_vector_2})
+
+        self.store_mock.set_centroids({cluster_id_1: doc_vector_1, cluster_id_2: doc_vector_2})
+        self.store_mock.set_documents({cluster_id_1:[document_id_1], cluster_id_2:[document_id_2, document_id_3]})
+
+        # cosine_similarity = 0.75 / (sqrt(0.5) * sqrt(1.25)) = 0.948...
+        self.store_mock.set_threshold(0.9)
+
+        # Act
+        self.clusterer.add_document(document_id_3)
+
+        # Assert
+        self.assertEqual(1, self.calculator_mock.num_method_calls("get_tfidf_vector"))
+        vector_arguments = self.calculator_mock.get_arguments("get_tfidf_vector")
+        self.assertEqual(document_id_3, vector_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("get_centroids"))
+
+        self.assertEqual(1, self.store_mock.num_method_calls("get_similarity_threshold"))
+
+        self.assertEqual(0, self.store_mock.num_method_calls("add_cluster"))
+
+        self.assertEqual(1, self.store_mock.num_method_calls("add_to_cluster"))
+        add_to_cluster_arguments = self.store_mock.get_arguments("add_to_cluster")
+        self.assertEqual(document_id_3, add_to_cluster_arguments[0])
+        self.assertEqual(cluster_id_2, add_to_cluster_arguments[1])
+
+        self.assertEqual(1, self.calculator_mock.num_method_calls("get_average_vector"))
+        get_average_vector_arguments = self.calculator_mock.get_arguments("get_average_vector")
+        self.assertEqual([document_id_2, document_id_3], get_average_vector_arguments[0])
+
+        self.assertEqual(1, self.store_mock.num_method_calls("set_centroid"))
+        set_centroid_arguments = self.store_mock.get_arguments("set_centroid")
+        self.assertEqual(cluster_id_2, set_centroid_arguments[0])
+        self.assertEqual(doc_vector_2, set_centroid_arguments[1])
 
 
 class MemoryClusterStoreTest(unittest.TestCase):

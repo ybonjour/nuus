@@ -2,6 +2,8 @@ __author__ = 'Yves Bonjour'
 
 import unittest
 import uuid
+import redis
+from Clusterer import RedisClusterStore
 from Clusterer import MemoryClusterStore
 from VectorCalculatorMock import VectorCalculatorMock
 from ClusterStoreMock import ClusterStoreMock
@@ -202,11 +204,7 @@ class ClustererTest(unittest.TestCase):
         self.assertEqual(doc_vector_2, set_centroid_arguments[1])
 
 
-class MemoryClusterStoreTest(unittest.TestCase):
-
-    def setUp(self):
-        self.store = MemoryClusterStore(2)
-
+class ClusterStoreTest(object):
     def test_get_documents_not_existing_cluster_id(self):
         self.assertRaises(RuntimeError, self.store.get_documents, 1)
 
@@ -320,6 +318,22 @@ class MemoryClusterStoreTest(unittest.TestCase):
         centroids = self.store.get_centroids()
         self.assertEqual(cenroid_untouched, centroids[cluster_id_untouched])
         self.assertEqual(centroid, centroids[cluster_id])
+
+
+
+class MemoryClusterStoreTest(ClusterStoreTest, unittest.TestCase):
+    def setUp(self):
+        self.store = MemoryClusterStore(2)
+
+
+class RedisClusterStoreTest(ClusterStoreTest, unittest.TestCase):
+    def setUp(self):
+        self.redis = redis.Redis("localhost", 6379, db=2)
+        self.redis.flushdb()
+        self.store = RedisClusterStore(self.redis, 2)
+
+    def tearDown(self):
+        self.redis.flushdb()
 
 
 

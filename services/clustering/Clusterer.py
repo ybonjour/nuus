@@ -1,7 +1,7 @@
 __author__ = 'Yves Bonjour'
 
 from math import sqrt
-
+import uuid
 
 def l2norm(v):
     return sqrt(sum([x*x for x in v.values()]))
@@ -78,3 +78,64 @@ class MemoryClusterStore:
 
     def get_similarity_threshold(self):
         return self.threshold
+
+
+class RedisClusterStore:
+    def __init__(self, redis, threshold):
+        self.redis = redis
+        self.redis.set(self._key_threshold(), threshold)
+
+    def get_similarity_threshold(self):
+        return int(self.redis.get(self._key_threshold()))
+
+    def add_to_cluster(self, document_id, cluster_id):
+        if not self._exists_cluster(cluster_id):
+            raise RuntimeError("Invalid cluster id")
+
+        self.redis.sadd(self._key_cluster(cluster_id), document_id)
+
+    def get_documents(self, cluster_id):
+        if not self._exists_cluster(cluster_id):
+            raise RuntimeError("Invalid cluster id")
+
+        return [uuid.UUID(doc_id) for doc_id in self.redis.smembers(self._key_cluster(cluster_id))]
+
+    def add_cluster(self, centroid):
+        cluster_id = uuid.uuid4()
+
+        self.redis.sadd(self._key_all_clusters(), cluster_id)
+        self.redis.hmset(self._key_centroid(cluster_id), centroid)
+
+        return cluster_id
+
+    def get_centroids(self):
+        centroids = {}
+        for cluster_id in self.redis.smembers(self._key_all_clusters()):
+            d = self.redis.hgetall(self._key_centroid(cluster_id))
+            centroid = {term: float(value) for term, value in d.iteritems()}
+            centroids[uuid.UUID(cluster_id)] = centroid
+        return centroids
+
+    def set_centroid(self, cluster_id, centroid):
+        if not self._exists_cluster(cluster_id):
+            raise RuntimeError("Invalid cluster id")
+
+        for term in self.redis.hkeys(self._key_centroid(cluster_id)):
+            self.redis.hdel(self._key_centroid(cluster_id), term)
+
+        self.redis.hmset(self._key_centroid(cluster_id), centroid)
+
+    def _exists_cluster(self, cluster_id):
+        return self.redis.sismember(self._key_all_clusters(), cluster_id)
+
+    def _key_all_clusters(self):
+        return "clusterig:all_clusters"
+
+    def _key_cluster(self, cluster_id):
+        return "clustering:cluster:{cluster_id}".format(cluster_id=cluster_id)
+
+    def _key_threshold(self):
+        return "clustering:threshold"
+
+    def _key_centroid(self, cluster_id):
+        return "clustering:centroid:{cluster_id}".format(cluster_id=cluster_id)

@@ -1,6 +1,11 @@
 __author__ = 'Yves Bonjour'
 
 from math import log10
+from Indexer import create_indexer
+
+def create_vector_calculator():
+    index_service = create_indexer()
+    return VectorCalculator(index_service)
 
 
 class VectorCalculator:

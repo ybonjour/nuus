@@ -2,14 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../common/WerkzeugService.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../indexing/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Clusterer.py" afterPath="$PROJECT_DIR$/Clusterer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../indexing/Service.py" afterPath="$PROJECT_DIR$/../indexing/Service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/VectorCalculator.py" afterPath="$PROJECT_DIR$/VectorCalculator.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../indexing/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../indexing/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../common/WerkzeugService.py" afterPath="$PROJECT_DIR$/../../common/WerkzeugService.py" />
     </list>
     <ignored path="clustering.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -17,9 +12,9 @@
     <file path="/ClustererTest.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1363190611623" ignored="false" />
     <file path="/VectorCalculator.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364230460555" ignored="false" />
     <file path="/VectorCalculatorTest.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1363190187245" ignored="false" />
-    <file path="/Service.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364231130981" ignored="false" />
+    <file path="/Service.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364232662731" ignored="false" />
     <file path="/WSGI.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364229769096" ignored="false" />
-    <file path="/WerkzeugService.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364230055487" ignored="false" />
+    <file path="/WerkzeugService.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364232161474" ignored="false" />
     <file path="/Clusterer.py" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364230595790" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,10 +37,10 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Clusterer.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Clusterer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Clusterer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="52" selection-start="3492" selection-end="3492" vertical-scroll-proportion="0.40108892">
+            <state line="117" column="0" selection-start="3823" selection-end="3823" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#29#50#0" expanded="true" />
               </folding>
@@ -76,9 +71,20 @@
       <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="80" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+            <state line="16" column="8" selection-start="378" selection-end="492" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#29#67#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../indexing/Service.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="44" column="16" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.8094374">
+              <folding>
+                <element signature="e#29#63#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,8 +102,10 @@
       <file leaf-file-name="WerkzeugService.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="0" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
-              <folding />
+            <state line="27" column="53" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#29#40#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -120,8 +128,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/CentroidStore.py" />
-        <option value="$PROJECT_DIR$/ClusterStore.py" />
         <option value="$PROJECT_DIR$/../indexing/Indexer.py" />
         <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/clustering/tests/VectorCalculatorTest.py" />
         <option value="$PROJECT_DIR$/tests/IndexerMock.py" />
@@ -134,8 +140,10 @@
         <option value="$PROJECT_DIR$/tests/ClusterStoreMock.py" />
         <option value="$PROJECT_DIR$/VectorCalculator.py" />
         <option value="$PROJECT_DIR$/Clusterer.py" />
-        <option value="$PROJECT_DIR$/Service.py" />
         <option value="$USER_HOME$/Dropbox/work/projects/nuus/src/services/clustering/Clusterer.py" />
+        <option value="$PROJECT_DIR$/../../common/WerkzeugService.py" />
+        <option value="$PROJECT_DIR$/Service.py" />
+        <option value="$PROJECT_DIR$/../indexing/Service.py" />
       </list>
     </option>
   </component>
@@ -463,13 +471,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="27" width="1922" height="1174" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32981133" sideWeight="0.61170214" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16237941" sideWeight="0.5753695" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16237941" sideWeight="0.5753695" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3882979" sideWeight="0.7539623" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.42463055" sideWeight="0.22936763" order="9" side_tool="true" content_ui="tabs" />
@@ -538,7 +546,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="36" />
+      <option name="time" value="37" />
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
@@ -597,13 +605,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../indexing/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="0" selection-start="64" selection-end="237" vertical-scroll-proportion="0.07622504">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/VectorCalculator.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="34" selection-start="140" selection-end="154" vertical-scroll-proportion="0.0">
@@ -620,10 +621,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
+    <entry file="file://$PROJECT_DIR$/Clusterer.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="0" selection-start="136" selection-end="136" vertical-scroll-proportion="0.0">
-          <folding />
+        <state line="117" column="0" selection-start="3823" selection-end="3823" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#29#50#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,20 +637,29 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="27" column="53" selection-start="834" selection-end="834" vertical-scroll-proportion="0.0">
+          <folding>
+            <element signature="e#29#40#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="80" selection-start="844" selection-end="844" vertical-scroll-proportion="0.0">
+        <state line="16" column="8" selection-start="378" selection-end="492" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#29#67#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Clusterer.py">
+    <entry file="file://$PROJECT_DIR$/../indexing/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="52" selection-start="3492" selection-end="3492" vertical-scroll-proportion="0.40108892">
+        <state line="44" column="16" selection-start="1544" selection-end="1544" vertical-scroll-proportion="0.8094374">
           <folding>
-            <element signature="e#29#50#0" expanded="true" />
+            <element signature="e#29#63#0" expanded="true" />
           </folding>
         </state>
       </provider>

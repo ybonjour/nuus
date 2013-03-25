@@ -2,7 +2,6 @@ __author__ = 'Yves Bonjour'
 
 from Clusterer import create_clusterer
 
-from werkzeug.serving import run_simple
 from werkzeug.routing import Map, Rule
 from WerkzeugService import WerkzeugService
 from WerkzeugService import create_status_ok_response
@@ -27,4 +26,4 @@ class ClusteringService(WerkzeugService):
 
 if __name__ == "__main__":
     service = create_clustering_service()
-    run_simple('127.0.0.1', 5000, service, use_debugger=True, use_reloader=True)
+    service.run()

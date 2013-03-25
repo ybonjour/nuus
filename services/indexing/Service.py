@@ -42,4 +42,4 @@ class IndexService(WerkzeugService):
 
 if __name__ == "__main__":
     service = create_index_service()
-    run_simple('127.0.0.1', 5000, service, use_debugger=True, use_reloader=True)
+    service.run()

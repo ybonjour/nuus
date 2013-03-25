@@ -2,20 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/Clusterer.py" afterPath="$PROJECT_DIR$/../clustering/Clusterer.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/Service.py" afterPath="$PROJECT_DIR$/../clustering/Service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/VectorCalculator.py" afterPath="$PROJECT_DIR$/../clustering/VectorCalculator.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../feedcollector/Proxies.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="indexing.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364230296084" ignored="false" />
+    <file path="/Dummy.txt" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364233730737" ignored="false" />
     <file path="/Service.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364231130982" ignored="false" />
     <file path="/Clusterer.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364230595790" ignored="false" />
     <file path="/VectorCalculator.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364230460555" ignored="false" />
+    <file path="/Proxies.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364234402468" ignored="false" />
+    <file path="$USER_HOME$/Dropbox/work/projects/nuus/src/feedcollector/Proxies.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364234409772" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,9 +105,7 @@
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="25" column="21" selection-start="884" selection-end="884" vertical-scroll-proportion="0.0">
-              <folding>
-                <element signature="e#29#63#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -118,7 +113,7 @@
       <file leaf-file-name="WerkzeugService.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="27" column="0" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0">
+            <state line="27" column="0" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -162,10 +157,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
     <option name="y" value="27" />
-    <option name="width" value="1922" />
-    <option name="height" value="1174" />
+    <option name="width" value="1920" />
+    <option name="height" value="1173" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -193,6 +187,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -249,17 +244,16 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../clustering" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -269,7 +263,7 @@
       <PyConsoleSettings />
     </option>
   </component>
-  <component name="RunManager" selected="Python.Client">
+  <component name="RunManager" selected="Python.Service">
     <configuration default="false" name="Nosetests in IndexerTest.test_index_empty_text" type="tests" factoryName="Nosetests" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -424,8 +418,8 @@
     </list>
     <recent_temporary>
       <list size="4">
-        <item index="0" class="java.lang.String" itemvalue="Python.Client" />
-        <item index="1" class="java.lang.String" itemvalue="Python.Service" />
+        <item index="0" class="java.lang.String" itemvalue="Python.Service" />
+        <item index="1" class="java.lang.String" itemvalue="Python.Client" />
         <item index="2" class="java.lang.String" itemvalue="Python.IndexerTest" />
         <item index="3" class="java.lang.String" itemvalue="Python.TokenizerTest" />
       </list>
@@ -459,18 +453,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="27" width="1922" height="1174" extended-state="6" />
-    <editor active="true" />
+    <frame x="0" y="27" width="1920" height="1173" extended-state="0" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19989282" sideWeight="0.7714286" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.20225322" sideWeight="0.7721894" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39893618" sideWeight="0.49056605" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22857143" sideWeight="0.42711684" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22857143" sideWeight="0.56859595" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22781065" sideWeight="0.4275751" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22781065" sideWeight="0.56813306" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -556,9 +550,7 @@
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="30" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#29#63#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -593,9 +585,7 @@
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="21" selection-start="884" selection-end="884" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#29#63#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -643,7 +633,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="27" column="0" selection-start="811" selection-end="811" vertical-scroll-proportion="0.0">
+        <state line="27" column="0" selection-start="781" selection-end="781" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>

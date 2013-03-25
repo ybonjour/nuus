@@ -8,8 +8,9 @@ from werkzeug.wrappers import Request, Response
 
 class WerkzeugService(object):
 
-    def __init__(self, url_map):
+    def __init__(self, port, url_map):
         self.url_map = url_map
+        self.port = port
 
     def dispatch_request(self, request):
         adapter = self.url_map.bind_to_environ(request.environ)
@@ -28,7 +29,7 @@ class WerkzeugService(object):
         return self.wsgi_app(environ, start_response)
 
     def run(self):
-        werkzeug.serving.run_simple('127.0.0.1', 5000, self, use_debugger=True, use_reloader=True)
+        werkzeug.serving.run_simple('127.0.0.1', self.port, self, use_debugger=True, use_reloader=True)
 
 
 def create_status_ok_response():

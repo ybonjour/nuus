@@ -1,0 +1,8 @@
+
+ul.nav-articles > li > a {
+    width: 100%;
+    display: block;
+    margin: 0 0 -1px;
+    padding: 8px 14px;
+    border: 1px solid #e5e5e5;
+}

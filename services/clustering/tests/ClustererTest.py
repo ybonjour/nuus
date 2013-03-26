@@ -320,7 +320,6 @@ class ClusterStoreTest(object):
         self.assertEqual(centroid, centroids[cluster_id])
 
 
-
 class MemoryClusterStoreTest(ClusterStoreTest, unittest.TestCase):
     def setUp(self):
         self.store = MemoryClusterStore(2)
@@ -334,7 +333,6 @@ class RedisClusterStoreTest(ClusterStoreTest, unittest.TestCase):
 
     def tearDown(self):
         self.redis.flushdb()
-
 
 
 if __name__ == '__main__':

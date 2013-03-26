@@ -137,7 +137,7 @@ class RedisClusterStore:
         return self.redis.sismember(self._key_all_clusters(), cluster_id)
 
     def _key_all_clusters(self):
-        return "clusterig:all_clusters"
+        return "clustering:all_clusters"
 
     def _key_cluster(self, cluster_id):
         return "clustering:cluster:{cluster_id}".format(cluster_id=cluster_id)

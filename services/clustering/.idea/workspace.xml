@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../feeds/Client.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../feeds/Feeds.py" afterPath="$PROJECT_DIR$/../feeds/Feeds.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../feeds/Service.py" afterPath="$PROJECT_DIR$/../feeds/Service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../feeds/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../feeds/.idea/workspace.xml" />
-    </list>
+    <list default="true" id="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" name="Default" comment="" />
     <ignored path="clustering.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Dummy.txt" changelist="53d07e4a-b71c-4aed-bf76-4a707c5ec07d" time="1364396233082" ignored="false" />
@@ -216,7 +211,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonSdkConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../feedcollector" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
   </component>
@@ -434,7 +429,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1173" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />

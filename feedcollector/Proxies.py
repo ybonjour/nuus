@@ -1,14 +1,16 @@
 __author__ = 'Yves Bonjour'
 
 import requests
-import uuid
+from urlparse import urljoin
+import json
 
-class IndexerProxy(object):
+
+class IndexProxy(object):
     def __init__(self, url):
         self.url = url
 
     def index(self, article_id, title, text):
-        index_url = self.url + "index/" + str(article_id)
+        index_url = urljoin(self.url, "index/{article}".format(article=article_id))
         payload = {"title": title, "text": text}
 
         try:
@@ -19,12 +21,13 @@ class IndexerProxy(object):
         if r.status_code != 200:
             raise EnvironmentError(r.content)
 
-class ClustererProxy(object):
+
+class ClusterProxy(object):
     def __init__(self, url):
         self.url = url
 
     def add_article(self, article_id):
-        add_article_url = self.url + "add/" + str(article_id)
+        add_article_url = urljoin(self.url, "add/{article}".format(article=article_id))
 
         try:
             r = requests.post(add_article_url)
@@ -35,13 +38,28 @@ class ClustererProxy(object):
             raise EnvironmentError(r.content)
 
 
-if __name__ == "__main__":
-    article_id = uuid.uuid4()
-    title = "Where did it go wrong for oligarch?"
-    text = "Boris Berezovsky was an oligarch who made a fortune as the Soviet Union collapsed. But by the time he died, he was in financial difficulties."
+class FeedProxy(object):
+    def __init__(self, url):
+        self.url = url
 
-    indexer_proxy = IndexerProxy("http://localhost:5000/")
-    indexer_proxy.index(article_id, title, text)
+    def add_feed(self, feed_url, name, user):
+        add_feed_url = urljoin(self.url, "add")
+        payload = {"url": feed_url, "name": name, "user": user}
 
-    clusterer_proxy = ClustererProxy("http://localhost:5001/")
-    clusterer_proxy.add_article(article_id)
+        try:
+            r = requests.post(add_feed_url, data=payload)
+        except requests.ConnectionError as e:
+            raise EnvironmentError(e)
+
+        if r.status_code != 200:
+            raise EnvironmentError(r.content)
+
+    def get_feed_urls(self):
+        get_feed_url = urljoin(self.url, "feed_urls")
+
+        try:
+            r = requests.get(get_feed_url)
+        except requests.ConnectionError as e:
+            raise EnvironmentError(e)
+
+        return json.loads(r.content)

@@ -31,7 +31,7 @@ class Feed(object):
 
 def create_feeds():
     redis_db = redis.Redis("localhost", 6379)
-    store = RedisFeedStore(redis)
+    store = RedisFeedStore(redis_db)
     return Feeds(store)
 
 

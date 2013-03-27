@@ -39,7 +39,8 @@ class FeedService(WerkzeugService):
         return create_status_ok_response()
 
     def on_feed_urls(self, _):
-        return create_json_response(self.feeds.get_feed_urls())
+        urls = self.feeds.get_feed_urls()
+        return create_json_response(list(urls))
 
 if __name__ == "__main__":
     service = create_feed_service()

@@ -36,6 +36,7 @@
 		.form-register input[type="text"] {
 			font-size: 16px;
 			height: auto;
+			margin-top: 15px;
 			margin-bottom: 15px;
 			padding: 7px 9px;
 		}
@@ -69,10 +70,10 @@
 			There are a lot of great articles out there, that you would love to read but that you are not aware of. nuus finds those articles and presents them to you.<br/><br/>
 
 			<b>Read less.</b>
-			From the immense amount of articles available online, nuus picks only the one's that you are intrested in based on your previous readings.<br/><br/>
+			From the immense amount of articles available online, nuus picks only the ones that you are intrested in based on your previous readings.<br/><br/>
 
 			<b>And it gets better.</b>
-			The longer you use nuus the better it get's. As it learns more about what you like to read the more accurate the proposals get.
+			The longer you use nuus the better it gets. As it learns more about what you like to read the more accurate the proposals get.
 		</div>
 
 		<form class="form-register" id="register_form">

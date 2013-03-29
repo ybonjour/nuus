@@ -31,10 +31,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="24" column="56" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
+            <state line="26" column="39" selection-start="829" selection-end="829" vertical-scroll-proportion="0.5676275">
               <folding>
                 <element signature="e#29#38#0" expanded="true" />
               </folding>
@@ -42,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WerkzeugService.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="WerkzeugService.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="47" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.63192904">
+            <state line="37" column="115" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#29#40#0" expanded="true" />
               </folding>
@@ -218,6 +218,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../../feedcollector/Proxies.py" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -243,7 +244,7 @@
       <module name="newsletter" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Service.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="&quot;127.0.0.1&quot; 50010" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -490,20 +491,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Service.py">
+    <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="24" column="56" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
+        <state line="37" column="115" selection-start="1307" selection-end="1307" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#29#38#0" expanded="true" />
+            <element signature="e#29#40#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
+    <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="47" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.63192904">
+        <state line="26" column="39" selection-start="829" selection-end="829" vertical-scroll-proportion="0.5676275">
           <folding>
-            <element signature="e#29#40#0" expanded="true" />
+            <element signature="e#29#38#0" expanded="true" />
           </folding>
         </state>
       </provider>

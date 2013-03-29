@@ -1,5 +1,10 @@
 __author__ = 'Yves Bonjour'
 
+import os
+import sys
+
+sys.path.append(os.path.join(os.path.dirname(__file__), "../../common"))
+
 from WerkzeugService import create_status_error_response
 from WerkzeugService import create_status_ok_response
 from WerkzeugService import WerkzeugService
@@ -7,17 +12,17 @@ from werkzeug.routing import Map, Rule
 from werkzeug.utils import  redirect
 from NewsletterStore import create_newsletter_store
 from NewsletterStore import is_valid
-import os
 
 
-def create_newsletter_service():
+
+def create_newsletter_service(port):
     store = create_newsletter_store()
-    return NewsletterService(store)
+    return NewsletterService(store, port)
 
 
 class NewsletterService(WerkzeugService):
-    def __init__(self, store):
-        super(NewsletterService, self).__init__(50010, Map([
+    def __init__(self, store, port):
+        super(NewsletterService, self).__init__(port, Map([
             Rule('/register', endpoint='register'),
             Rule('/', endpoint='index')
         ]), {"/": os.path.join(os.path.dirname(__file__), "web")}, False)
@@ -44,5 +49,16 @@ class NewsletterService(WerkzeugService):
 
 
 if __name__ == "__main__":
-    service = create_newsletter_service()
+    usage = "USAGE: python Service.py [port]"
+    if len(sys.argv) != 2:
+        print(usage)
+        quit()
+
+    try:
+        port = int(sys.argv[1])
+    except ValueError:
+        print(usage)
+        quit()
+
+    service = create_newsletter_service(port)
     service.run()

@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>nuus - Coming soon</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link href="css/bootstrap.css" rel="stylesheet">
+    <style type="text/css">
+		body {
+			padding-top: 40px;
+			padding-bottom: 40px;
+			background-color: #fff;
+		}
+
+		.form-register {
+			max-width: 450px;
+			padding: 19px 29px 29px;
+			margin: 0 auto 20px;
+			background-color: #f5f5f5;
+			border: 1px solid #e5e5e5;
+			-webkit-border-radius: 5px;
+			   -moz-border-radius: 5px;
+					border-radius: 5px;
+			-webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+			   -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
+					box-shadow: 0 1px 2px rgba(0,0,0,.05);
+		}
+		.form-register .form-register-heading {
+			margin-bottom: 10px;
+		}
+		.form-register input[type="text"] {
+			font-size: 16px;
+			height: auto;
+			margin-top: 15px;
+			margin-bottom: 15px;
+			padding: 7px 9px;
+		}
+    </style>
+    <link href="css/bootstrap-responsive.css" rel="stylesheet">
+
+    <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Fav and touch icons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="ico/apple-touch-icon-144-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="ico/apple-touch-icon-114-precomposed.png">
+	<link rel="apple-touch-icon-precomposed" sizes="72x72" href="ico/apple-touch-icon-72-precomposed.png">
+    <link rel="apple-touch-icon-precomposed" href="ico/apple-touch-icon-57-precomposed.png">
+	<link rel="shortcut icon" href="ico/favicon.png">
+  </head>
+
+  <body>
+
+    <div class="container">
+		<div class="form-register">
+			<img src="nuus.png" /><br/><br/>
+			nuus is a news reader that learns your interests and personalizes your news stream.<br/><br/>
+
+			<b>It's simple.</b>
+			nuus provides you with one single stream of articles.<br/><br/>
+
+			<b>Discover new stuff.</b>
+			There are a lot of great articles out there, that you would love to read but that you are not aware of. nuus finds those articles and presents them to you.<br/><br/>
+
+			<b>Read less.</b>
+			From the immense amount of articles available online, nuus picks only the one's that you are intrested in based on your previous readings.<br/><br/>
+
+			<b>And it gets better.</b>
+			The longer you use nuus the better it get's. As it learns more about what you like to read the more accurate the proposals get.
+		</div>
+
+		<form class="form-register" id="register_form">
+			<h3 class="form-register-heading">Wanna be a beta tester?</h3>
+			Become one of the first to see nuus in action. Register you email addess and we will
+			let you know when we are ready to release the beta version.<br/>
+			<div id="message"></div>
+			<input type="text" id="email" class="input-block-level" placeholder="Email address">
+			<button class="btn btn-large btn-primary" type="submit" id="register">Register</button>
+		</form>
+    </div> <!-- /container -->
+
+    <!-- Le javascript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="js/jquery.js"></script>
+    <script src="js/bootstrap-transition.js"></script>
+    <script src="js/bootstrap-alert.js"></script>
+    <script src="js/bootstrap-modal.js"></script>
+    <script src="js/bootstrap-dropdown.js"></script>
+    <script src="js/bootstrap-scrollspy.js"></script>
+    <script src="js/bootstrap-tab.js"></script>
+    <script src="js/bootstrap-tooltip.js"></script>
+    <script src="js/bootstrap-popover.js"></script>
+    <script src="js/bootstrap-button.js"></script>
+    <script src="js/bootstrap-collapse.js"></script>
+    <script src="js/bootstrap-carousel.js"></script>
+    <script src="js/bootstrap-typeahead.js"></script>
+
+	<script language="JavaScript">
+		$(document).ready(function(){
+			$("#register_form").submit(function(){
+				var email = $("#email").val();
+				if(email === "") return;
+
+				$.ajax({
+					type: "POST",
+					url: "register",
+					data: {"email": email},
+					success: function(data){
+						$("#register").hide();
+						$("#email").hide();
+						$("#message").removeClass("alert-error");
+						$("#message").addClass("alert-success");
+						$("#message").html("Thanks for registering " + email + "!<br/><a href='index.html'>Register another e-mail address</a>");						
+					},
+					error: function(){
+						$("#message").removeClass("alert-success");
+						$("#message").addClass("alert-error");
+						$("#message").html("Oops, an error occured. Please check if the entered e-mail address is correct and try again.");
+					}
+				});
+				return false;
+			});
+		});
+	</script>
+
+  </body>
+</html>
+

@@ -1,7 +1,6 @@
 __author__ = 'Yves Bonjour'
 
 from Indexer import create_indexer
-from werkzeug.serving import run_simple
 from werkzeug.routing import Map, Rule
 from WerkzeugService import WerkzeugService
 from WerkzeugService import create_status_ok_response

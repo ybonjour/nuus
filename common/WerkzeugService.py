@@ -3,14 +3,17 @@ __author__ = 'Yves Bonjour'
 import json
 from werkzeug.exceptions import HTTPException
 import werkzeug.serving
+from werkzeug.wsgi import SharedDataMiddleware
 from werkzeug.wrappers import Request, Response
 
 
 class WerkzeugService(object):
 
-    def __init__(self, port, url_map):
+    def __init__(self, port, url_map, static_folders=None, debug=True):
         self.url_map = url_map
         self.port = port
+        self.static_folders = static_folders
+        self.debug = debug
 
     def dispatch_request(self, request):
         adapter = self.url_map.bind_to_environ(request.environ)
@@ -29,7 +32,9 @@ class WerkzeugService(object):
         return self.wsgi_app(environ, start_response)
 
     def run(self):
-        werkzeug.serving.run_simple('127.0.0.1', self.port, self, use_debugger=True, use_reloader=True)
+        if self.static_folders:
+            self.wsgi_app = SharedDataMiddleware(self.wsgi_app, self.static_folders)
+        werkzeug.serving.run_simple('127.0.0.1', self.port, self, use_debugger=self.debug, use_reloader=self.debug)
 
 
 def create_status_ok_response():

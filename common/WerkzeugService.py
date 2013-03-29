@@ -9,8 +9,9 @@ from werkzeug.wrappers import Request, Response
 
 class WerkzeugService(object):
 
-    def __init__(self, port, url_map, static_folders=None, debug=True):
+    def __init__(self, server, port, url_map, static_folders=None, debug=True):
         self.url_map = url_map
+        self.server = server
         self.port = port
         self.static_folders = static_folders
         self.debug = debug
@@ -34,7 +35,7 @@ class WerkzeugService(object):
     def run(self):
         if self.static_folders:
             self.wsgi_app = SharedDataMiddleware(self.wsgi_app, self.static_folders)
-        werkzeug.serving.run_simple('127.0.0.1', self.port, self, use_debugger=self.debug, use_reloader=self.debug)
+        werkzeug.serving.run_simple(self.server, self.port, self, use_debugger=self.debug, use_reloader=self.debug)
 
 
 def create_status_ok_response():

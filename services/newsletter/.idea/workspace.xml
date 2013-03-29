@@ -31,10 +31,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="0" selection-start="51" selection-end="123" vertical-scroll-proportion="0.16629712">
+            <state line="24" column="56" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#29#38#0" expanded="true" />
               </folding>
@@ -42,10 +42,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="WerkzeugService.py" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="WerkzeugService.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="30" selection-start="1054" selection-end="1068" vertical-scroll-proportion="0.0">
+            <state line="37" column="47" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.63192904">
               <folding>
                 <element signature="e#29#40#0" expanded="true" />
               </folding>
@@ -117,8 +117,8 @@
         <option value="$PROJECT_DIR$/NewsletterStore.py" />
         <option value="$PROJECT_DIR$/Client.py" />
         <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/common/WerkzeugService.py" />
-        <option value="$PROJECT_DIR$/../../common/WerkzeugService.py" />
         <option value="$PROJECT_DIR$/Service.py" />
+        <option value="$PROJECT_DIR$/../../common/WerkzeugService.py" />
       </list>
     </option>
   </component>
@@ -490,20 +490,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
+    <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="30" selection-start="1054" selection-end="1068" vertical-scroll-proportion="0.0">
+        <state line="24" column="56" selection-start="726" selection-end="726" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#29#40#0" expanded="true" />
+            <element signature="e#29#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Service.py">
+    <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="5" column="0" selection-start="51" selection-end="123" vertical-scroll-proportion="0.16629712">
+        <state line="37" column="47" selection-start="1239" selection-end="1239" vertical-scroll-proportion="0.63192904">
           <folding>
-            <element signature="e#29#38#0" expanded="true" />
+            <element signature="e#29#40#0" expanded="true" />
           </folding>
         </state>
       </provider>

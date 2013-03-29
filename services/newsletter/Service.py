@@ -15,14 +15,14 @@ from NewsletterStore import is_valid
 
 
 
-def create_newsletter_service(port):
+def create_newsletter_service(server, port):
     store = create_newsletter_store()
-    return NewsletterService(store, port)
+    return NewsletterService(store, server, port)
 
 
 class NewsletterService(WerkzeugService):
-    def __init__(self, store, port):
-        super(NewsletterService, self).__init__(port, Map([
+    def __init__(self, store, server, port):
+        super(NewsletterService, self).__init__(server, port, Map([
             Rule('/register', endpoint='register'),
             Rule('/', endpoint='index')
         ]), {"/": os.path.join(os.path.dirname(__file__), "web")}, False)
@@ -49,16 +49,16 @@ class NewsletterService(WerkzeugService):
 
 
 if __name__ == "__main__":
-    usage = "USAGE: python Service.py [port]"
-    if len(sys.argv) != 2:
+    usage = "USAGE: python Service.py [server] [port]"
+    if len(sys.argv) != 3:
         print(usage)
         quit()
 
     try:
-        port = int(sys.argv[1])
+        port = int(sys.argv[2])
     except ValueError:
         print(usage)
         quit()
 
-    service = create_newsletter_service(port)
+    service = create_newsletter_service(sys.argv[1], port)
     service.run()

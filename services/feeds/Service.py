@@ -14,7 +14,7 @@ def create_feed_service():
 
 class FeedService(WerkzeugService):
     def __init__(self, feeds):
-        super(FeedService, self).__init__(5002, Map([
+        super(FeedService, self).__init__("localhost", 5002, Map([
             Rule('/add', endpoint='add'),
             Rule('/feed_urls', endpoint='feed_urls')
             ]))

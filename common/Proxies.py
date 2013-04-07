@@ -63,3 +63,25 @@ class FeedProxy(object):
             raise EnvironmentError(e)
 
         return json.loads(r.content)
+
+class ArticleProxy(object):
+    def __init__(self, url):
+        self.url = url
+
+    def add_article(self, title, text, updated_on, feed):
+        add_feed_url = urljoin(self.url, "add")
+        payload = {"title": title, "text": text, "updated_on": updated_on, "feed": feed}
+        try:
+            r = requests.post(add_feed_url, data=payload)
+        except requests.ConnectionError as e:
+            raise EnvironmentError(e)
+
+        if r.status_code != 200:
+            raise EnvironmentError(r.content)
+
+        d = json.loads(r.content)
+        if "status" not in d or d["status"] != "ok" or "id" not in d:
+            raise EnvironmentError(r.content)
+
+        return d["id"]
+

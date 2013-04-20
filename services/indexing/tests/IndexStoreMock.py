@@ -1,6 +1,7 @@
 __author__ = 'Yves Bonjour'
 from Mock import Mock
 
+
 class IndexStoreMock(Mock):
 
     def __init__(self):
@@ -26,5 +27,3 @@ class IndexStoreMock(Mock):
     def get_terms(self, document):
         self._handle_method_call("get_terms", (document,))
         return self.terms
-
-

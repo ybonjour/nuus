@@ -1,5 +1,6 @@
 __author__ = 'Yves Bonjour'
 
+
 class Mock:
     def __init__(self):
         self.method_calls = {}
@@ -15,7 +16,7 @@ class Mock:
         if call_number > len(method_calls) or call_number < 1:
             raise RuntimeError("call_number out of range, method was not called often enough")
 
-        return method_calls[call_number-1]
+        return method_calls[call_number - 1]
 
     def was_called(self, method):
         return method in self.method_calls
@@ -27,6 +28,6 @@ class Mock:
 
     def __getattr__(self, name):
         def method(*args):
-            method_args = tuple(args) if args else None
-            self._handle_method_call(name, tuple(method_args))
+            method_args = tuple(args) if args else (None,)
+            self._handle_method_call(name, method_args)
         return method

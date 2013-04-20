@@ -5,10 +5,11 @@ import requests
 
 indexing_service = "http://localhost:5000/"
 
+
 def index(document, title, text):
     url = indexing_service + "index/" + str(document)
 
-    payload = {"title":title, "text":text}
+    payload = {"title": title, "text": text}
     r = requests.post(url, data=payload)
     print r.status_code
     print r.content

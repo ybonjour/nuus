@@ -10,6 +10,7 @@ from TokenizerMock import TokenizerMock
 from Indexer import Indexer
 import redis
 
+
 class StoreIndexTest(object):
     def test_add_new_term_new_document(self):
         # Arrange
@@ -276,9 +277,11 @@ class StoreIndexTest(object):
         self.assertEqual(1, len(terms))
         self.assertIn(term, terms)
 
+
 class MemoryIndexStoreTest(StoreIndexTest, unittest.TestCase):
     def setUp(self):
         self.store = MemoryIndexStore()
+
 
 class RedisIndexStoreTest(StoreIndexTest, unittest.TestCase):
     def setUp(self):
@@ -288,6 +291,7 @@ class RedisIndexStoreTest(StoreIndexTest, unittest.TestCase):
 
     def tearDown(self):
         self.redis.flushdb()
+
 
 class IndexerTest(unittest.TestCase):
     def setUp(self):
@@ -416,6 +420,7 @@ class IndexerTest(unittest.TestCase):
         arguments = self.store_mock.get_arguments("get_terms")
         self.assertEqual(document, arguments[0])
         self.assertEqual(terms, result)
+
 
 if __name__ == '__main__':
     unittest.main()

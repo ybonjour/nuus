@@ -4,6 +4,7 @@ import unittest
 from TokenizerMock import TokenizerMock
 from Tokenizer import LowerCaseTokenizer
 
+
 class LowerCaseTokenizerTest(unittest.TestCase):
 
     def setUp(self):

@@ -13,7 +13,7 @@ def create_index_service():
 class IndexService(WerkzeugService):
 
     def __init__(self, indexer):
-        super(IndexService, self).__init__(5000, Map([
+        super(IndexService, self).__init__("localhost", 5000, Map([
             Rule('/posting_list/<term>', endpoint='posting_list'),
             Rule('/index/<document>', endpoint='index')
         ]))

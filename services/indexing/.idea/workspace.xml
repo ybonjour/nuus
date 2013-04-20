@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="" />
+    <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
+    </list>
     <ignored path="indexing.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Proxies.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364234402468" ignored="false" />
@@ -100,8 +102,10 @@
       <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="726" selection-end="726" vertical-scroll-proportion="0.33333334">
-              <folding />
+            <state line="57" column="0" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.8011364">
+              <folding>
+                <element signature="e#29#39#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -521,7 +525,9 @@
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="21" column="30" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0">
-          <folding />
+          <folding>
+            <element signature="e#29#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -611,8 +617,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="726" selection-end="726" vertical-scroll-proportion="0.33333334">
-          <folding />
+        <state line="57" column="0" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.8011364">
+          <folding>
+            <element signature="e#29#39#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

@@ -1,0 +1,67 @@
+/* Stream Large */
+div.stream_large .stream_list_item {
+     border-bottom: 1px solid #dddddd;
+     padding: 15px 5px 15px 5px;
+ }
+
+div.stream_large .stream_list_item_title {
+    font-size: 20px;
+}
+
+div.stream_large .stream_list_item_info {
+    font-size: 10px;
+    color: #cccccc;
+}
+
+div.stream_large .stream_list_item_summary {
+    display:none;
+    font-size: 13px;
+}
+
+div.stream_large .stream_list_item_content {
+    margin-left: 20px;
+}
+
+div.stream_large .stream_list_item_marker
+{
+    float:left;
+    width: 3px;
+}
+
+div.stream_large .stream_list_item.active > .stream_list_item_marker{
+    border-left: 3px solid #f97c28;
+}
+
+/* Stream Small */
+
+div.stream_small .stream_list_item {
+    border-bottom: 1px solid #dddddd;
+    padding: 15px 5px 15px 5px;
+}
+
+div.stream_small .stream_list_item_title {
+    font-size: 15px;
+}
+
+div.stream_small .stream_list_item_info {
+    display: none;
+}
+
+div.stream_small .stream_list_item_summary {
+    display:none;
+    font-size: 10px;
+}
+
+div.stream_small .stream_list_item_content {
+    margin-left: 20px;
+}
+
+div.stream_small .stream_list_item_marker
+{
+    float:left;
+    width: 3px;
+}
+
+div.stream_small .stream_list_item.active > .stream_list_item_marker{
+    background-color: #f97c28;
+}

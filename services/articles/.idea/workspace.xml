@@ -25,9 +25,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state line="53" column="21" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
               <folding>
-                <marker date="1365339225036" expanded="true" signature="27:43" placeholder="import ..." />
-                <marker date="1365339225036" expanded="true" signature="316:502" placeholder="..." />
-                <marker date="1365339225036" expanded="true" signature="388:502" placeholder="..." />
+                <marker date="1365339225612" expanded="true" signature="27:43" placeholder="import ..." />
+                <marker date="1365339225612" expanded="true" signature="316:502" placeholder="..." />
+                <marker date="1365339225612" expanded="true" signature="388:502" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -56,7 +56,7 @@
       <file leaf-file-name="Proxies.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/../../common/Proxies.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="69" column="0" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.5020747">
+            <state line="67" column="28" selection-start="1808" selection-end="1808" vertical-scroll-proportion="1.3485477">
               <folding />
             </state>
           </provider>
@@ -330,7 +330,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="64" y="-4" width="1377" height="905" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -408,9 +408,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="21" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1365339225036" expanded="true" signature="27:43" placeholder="import ..." />
-            <marker date="1365339225036" expanded="true" signature="316:502" placeholder="..." />
-            <marker date="1365339225036" expanded="true" signature="388:502" placeholder="..." />
+            <marker date="1365339225612" expanded="true" signature="27:43" placeholder="import ..." />
+            <marker date="1365339225612" expanded="true" signature="316:502" placeholder="..." />
+            <marker date="1365339225612" expanded="true" signature="388:502" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -442,9 +442,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1365339225036" expanded="true" signature="27:43" placeholder="import ..." />
-            <marker date="1365339225036" expanded="true" signature="316:502" placeholder="..." />
-            <marker date="1365339225036" expanded="true" signature="388:502" placeholder="..." />
+            <marker date="1365339225612" expanded="true" signature="27:43" placeholder="import ..." />
+            <marker date="1365339225612" expanded="true" signature="316:502" placeholder="..." />
+            <marker date="1365339225612" expanded="true" signature="388:502" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -488,9 +488,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="53" column="21" selection-start="1497" selection-end="1497" vertical-scroll-proportion="0.0">
           <folding>
-            <marker date="1365339225036" expanded="true" signature="27:43" placeholder="import ..." />
-            <marker date="1365339225036" expanded="true" signature="316:502" placeholder="..." />
-            <marker date="1365339225036" expanded="true" signature="388:502" placeholder="..." />
+            <marker date="1365339225612" expanded="true" signature="27:43" placeholder="import ..." />
+            <marker date="1365339225612" expanded="true" signature="316:502" placeholder="..." />
+            <marker date="1365339225612" expanded="true" signature="388:502" placeholder="..." />
           </folding>
         </state>
       </provider>
@@ -506,7 +506,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/../../common/Proxies.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="69" column="0" selection-start="1832" selection-end="1832" vertical-scroll-proportion="0.5020747">
+        <state line="67" column="28" selection-start="1808" selection-end="1808" vertical-scroll-proportion="1.3485477">
           <folding />
         </state>
       </provider>

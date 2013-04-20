@@ -8,18 +8,18 @@ from WerkzeugService import create_status_ok_response
 from WerkzeugService import create_status_error_response
 from WerkzeugService import create_json_response
 
-USAGE = "USAGE: python Service.py [host] [port]"
+USAGE = "USAGE: python Service.py [host] [port] [debug]"
 
-def create_index_service(host, port):
-    return IndexService(create_indexer(), host, port)
+def create_index_service(host, port, debug):
+    return IndexService(create_indexer(), host, port, debug)
 
 class IndexService(WerkzeugService):
 
-    def __init__(self, indexer, host, port):
+    def __init__(self, indexer, host, port, debug):
         super(IndexService, self).__init__(host, port, Map([
             Rule('/posting_list/<term>', endpoint='posting_list'),
             Rule('/index/<document>', endpoint='index')
-        ]))
+        ]), debug=debug)
 
         self.indexer = indexer
 
@@ -44,16 +44,17 @@ class IndexService(WerkzeugService):
 
 if __name__ == "__main__":
     arguments = sys.argv[1:]
-    if len(arguments) != 2:
+    if len(arguments) != 3:
         print(USAGE)
         quit()
 
     host = arguments[0]
     try:
         port = int(arguments[1])
+        debug = bool(arguments[2])
     except ValueError:
         print(USAGE)
         quit()
 
-    service = create_index_service(host, port)
+    service = create_index_service(host, port, debug)
     service.run()

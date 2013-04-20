@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../articles/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../articles/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
     </list>
     <ignored path="indexing.iws" />
@@ -104,7 +102,7 @@
       <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="14" selection-start="383" selection-end="383" vertical-scroll-proportion="-0.5056818">
+            <state line="57" column="0" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.8011364">
               <folding>
                 <element signature="e#29#39#0" expanded="true" />
               </folding>
@@ -619,7 +617,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="14" selection-start="383" selection-end="383" vertical-scroll-proportion="-0.5056818">
+        <state line="57" column="0" selection-start="1854" selection-end="1854" vertical-scroll-proportion="0.8011364">
           <folding>
             <element signature="e#29#39#0" expanded="true" />
           </folding>

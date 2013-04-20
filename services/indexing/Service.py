@@ -1,5 +1,6 @@
 __author__ = 'Yves Bonjour'
 
+import sys
 from Indexer import create_indexer
 from werkzeug.routing import Map, Rule
 from WerkzeugService import WerkzeugService
@@ -7,13 +8,15 @@ from WerkzeugService import create_status_ok_response
 from WerkzeugService import create_status_error_response
 from WerkzeugService import create_json_response
 
-def create_index_service():
-    return IndexService(create_indexer())
+USAGE = "USAGE: python Service.py [host] [port]"
+
+def create_index_service(host, port):
+    return IndexService(create_indexer(), host, port)
 
 class IndexService(WerkzeugService):
 
-    def __init__(self, indexer):
-        super(IndexService, self).__init__("localhost", 5000, Map([
+    def __init__(self, indexer, host, port):
+        super(IndexService, self).__init__(host, port, Map([
             Rule('/posting_list/<term>', endpoint='posting_list'),
             Rule('/index/<document>', endpoint='index')
         ]))
@@ -40,5 +43,17 @@ class IndexService(WerkzeugService):
         return create_status_ok_response()
 
 if __name__ == "__main__":
-    service = create_index_service()
+    arguments = sys.argv[1:]
+    if len(arguments) != 2:
+        print(USAGE)
+        quit()
+
+    host = arguments[0]
+    try:
+        port = int(arguments[1])
+    except ValueError:
+        print(USAGE)
+        quit()
+
+    service = create_index_service(host, port)
     service.run()

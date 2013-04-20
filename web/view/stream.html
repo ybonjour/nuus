@@ -1,30 +1,24 @@
 <%inherit file="base.html"/>
 
 <%block name="content">
-<div class="container-fluid">
-    <div class="row-fluid">
-        <div class="span4">
-            <ul class="nav nav-tabs nav-stacked">
-                <li><a href="#typography">Typography</a></li>
-                <li><a href="#code">Code</a></li>
-                <li><a href="#tables">Tables</a></li>
-                <li><a href="#forms">Forms</a></li>
-                <li><a href="#buttons">Buttons</a></li>
-                <li><a href="#images">Images</a></li>
-                <li><a href="#icons">Icons by Glyphicons</a></li>
-            </ul>
-        </div>
-        <div class="span8">
-            <div class="btn-group">
-                <a class="btn" href="#"><i class="icon-chevron-left"></i> previous</a>
-                <a class="btn" href="#"><i class="icon-heart"></i> like</a>
-                <a class="btn" href="#"><i class="icon-trash"></i> hate</a>
-                <a class="btn" href="#">next <i class="icon-chevron-right"></i></a>
-            </div>
-            <div class="well">
-                <p>test</p>
-            </div>
+
+<div id="article_container" class="container" style="display: none; z-index: 1; position:fixed; top: 100px; left: 500px">
+    <div class="row">
+        <div class="span6 hero-unit" style="background-color: #fbfbfb">
+            <p>
+                Demesne far hearted suppose venture excited see had has. Dependent on so extremely delivered by. Yet no jokes worse her why. Bed one supposing breakfast day fulfilled off depending questions. Whatever boy her exertion his extended. Ecstatic followed handsome drawings entirely mrs one yet outweigh. Of acceptance insipidity remarkably is invitation.
+            </p>
         </div>
     </div>
 </div>
+
+
+<div class="container" style="z-index: 10">
+    <div class="row">
+        <div id="stream_container" class="span7 offset2 stream_large">
+
+        </div>
+    </div>
+</div>
+
 </%block>

@@ -51,7 +51,7 @@ if __name__ == "__main__":
     host = arguments[0]
     try:
         port = int(arguments[1])
-        debug = bool(arguments[2])
+        debug = bool(int(arguments[2]))
     except ValueError:
         print(USAGE)
         quit()

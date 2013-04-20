@@ -1,2 +1,2 @@
 export PYTHONPATH=$PYTHONPATH:/usr/local/nuus/indexing:/usr/local/nuus/common
-python Service.py localhost 5000
+python /usr/local/nuus/indexing/Service.py localhost 5000 0

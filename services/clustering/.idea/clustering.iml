@@ -3,7 +3,6 @@
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$/../../common" />
     <content url="file://$MODULE_DIR$" />
-    <content url="file://$MODULE_DIR$/../indexing" />
     <orderEntry type="jdk" jdkName="Python 2.7.3 (/usr/bin/python2.7)" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
   </component>

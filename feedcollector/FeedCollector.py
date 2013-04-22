@@ -1,19 +1,21 @@
 __author__ = 'Yves Bonjour'
 
-import uuid
+import sys
+import os
+import ConfigParser
 from Proxies import IndexProxy
 from Proxies import ClusterProxy
 from Proxies import FeedProxy
 from Proxies import ArticleProxy
 from NuusFeedParser import FeedParser
-import datetime
 
+USAGE = "USAGE: python Service.py [config_file]"
 
-def create_feed_collector():
-    index_proxy = IndexProxy("http://localhost:5000")
-    cluster_proxy = ClusterProxy("http://localhost:5001")
-    feed_proxy = FeedProxy("http://localhost:5002")
-    article_proxy = ArticleProxy("http://localhost:5003")
+def create_feed_collector(index_url, cluster_url, feed_url, article_url):
+    index_proxy = IndexProxy(index_url)
+    cluster_proxy = ClusterProxy(cluster_url)
+    feed_proxy = FeedProxy(feed_url)
+    article_proxy = ArticleProxy(article_url)
     parser = FeedParser()
     return FeedCollector(article_proxy, feed_proxy, index_proxy, cluster_proxy, parser)
 
@@ -46,5 +48,23 @@ class FeedCollector(object):
         self.cluster_proxy.add_article(article_id)
 
 if __name__ == "__main__":
-    collector = create_feed_collector()
+    arguments = sys.argv[1:]
+    if len(arguments) != 1:
+        print(USAGE)
+        quit()
+
+    config_file = arguments[0]
+    if not os.path.isfile(config_file):
+        print(USAGE)
+        quit()
+
+    config_parser = ConfigParser.RawConfigParser()
+    config_parser.read(config_file)
+
+    index_url = config_parser.get("FeedCollector", "index_url")
+    cluster_url = config_parser.get("FeedCollector", "cluster_url")
+    feed_url = config_parser.get("FeedCollector", "feed_url")
+    article_url = config_parser.get("FeedCollector", "article_url")
+
+    collector = create_feed_collector(index_url, cluster_url, feed_url , article_url)
     collector.collect()

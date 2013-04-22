@@ -5,10 +5,10 @@ from VectorCalculator import create_vector_calculator
 import uuid
 import redis
 
-def create_clusterer():
-    redis_db = redis.Redis("localhost", 6379)
-    store = RedisClusterStore(redis_db, 0.9)
-    vector_calculator = create_vector_calculator()
+def create_clusterer(redis_host, redis_port, clustering_threshold, index_url):
+    redis_db = redis.Redis(redis_host, redis_port)
+    store = RedisClusterStore(redis_db, clustering_threshold)
+    vector_calculator = create_vector_calculator(index_url)
     return Clusterer(store, vector_calculator)
 
 def l2norm(v):

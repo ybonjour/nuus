@@ -1,5 +1,8 @@
 __author__ = 'Yves Bonjour'
 
+import sys
+import os
+import ConfigParser
 from Feeds import Feed
 from Feeds import create_feeds
 from WerkzeugService import WerkzeugService
@@ -9,15 +12,18 @@ from WerkzeugService import create_json_response
 from werkzeug.routing import Map, Rule
 import uuid
 
-def create_feed_service():
-    return FeedService(create_feeds())
+USAGE = "USAGE: python Service.py [config_file]"
+
+def create_feed_service(host, port, debug, redis_host, redis_port):
+    feeds = create_feeds(redis_host, redis_port)
+    return FeedService(feeds, host, port, debug)
 
 class FeedService(WerkzeugService):
-    def __init__(self, feeds):
-        super(FeedService, self).__init__("localhost", 5002, Map([
+    def __init__(self, feeds, host, port, debug):
+        super(FeedService, self).__init__(host, port, Map([
             Rule('/add', endpoint='add'),
             Rule('/feed_urls', endpoint='feed_urls')
-            ]))
+            ]), debug=debug)
 
         self.feeds = feeds
 
@@ -43,5 +49,24 @@ class FeedService(WerkzeugService):
         return create_json_response(list(urls))
 
 if __name__ == "__main__":
-    service = create_feed_service()
+    arguments = sys.argv[1:]
+    if len(arguments) != 1:
+        print(USAGE)
+        quit()
+
+    config_file = arguments[0]
+    if not os.path.isfile(config_file):
+        print(USAGE)
+        quit()
+
+    config_parser = ConfigParser.RawConfigParser()
+    config_parser.read(config_file)
+
+    host = config_parser.get("FeedService", "host")
+    port = config_parser.getint("FeedService", "port")
+    debug = config_parser.getboolean("FeedService", "debug")
+    redis_host = config_parser.get("FeedService", "redis_host")
+    redis_port = config_parser.getint("FeedService", "redis_port")
+
+    service = create_feed_service(host, port, debug, redis_host, redis_port)
     service.run()

@@ -2,18 +2,25 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../install_indexing.sh" afterPath="$PROJECT_DIR$/../../install_indexing.sh" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../common/nuus.cfg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../common/Proxies.py" afterPath="$PROJECT_DIR$/../../common/Proxies.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../articles/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../articles/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/clustering.iml" afterPath="$PROJECT_DIR$/../clustering/.idea/clustering.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/Clusterer.py" afterPath="$PROJECT_DIR$/../clustering/Clusterer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/Service.py" afterPath="$PROJECT_DIR$/../clustering/Service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/VectorCalculator.py" afterPath="$PROJECT_DIR$/../clustering/VectorCalculator.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Indexer.py" afterPath="$PROJECT_DIR$/Indexer.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/start_indexing.sh" afterPath="$PROJECT_DIR$/start_indexing.sh" />
     </list>
     <ignored path="indexing.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Proxies.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364234402468" ignored="false" />
-    <file path="/VectorCalculator.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364230460555" ignored="false" />
-    <file path="/Clusterer.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364230595790" ignored="false" />
-    <file path="/Service.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364231130982" ignored="false" />
     <file path="/Dummy.txt" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364464257700" ignored="false" />
+    <file path="/Service.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364231130982" ignored="false" />
+    <file path="/Clusterer.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364230595790" ignored="false" />
+    <file path="/VectorCalculator.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364230460555" ignored="false" />
+    <file path="/Proxies.py" changelist="bf3838cc-a885-49e4-b8bf-99b3a6dbb9f3" time="1364234402468" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,16 +40,7 @@
       <file leaf-file-name="Indexer.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Indexer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="106" column="56" selection-start="3072" selection-end="3072" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Client.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Client.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="19" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
+            <state line="9" column="49" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -84,15 +82,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IndexStoreMock.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="21" column="0" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="Mock.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../common/Mock.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -102,10 +91,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="nuus.cfg" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../common/nuus.cfg">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="72" selection-start="273" selection-end="273" vertical-scroll-proportion="0.44871795">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Service.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="14" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.84154177">
+            <state line="13" column="47" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
               <folding>
                 <element signature="e#29#39#0" expanded="true" />
               </folding>
@@ -116,7 +114,16 @@
       <file leaf-file-name="WerkzeugService.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="28" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.0">
+            <state line="44" column="4" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Client.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Client.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="14" column="19" selection-start="322" selection-end="322" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -135,7 +142,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/tests/test.py" />
         <option value="$PROJECT_DIR$/tests/IndexerStoreMock.py" />
         <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/tests/IndexStoreMock.py" />
         <option value="$PROJECT_DIR$/tests/Mock.py" />
@@ -147,18 +153,19 @@
         <option value="$PROJECT_DIR$/tests/IndexerTest.py" />
         <option value="/media/psf/Home/Dropbox/work/projects/nuus/src/services/indexing/Service.py" />
         <option value="$PROJECT_DIR$/Client.py" />
-        <option value="$PROJECT_DIR$/Indexer.py" />
         <option value="$PROJECT_DIR$/../../common/WerkzeugService.py" />
         <option value="$PROJECT_DIR$/tests/IndexStoreMock.py" />
+        <option value="$PROJECT_DIR$/Indexer.py" />
+        <option value="$PROJECT_DIR$/../../common/nuus.cfg" />
         <option value="$PROJECT_DIR$/Service.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="65" />
-    <option name="y" value="24" />
-    <option name="width" value="1375" />
-    <option name="height" value="876" />
+    <option name="x" value="64" />
+    <option name="y" value="-4" />
+    <option name="width" value="1377" />
+    <option name="height" value="905" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -230,12 +237,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="options.searchVisible" value="true" />
+    <property name="restartRequiresConfirmation" value="true" />
     <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -275,7 +282,7 @@
       <module name="indexing" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Service.py" />
-      <option name="PARAMETERS" value="localhost 5000 0" />
+      <option name="PARAMETERS" value="../../common/nuus.cfg" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -435,18 +442,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="65" y="24" width="1375" height="876" extended-state="6" />
-    <editor active="false" />
+    <frame x="64" y="-4" width="1377" height="905" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21283019" sideWeight="0.69148934" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22566038" sideWeight="0.6928192" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39893618" sideWeight="0.49056605" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30851063" sideWeight="0.43320754" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30851063" sideWeight="0.56150943" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.30718085" sideWeight="0.44226414" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.30718085" sideWeight="0.5524528" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -514,32 +521,7 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="8" selection-start="113" selection-end="113" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../common/Mock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="0" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="30" selection-start="578" selection-end="578" vertical-scroll-proportion="0.0">
-          <folding>
-            <element signature="e#29#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="9" column="42" selection-start="247" selection-end="247" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexerTest.py">
@@ -551,21 +533,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="19" column="45" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="19" column="45" selection-start="539" selection-end="539" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../common/Mock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="0" selection-start="571" selection-end="571" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Indexer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="106" column="56" selection-start="3072" selection-end="3072" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
@@ -607,24 +580,48 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/tests/IndexStoreMock.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="0" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="21" column="0" selection-start="525" selection-end="525" vertical-scroll-proportion="0.0" />
+      </provider>
+    </entry>
+    <entry file="file:///usr/lib/python2.7/dist-packages/werkzeug/routing.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="549" column="0" selection-start="19506" selection-end="19506" vertical-scroll-proportion="0.52462524" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="28" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.0">
+        <state line="44" column="4" selection-start="1399" selection-end="1399" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../clustering/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="49" column="31" selection-start="1593" selection-end="1593" vertical-scroll-proportion="0.57974136">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Indexer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="49" selection-start="223" selection-end="223" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="14" selection-start="1858" selection-end="1858" vertical-scroll-proportion="0.84154177">
+        <state line="13" column="47" selection-start="408" selection-end="408" vertical-scroll-proportion="0.0">
           <folding>
             <element signature="e#29#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../common/nuus.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="14" column="72" selection-start="273" selection-end="273" vertical-scroll-proportion="0.44871795">
+          <folding />
         </state>
       </provider>
     </entry>

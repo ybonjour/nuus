@@ -29,8 +29,8 @@ class Feed(object):
         return not are_equal
 
 
-def create_feeds():
-    redis_db = redis.Redis("localhost", 6379)
+def create_feeds(redis_host, redis_port):
+    redis_db = redis.Redis(redis_host, redis_port)
     store = RedisFeedStore(redis_db)
     return Feeds(store)
 

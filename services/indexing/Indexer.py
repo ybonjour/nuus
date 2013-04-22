@@ -5,9 +5,9 @@ import redis
 import uuid
 
 
-def create_indexer():
+def create_indexer(redis_host, redis_port):
     tokenizer = create_tokenizer()
-    redis_db = redis.Redis("localhost", 6379)
+    redis_db = redis.Redis(redis_host, redis_port)
     store = RedisIndexStore(redis_db)
     return Indexer(store, tokenizer)
 

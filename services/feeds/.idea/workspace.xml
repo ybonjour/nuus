@@ -1,23 +1,40 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="917e0ea6-fe2a-4106-94a2-7f5477d664cd" name="Default" comment="" />
+    <list default="true" id="917e0ea6-fe2a-4106-94a2-7f5477d664cd" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../../common/nuus.cfg" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../common/Proxies.py" afterPath="$PROJECT_DIR$/../../common/Proxies.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../feedcollector/Program.py" afterPath="$PROJECT_DIR$/../../feedcollector/Program.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../articles/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../articles/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../articles/Articles.py" afterPath="$PROJECT_DIR$/../articles/Articles.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../articles/Service.py" afterPath="$PROJECT_DIR$/../articles/Service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/clustering.iml" afterPath="$PROJECT_DIR$/../clustering/.idea/clustering.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../clustering/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/Clusterer.py" afterPath="$PROJECT_DIR$/../clustering/Clusterer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/Service.py" afterPath="$PROJECT_DIR$/../clustering/Service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../clustering/VectorCalculator.py" afterPath="$PROJECT_DIR$/../clustering/VectorCalculator.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Feeds.py" afterPath="$PROJECT_DIR$/Feeds.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Service.py" afterPath="$PROJECT_DIR$/Service.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../indexing/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../indexing/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../indexing/Indexer.py" afterPath="$PROJECT_DIR$/../indexing/Indexer.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../indexing/Service.py" afterPath="$PROJECT_DIR$/../indexing/Service.py" />
+    </list>
     <ignored path="feeds.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Program.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364404359996" ignored="false" />
-    <file path="/FeedParserMock.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364404128067" ignored="false" />
-    <file path="/FeedParserTest.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364400947708" ignored="false" />
-    <file path="/FeedParser.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364401691647" ignored="false" />
-    <file path="/FeedProxyMock.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364399985784" ignored="false" />
-    <file path="/FeedCollectorTest.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364404159852" ignored="false" />
-    <file path="/FeedCollector.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364402698725" ignored="false" />
-    <file path="/Proxies.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364398769251" ignored="false" />
-    <file path="/Client.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364397411789" ignored="false" />
-    <file path="/Service.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364398405450" ignored="false" />
-    <file path="/FeedStoreMock.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364314989169" ignored="false" />
-    <file path="/Feeds.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364397142996" ignored="false" />
-    <file path="/FeedsTest.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364316292321" ignored="false" />
     <file path="/Dummy.txt" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1366026569521" ignored="false" />
+    <file path="/FeedsTest.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364316292321" ignored="false" />
+    <file path="/Feeds.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364397142996" ignored="false" />
+    <file path="/FeedStoreMock.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364314989169" ignored="false" />
+    <file path="/Service.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364398405450" ignored="false" />
+    <file path="/Client.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364397411789" ignored="false" />
+    <file path="/Proxies.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364398769251" ignored="false" />
+    <file path="/FeedCollector.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364402698725" ignored="false" />
+    <file path="/FeedCollectorTest.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364404159852" ignored="false" />
+    <file path="/FeedProxyMock.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364399985784" ignored="false" />
+    <file path="/FeedParser.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364401691647" ignored="false" />
+    <file path="/FeedParserTest.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364400947708" ignored="false" />
+    <file path="/FeedParserMock.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364404128067" ignored="false" />
+    <file path="/Program.py" changelist="917e0ea6-fe2a-4106-94a2-7f5477d664cd" time="1364404359996" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,58 +51,40 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Service.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="68" column="50" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.0">
+              <folding>
+                <element signature="e#29#39#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Service.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/../indexing/Service.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="13" column="0" selection-start="361" selection-end="409" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="Feeds.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Feeds.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="45" selection-start="1891" selection-end="1891" vertical-scroll-proportion="0.0">
+            <state line="27" column="0" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Client.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Client.py">
+      <file leaf-file-name="nuus.cfg" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/../../common/nuus.cfg">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="16" column="0" selection-start="346" selection-end="441" vertical-scroll-proportion="0.0">
+            <state line="32" column="0" selection-start="454" selection-end="454" vertical-scroll-proportion="0.9371069">
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeedStoreMock.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/FeedStoreMock.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="9" column="28" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="FeedsTest.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tests/FeedsTest.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="203" column="36" selection-start="4850" selection-end="4850" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="WerkzeugService.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../common/WerkzeugService.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Service.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Service.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="42" column="39" selection-start="1412" selection-end="1425" vertical-scroll-proportion="0.64154786">
-              <folding>
-                <element signature="e#29#51#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -100,11 +99,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitLogSettings">
-    <option name="myDateState">
-      <MyDateState />
-    </option>
-  </component>
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
@@ -112,18 +106,21 @@
         <option value="$PROJECT_DIR$/tests/FeedsTest.py" />
         <option value="$PROJECT_DIR$/../indexing/tests/IndexerTest.py" />
         <option value="$PROJECT_DIR$/../clustering/tests/ClustererTest.py" />
-        <option value="$PROJECT_DIR$/Feeds.py" />
         <option value="$PROJECT_DIR$/Client.py" />
+        <option value="$PROJECT_DIR$/Feeds.py" />
+        <option value="$PROJECT_DIR$/../indexing/Service.py" />
         <option value="$PROJECT_DIR$/Service.py" />
         <option value="$PROJECT_DIR$/Service.py" />
+        <option value="$PROJECT_DIR$/../../common/nuus.cfg" />
+        <option value="$PROJECT_DIR$/../../feedcollector/Program.py" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-1" />
-    <option name="y" value="27" />
-    <option name="width" value="1922" />
-    <option name="height" value="1174" />
+    <option name="x" value="64" />
+    <option name="y" value="-4" />
+    <option name="width" value="1377" />
+    <option name="height" value="905" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <OptionsSetting value="true" id="Add" />
@@ -213,11 +210,12 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
     <property name="recentsLimit" value="5" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Dropbox/work/projects/CodeJam" />
-    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.lastSelected" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="restartRequiresConfirmation" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../feedcollector" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -228,28 +226,6 @@
     </option>
   </component>
   <component name="RunManager" selected="Python.Service">
-    <configuration default="false" name="Nosetests in FeedsTest" type="tests" factoryName="Nosetests" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <module name="feeds" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/FeedsTest.py" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <option name="PARAMS" value="" />
-      <option name="USE_PARAM" value="false" />
-      <RunnerSettings RunnerId="PythonRunner" />
-      <ConfigurationWrapper RunnerId="PythonRunner" />
-      <method />
-    </configuration>
     <configuration default="false" name="Service" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -262,7 +238,7 @@
       <module name="feeds" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Service.py" />
-      <option name="PARAMETERS" value="" />
+      <option name="PARAMETERS" value="../../common/nuus.cfg" />
       <RunnerSettings RunnerId="PyDebugRunner" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PyDebugRunner" />
@@ -282,6 +258,28 @@
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Client.py" />
       <option name="PARAMETERS" value="" />
+      <RunnerSettings RunnerId="PythonRunner" />
+      <ConfigurationWrapper RunnerId="PythonRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="Nosetests in FeedsTest" type="tests" factoryName="Nosetests" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/tests" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <module name="feeds" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/tests/FeedsTest.py" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <option name="PARAMS" value="" />
+      <option name="USE_PARAM" value="false" />
       <RunnerSettings RunnerId="PythonRunner" />
       <ConfigurationWrapper RunnerId="PythonRunner" />
       <method />
@@ -340,9 +338,9 @@
       <method />
     </configuration>
     <list size="3">
-      <item index="0" class="java.lang.String" itemvalue="Python tests.Nosetests in FeedsTest" />
-      <item index="1" class="java.lang.String" itemvalue="Python.Service" />
-      <item index="2" class="java.lang.String" itemvalue="Python.Client" />
+      <item index="0" class="java.lang.String" itemvalue="Python.Service" />
+      <item index="1" class="java.lang.String" itemvalue="Python.Client" />
+      <item index="2" class="java.lang.String" itemvalue="Python's test.Nosetests in FeedsTest" />
     </list>
     <recent_temporary>
       <list size="2">
@@ -379,18 +377,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="27" width="1922" height="1174" extended-state="6" />
+    <frame x="64" y="-4" width="1377" height="905" extended-state="6" />
     <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27920687" sideWeight="0.6715425" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28377357" sideWeight="0.67287236" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3996004" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32818532" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32712767" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -434,9 +432,6 @@
     <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
     <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
     <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
-    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
-    <option name="LIMIT_HISTORY" value="true" />
-    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
     <option name="LAST_COMMIT_MESSAGE" />
@@ -459,25 +454,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/tests/FeedsTest.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="254" column="0" selection-start="6221" selection-end="6221" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tests/FeedStoreMock.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="9" column="28" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../clustering/Clusterer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="133" column="24" selection-start="4484" selection-end="4489" vertical-scroll-proportion="0.4827586" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tests/FeedStoreMock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="9" column="28" selection-start="184" selection-end="184" vertical-scroll-proportion="0.0">
@@ -505,11 +481,6 @@
         <state line="9" column="4" selection-start="156" selection-end="197" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../indexing/Service.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="41" column="0" selection-start="457" selection-end="1469" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Feeds.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="79" column="45" selection-start="1891" selection-end="1891" vertical-scroll-proportion="-6.6666665">
@@ -521,7 +492,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state line="41" column="0" selection-start="1360" selection-end="1360" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#29#51#0" expanded="true" />
+            <element signature="e#29#39#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -549,17 +520,47 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Feeds.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="45" selection-start="1891" selection-end="1891" vertical-scroll-proportion="0.0">
+        <state line="27" column="0" selection-start="614" selection-end="614" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../articles/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="0" selection-start="362" selection-end="362" vertical-scroll-proportion="-0.37323943">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="39" selection-start="1412" selection-end="1425" vertical-scroll-proportion="0.64154786">
+        <state line="68" column="50" selection-start="2279" selection-end="2279" vertical-scroll-proportion="0.0">
           <folding>
-            <element signature="e#29#51#0" expanded="true" />
+            <element signature="e#29#39#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../indexing/Service.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="0" selection-start="361" selection-end="409" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../feedcollector/Program.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="4" selection-start="151" selection-end="522" vertical-scroll-proportion="0.22012578">
+          <folding>
+            <element signature="e#29#77#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../common/nuus.cfg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="32" column="0" selection-start="454" selection-end="454" vertical-scroll-proportion="0.9371069">
+          <folding />
         </state>
       </provider>
     </entry>

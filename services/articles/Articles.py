@@ -20,8 +20,8 @@ class Article(object):
         self.feed = feed
         self.identifier = identifier
 
-def create_articles():
-    store = CouchDBArticleStore("localhost", 5984, "nuus_articles")
+def create_articles(couch_host, couch_port, couch_db):
+    store = CouchDBArticleStore(couch_host, couch_port, couch_db)
     return Articles(store)
 
 class Articles(object):

@@ -21,6 +21,45 @@ class IndexProxy(object):
         if r.status_code != 200:
             raise EnvironmentError(r.content)
 
+    def get_terms(self, document_id):
+        terms_url = urljoin(self.url, "terms/{document}".format(document=document_id))
+
+        try:
+            r = requests.get(terms_url)
+        except requests.ConnectionError as e:
+            raise EnvironmentError(e)
+
+        if r.status_code != 200:
+            raise EnvironmentError(r.content)
+
+        return json.load(r.content)
+
+    def term_document_frequency(self, document_id, term):
+        terms_url = urljoin(self.url, "tdf/{term}/{document}".format(term=term, document=document_id))
+
+        try:
+            r = requests.get(terms_url)
+        except requests.ConnectionError as e:
+            raise EnvironmentError(e)
+
+        if r.status_code != 200:
+            raise EnvironmentError(r.content)
+
+        return float(json.load(r.content)["tdf"])
+
+    def document_frequency_normalized(self, term):
+        terms_url = urljoin(self.url, "df/{term}".format(term=term))
+
+        try:
+            r = requests.get(terms_url)
+        except requests.ConnectionError as e:
+            raise EnvironmentError(e)
+
+        if r.status_code != 200:
+            raise EnvironmentError(r.content)
+
+        return float(json.load(r.content)["df"])
+
 
 class ClusterProxy(object):
     def __init__(self, url):

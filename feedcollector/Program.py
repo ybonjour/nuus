@@ -22,10 +22,7 @@ if __name__ == "__main__":
     config_parser = ConfigParser.RawConfigParser()
     config_parser.read(config_file)
 
-    wait_time = config_parser.readint("FeedCollector", "wait")
-
-    host = config_parser.get("IndexingService", "host")
-    port = config_parser.getint("IndexingService", "port")
+    wait_time = config_parser.getint("FeedCollector", "wait")
 
     feed_collector = create_feed_collector()
     while True:

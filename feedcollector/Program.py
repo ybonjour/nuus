@@ -1,6 +1,6 @@
 __author__ = 'Yves Bonjour'
 
-from FeedCollector import  create_feed_collector
+from FeedCollector import create_feed_collector
 import time
 import sys
 import os
@@ -23,8 +23,13 @@ if __name__ == "__main__":
     config_parser.read(config_file)
 
     wait_time = config_parser.getint("FeedCollector", "wait")
+    index_url = config_parser.get("FeedCollector", "index_url")
+    cluster_url = config_parser.get("FeedCollector", "cluster_url")
+    feed_url = config_parser.get("FeedCollector", "feed_url")
+    article_url = config_parser.get("FeedCollector", "article_url")
 
-    feed_collector = create_feed_collector()
+
+    feed_collector = create_feed_collector(index_url, cluster_url, feed_url, article_url)
     while True:
         feed_collector.collect()
         time.sleep(wait_time)

@@ -44,5 +44,5 @@ if __name__ == "__main__":
 
     feed_url = config_parser.get("FeedImporter", "feed_url")
 
-    importer = create_feedimporter()
+    importer = create_feedimporter(feed_url)
     importer.import_feeds(subscriptions_file, uuid.uuid4())

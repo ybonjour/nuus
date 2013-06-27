@@ -11,7 +11,7 @@ from Indexer import Indexer
 import redis
 
 
-class StoreIndexTest(object):
+class StoreIndexTestBase(object):
     def test_add_new_term_new_document(self):
         # Arrange
         term = "foo"
@@ -278,12 +278,12 @@ class StoreIndexTest(object):
         self.assertIn(term, terms)
 
 
-class MemoryIndexStoreTest(StoreIndexTest, unittest.TestCase):
+class MemoryIndexStoreTest(StoreIndexTestBase, unittest.TestCase):
     def setUp(self):
         self.store = MemoryIndexStore()
 
 
-class RedisIndexStoreTest(StoreIndexTest, unittest.TestCase):
+class RedisIndexStoreTest(StoreIndexTestBase, unittest.TestCase):
     def setUp(self):
         self.redis = redis.Redis("localhost", 6379, db=2)
         self.redis.flushdb()

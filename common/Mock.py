@@ -1,7 +1,7 @@
 __author__ = 'Yves Bonjour'
 
 
-class Mock:
+class Mock(object):
     def __init__(self):
         self.method_calls = {}
 

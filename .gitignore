@@ -1,6 +1,6 @@
-﻿/web/nbproject/private/
+/web/nbproject/private/
 *.pyc
-*/.idea
+/services/*/.idea
 .idea
 nuus.pem
 /feedcollector/language_detection.dict
@@ -8,3 +8,4 @@ nuus.pem
 /feedcollector/log/*.*
 /feedcollector/.idea
 /articlemapper/.idea
+archive
